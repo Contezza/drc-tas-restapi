@@ -1,8 +1,6 @@
 # DRC TAS RESTAPI
 
-Documentregistratiecomponent (DRC) **T**est **A**utomation **S**ystem (TAS) **RESTAPI** is het project wat wordt gebruikt voor het testen van de DRC API comform referentieimplementatie van VNG Realisatie. 
-
-De unit tests beschreven in dit project zijn een vertaling van de phyton tests van de [documenten api](https://github.com/VNG-Realisatie/documenten-api/tree/stable/1.0.x/src/drc/api/tests) repository.
+Documentregistratiecomponent (DRC) **T**est **A**utomation **S**ystem (TAS) **RESTAPI** is het project wat wordt gebruikt voor het testen van de DRC API comform referentieimplementatie van VNG Realisatie. De unit tests beschreven in dit project zijn een vertaling van de phyton tests van de [documenten api](https://github.com/VNG-Realisatie/documenten-api/tree/stable/1.0.x/src/drc/api/tests) repository.
 
 De volgende componenten worden in dit project gebruikt:
 
@@ -12,13 +10,15 @@ De volgende componenten worden in dit project gebruikt:
 
 Bij gebruik van Eclipse installeer Lombok (Help -> Install New Software -> https://projectlombok.org/p2). Bezoek [project Lombok website](https://projectlombok.org/setup/eclipse) voor meer informatie.
 
-## Run Tests
+## Maven
+
+Run tests:
 
 ```
 mvn clean install -Dnashorn.args=--no-deprecation-warning
 ```
 
-## Run Build
+Run build:
 
 ```
 mvn clean install -DskipTests=true
