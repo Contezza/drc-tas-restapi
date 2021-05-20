@@ -16,8 +16,8 @@ Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [docum
 
 ### test_enkelvoudiginformatieobject.py
 
-&nbsp;&nbsp;&#10005; test_create;\
-&nbsp;&nbsp;&#10005; test_read;\
+&nbsp;&nbsp;&#10004; test_create;\
+&nbsp;&nbsp;&#10004; test_read;\
 &nbsp;&nbsp;&#10005; test_eio_download_with_accept_application_octet_stream_header;\
 * test_download_non_existing_eio;
 * test_bestandsomvang;
@@ -49,10 +49,10 @@ Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [docum
 &nbsp;&nbsp;&#10005; test_io_list;\
 &nbsp;&nbsp;&#10005; test_io_retrieve;\
 &nbsp;&nbsp;&#10005; test_read_superuser;\
-* test_list_gebruiksrechten_limited_to_authorized_zaken;
-* test_create_gebruiksrechten_limited_to_authorized_zaken;
-* test_list_oio_limited_to_authorized_zaken;
-* test_list_oio_limited_to_authorized_zaken;
+&nbsp;&nbsp;&#10005; test_list_gebruiksrechten_limited_to_authorized_zaken;\
+&nbsp;&nbsp;&#10005; test_create_gebruiksrechten_limited_to_authorized_zaken;\
+&nbsp;&nbsp;&#10005; test_list_oio_limited_to_authorized_zaken;\
+&nbsp;&nbsp;&#10005; test_list_oio_limited_to_authorized_zaken;
 
 ## Maven
 
