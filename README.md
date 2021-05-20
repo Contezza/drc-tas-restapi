@@ -47,15 +47,15 @@ Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [docum
 
 #### EnkelvoudigInformatieObjectPagination
 
-&#10004; test_pagination_default; \
-&#10004; test_pagination_page_param;
+&nbsp;&nbsp;&#10004; test_pagination_default; \
+&nbsp;&nbsp;&#10004; test_pagination_page_param;
 
 ### Auth
 
 #### InformatieObjectScopeForbidden
 
-&#10005; test_cannot_create_io_without_correct_scope; \
-&#10005; test_cannot_read_without_correct_scope;
+&nbsp;&#10005; test_cannot_create_io_without_correct_scope; \
+&nbsp;&#10005; test_cannot_read_without_correct_scope;
 
 #### InformatieObjectReadCorrectScope
 
