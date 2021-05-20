@@ -14,13 +14,11 @@ Bij gebruik van Eclipse installeer Lombok (Help -> Install New Software -> https
 
 Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [documenten api](https://github.com/VNG-Realisatie/documenten-api/tree/stable/1.0.x/src/drc/api/tests) repository.
 
-### test_enkelvoudiginformatieobject
+### test_enkelvoudiginformatieobject.py
 
-#### EnkelvoudigInformatieObject
-
-* test_create;
-* test_read;
-* test_eio_download_with_accept_application_octet_stream_header;
+&nbsp;&nbsp;&#10005; test_create;
+&nbsp;&nbsp;&#10005; test_read;
+&nbsp;&nbsp;&#10005; test_eio_download_with_accept_application_octet_stream_header;
 * test_download_non_existing_eio;
 * test_bestandsomvang;
 * test_integrity_empty;
@@ -30,9 +28,6 @@ Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [docum
 * test_destroy_with_relations_not_allowed;
 * test_validate_unknown_query_params;
 * test_invalid_inhoud;
-
-#### EnkelvoudigInformatieObjectVersionHistory
-
 * test_eio_update;
 * test_eio_partial_update;
 * test_eio_delete;
@@ -44,18 +39,15 @@ Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [docum
 * test_eio_detail_filter_by_wrong_registratie_op_gives_404;
 * test_eio_download_content_filter_by_version;
 * test_eio_download_content_filter_by_registratie;
-
-#### EnkelvoudigInformatieObjectPagination
-
 &nbsp;&nbsp;&#10004; test_pagination_default; \
 &nbsp;&nbsp;&#10004; test_pagination_page_param;
 
-### Auth
+### test_auth.py
 
 #### InformatieObjectScopeForbidden
 
-&nbsp;&#10005; test_cannot_create_io_without_correct_scope; \
-&nbsp;&#10005; test_cannot_read_without_correct_scope;
+&nbsp;&nbsp;&#10005; test_cannot_create_io_without_correct_scope; \
+&nbsp;&nbsp;&#10005; test_cannot_read_without_correct_scope;
 
 #### InformatieObjectReadCorrectScope
 
