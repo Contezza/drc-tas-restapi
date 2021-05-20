@@ -16,9 +16,9 @@ Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [docum
 
 ### test_enkelvoudiginformatieobject.py
 
-&nbsp;&nbsp;&#10005; test_create;
-&nbsp;&nbsp;&#10005; test_read;
-&nbsp;&nbsp;&#10005; test_eio_download_with_accept_application_octet_stream_header;
+&nbsp;&nbsp;&#10005; test_create;\
+&nbsp;&nbsp;&#10005; test_read;\
+&nbsp;&nbsp;&#10005; test_eio_download_with_accept_application_octet_stream_header;\
 * test_download_non_existing_eio;
 * test_bestandsomvang;
 * test_integrity_empty;
@@ -39,29 +39,18 @@ Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [docum
 * test_eio_detail_filter_by_wrong_registratie_op_gives_404;
 * test_eio_download_content_filter_by_version;
 * test_eio_download_content_filter_by_registratie;
-&nbsp;&nbsp;&#10004; test_pagination_default; \
+&nbsp;&nbsp;&#10004; test_pagination_default;\
 &nbsp;&nbsp;&#10004; test_pagination_page_param;
 
 ### test_auth.py
 
-#### InformatieObjectScopeForbidden
-
 &nbsp;&nbsp;&#10005; test_cannot_create_io_without_correct_scope; \
-&nbsp;&nbsp;&#10005; test_cannot_read_without_correct_scope;
-
-#### InformatieObjectReadCorrectScope
-
-* test_io_list;
-* test_io_retrieve;
-* test_read_superuser;
-
-#### GebruiksrechtenRead
-
+&nbsp;&nbsp;&#10005; test_cannot_read_without_correct_scope; \
+&nbsp;&nbsp;&#10005; test_io_list;\
+&nbsp;&nbsp;&#10005; test_io_retrieve;\
+&nbsp;&nbsp;&#10005; test_read_superuser;\
 * test_list_gebruiksrechten_limited_to_authorized_zaken;
 * test_create_gebruiksrechten_limited_to_authorized_zaken;
-
-#### OioRead
-
 * test_list_oio_limited_to_authorized_zaken;
 * test_list_oio_limited_to_authorized_zaken;
 
