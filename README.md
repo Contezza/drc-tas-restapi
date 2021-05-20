@@ -14,7 +14,9 @@ Bij gebruik van Eclipse installeer Lombok (Help -> Install New Software -> https
 
 Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [documenten api](https://github.com/VNG-Realisatie/documenten-api/tree/stable/1.0.x/src/drc/api/tests) repository.
 
-### EnkelvoudigInformatieObject
+### test_enkelvoudiginformatieobject
+
+#### EnkelvoudigInformatieObject
 
 * test_create;
 * test_read;
@@ -29,7 +31,7 @@ Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [docum
 * test_validate_unknown_query_params;
 * test_invalid_inhoud;
 
-### EnkelvoudigInformatieObjectVersionHistory
+#### EnkelvoudigInformatieObjectVersionHistory
 
 * test_eio_update;
 * test_eio_partial_update;
@@ -43,28 +45,30 @@ Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [docum
 * test_eio_download_content_filter_by_version;
 * test_eio_download_content_filter_by_registratie;
 
-### EnkelvoudigInformatieObjectPagination
+#### EnkelvoudigInformatieObjectPagination
 
 &#10004; test_pagination_default; \
 &#10004; test_pagination_page_param;
 
-### InformatieObjectScopeForbidden
+### Auth
 
-* test_cannot_create_io_without_correct_scope;
-* test_cannot_read_without_correct_scope;
+#### InformatieObjectScopeForbidden
 
-### InformatieObjectReadCorrectScope
+&#10005; test_cannot_create_io_without_correct_scope; \
+&#10005; test_cannot_read_without_correct_scope;
+
+#### InformatieObjectReadCorrectScope
 
 * test_io_list;
 * test_io_retrieve;
 * test_read_superuser;
 
-### GebruiksrechtenRead
+#### GebruiksrechtenRead
 
 * test_list_gebruiksrechten_limited_to_authorized_zaken;
 * test_create_gebruiksrechten_limited_to_authorized_zaken;
 
-### OioRead
+#### OioRead
 
 * test_list_oio_limited_to_authorized_zaken;
 * test_list_oio_limited_to_authorized_zaken;
