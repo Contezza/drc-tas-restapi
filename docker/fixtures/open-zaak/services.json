@@ -1,0 +1,163 @@
+[{
+		"model": "zgw_consumers.service",
+		"pk": 1,
+		"fields": {
+			"label": "referentielijsten",
+			"api_type": "orc",
+			"api_root": "https://referentielijsten-api.vng.cloud/api/v1/",
+			"client_id": "",
+			"secret": "",
+			"auth_type": "no_auth",
+			"header_key": "",
+			"header_value": "",
+			"oas": "https://referentielijsten-api.vng.cloud/api/v1/schema/openapi.yaml",
+			"nlx": "",
+			"user_id": "",
+			"user_representation": ""
+		}
+	},
+	{
+		"model": "zgw_consumers.service",
+		"pk": 2,
+		"fields": {
+			"label": "notificaties",
+			"api_type": "nrc",
+			"api_root": "http://open-notificaties.local:8000/api/v1/",
+			"client_id": "openzaak",
+			"secret": "openzaak",
+			"auth_type": "zgw",
+			"header_key": "",
+			"header_value": "",
+			"oas": "http://open-notificaties.local:8000/api/v1/schema/openapi.yaml",
+			"nlx": "",
+			"user_id": "openzaak",
+			"user_representation": "OpenZaak"
+		}
+	},
+	{
+		"model": "zgw_consumers.service",
+		"pk": 3,
+		"fields": {
+			"label": "openzaak zaken",
+			"api_type": "zrc",
+			"api_root": "http://open-zaak.local:8000/zaken/api/v1/",
+			"client_id": "openzaak",
+			"secret": "openzaak",
+			"auth_type": "zgw",
+			"header_key": "",
+			"header_value": "",
+			"oas": "http://open-zaak.local:8000/api/v1/schema/openapi.yaml",
+			"nlx": "",
+			"user_id": "openzaak",
+			"user_representation": "OpenZaak"
+		}
+	},
+	{
+		"model": "zgw_consumers.service",
+		"pk": 4,
+		"fields": {
+			"label": "drc gemma",
+			"api_type": "drc",
+			"api_root": "http://drc.local:8000/api/v1/",
+			"client_id": "openzaak",
+			"secret": "openzaak",
+			"auth_type": "zgw",
+			"header_key": "",
+			"header_value": "",
+			"oas": "http://drc.local:8000/api/v1/schema/openapi.yaml",
+			"nlx": "",
+			"user_id": "openzaak",
+			"user_representation": "OpenZaak"
+		}
+	},
+	{
+		"model": "zgw_consumers.service",
+		"pk": 5,
+		"fields": {
+			"label": "drc alfresco",
+			"api_type": "drc",
+			"api_root": "http://drc-docker-platform.local:8080/alfresco/service/drc/v1/",
+			"client_id": "drc_api_tests",
+			"secret": "secret",
+			"auth_type": "zgw",
+			"header_key": "",
+			"header_value": "",
+			"oas": "http://drc-docker-platform.local:8080/alfresco/service/drc/v1/schema/openapi.yaml",
+			"nlx": "",
+			"user_id": "openzaak",
+			"user_representation": "OpenZaak"
+		}
+	},
+	{
+		"model": "zgw_consumers.service",
+		"pk": 6,
+		"fields": {
+			"label": "drc openzaak",
+			"api_type": "drc",
+			"api_root": "http://open-zaak.local:8000/documenten/api/v1/",
+			"client_id": "openzaak",
+			"secret": "openzaak",
+			"auth_type": "zgw",
+			"header_key": "",
+			"header_value": "",
+			"oas": "http://open-zaak.local:8000/documenten/api/v1/schema/openapi.yaml",
+			"nlx": "",
+			"user_id": "openzaak",
+			"user_representation": "OpenZaak"
+		}
+	},
+	{
+		"model": "zgw_consumers.service",
+		"pk": 7,
+		"fields": {
+			"label": "openzaak catalogi",
+			"api_type": "ztc",
+			"api_root": "http://open-zaak.local:8000/catalogi/api/v1/",
+			"client_id": "openzaak",
+			"secret": "openzaak",
+			"auth_type": "zgw",
+			"header_key": "",
+			"header_value": "",
+			"oas": "http://open-zaak.local:8000/catalogi/api/v1/schema/openapi.yaml",
+			"nlx": "",
+			"user_id": "openzaak",
+			"user_representation": "OpenZaak"
+		}
+	},
+	{
+		"model": "zgw_consumers.service",
+		"pk": 8,
+		"fields": {
+			"label": "openzaak besluiten",
+			"api_type": "brc",
+			"api_root": "http://open-zaak.local:8000/besluiten/api/v1/",
+			"client_id": "openzaak",
+			"secret": "openzaak",
+			"auth_type": "zgw",
+			"header_key": "",
+			"header_value": "",
+			"oas": "http://open-zaak.local:8000/besluiten/api/v1/schema/openapi.yaml",
+			"nlx": "",
+			"user_id": "openzaak",
+			"user_representation": "OpenZaak"
+		}
+	},
+	{
+		"model": "zgw_consumers.service",
+		"pk": 9,
+		"fields": {
+			"label": "openzaak autorisaties",
+			"api_type": "ac",
+			"api_root": "http://open-zaak.local:8000/autorisaties/api/v1/",
+			"client_id": "openzaak",
+			"secret": "openzaak",
+			"auth_type": "zgw",
+			"header_key": "",
+			"header_value": "",
+			"oas": "http://open-zaak.local:8000/autorisaties/api/v1/schema/openapi.yaml",
+			"nlx": "",
+			"user_id": "openzaak",
+			"user_representation": "OpenZaak"
+		}
+	}
+]

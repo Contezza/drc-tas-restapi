@@ -1,0 +1,28 @@
+[
+    {
+        "model": "catalogi.catalogus",
+        "pk": 1,
+        "fields": {
+            "_admin_name": "Test",
+            "uuid": "6d9de12a-d12d-40ba-8dbd-14a039bf5b68",
+            "domein": "TST",
+            "rsin": "123456782",
+            "contactpersoon_beheer_naam": "Test",
+            "contactpersoon_beheer_telefoonnummer": "",
+            "contactpersoon_beheer_emailadres": ""
+        }
+    },
+    {
+        "model": "catalogi.informatieobjecttype",
+        "pk": 1,
+        "fields": {
+            "datum_begin_geldigheid": "2021-01-12",
+            "datum_einde_geldigheid": null,
+            "concept": false,
+            "uuid": "4a8c20e7-d561-41a8-b80f-0603acdb8281",
+            "omschrijving": "Test informatieobjecttype",
+            "vertrouwelijkheidaanduiding": "confidentieel",
+            "catalogus": 1
+        }
+    }
+]

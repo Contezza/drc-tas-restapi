@@ -1,0 +1,14 @@
+[
+    {
+        "model": "vng_api_common.apicredential",
+        "pk": 1,
+        "fields": {
+            "label": "openzaak autorisaties",
+            "api_root": "http://open-zaak.local:8000/autorisaties/api/v1/",
+            "client_id": "nrc",
+            "secret": "nrc",
+            "user_id": "nrc",
+            "user_representation": "OpenNotificaties"
+        }
+    }
+]

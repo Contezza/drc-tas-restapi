@@ -1,0 +1,17 @@
+[
+    {
+        "model": "notifications.notificationsconfig",
+        "pk": 1,
+        "fields": {
+            "api_root": "http://open-notificaties.local:8000/api/v1/"
+        }
+    },
+    {
+        "model": "sites.site",
+        "pk": 1,
+        "fields": {
+            "domain": "open-zaak.local:8000",
+            "name": "open-zaak.local:8000"
+        }
+    }
+]

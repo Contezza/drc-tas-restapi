@@ -1,0 +1,62 @@
+[
+    {
+        "model": "vng_api_common.apicredential",
+        "pk": 1,
+        "fields": {
+            "label": "notificaties",
+            "api_root": "http://open-notificaties.local:8000/api/v1/",
+            "client_id": "drc",
+            "secret": "drc",
+            "user_id": "drc",
+            "user_representation": "OpenZaak"
+        }
+    },
+    {
+        "model": "vng_api_common.apicredential",
+        "pk": 2,
+        "fields": {
+            "label": "openzaak zaken",
+            "api_root": "http://open-zaak.local:8000/zaken/api/v1/",
+            "client_id": "drc",
+            "secret": "drc",
+            "user_id": "drc",
+            "user_representation": "OpenZaak"
+        }
+    },
+    {
+        "model": "vng_api_common.apicredential",
+        "pk": 3,
+        "fields": {
+            "label": "openzaak catalogi",
+            "api_root": "http://open-zaak.local:8000/catalogi/api/v1/",
+            "client_id": "drc",
+            "secret": "drc",
+            "user_id": "drc",
+            "user_representation": "OpenZaak"
+        }
+    },
+    {
+        "model": "vng_api_common.apicredential",
+        "pk": 4,
+        "fields": {
+            "label": "openzaak besluiten",
+            "api_root": "http://open-zaak.local:8000/besluiten/api/v1/",
+            "client_id": "drc",
+            "secret": "drc",
+            "user_id": "drc",
+            "user_representation": "OpenZaak"
+        }
+    },
+    {
+        "model": "vng_api_common.apicredential",
+        "pk": 5,
+        "fields": {
+            "label": "openzaak autorisaties",
+            "api_root": "http://open-zaak.local:8000/autorisaties/api/v1/",
+            "client_id": "drc",
+            "secret": "drc",
+            "user_id": "drc",
+            "user_representation": "OpenZaak"
+        }
+    }
+]

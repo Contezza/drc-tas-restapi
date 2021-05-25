@@ -1,0 +1,72 @@
+[
+    {
+        "model": "datamodel.kanaal",
+        "pk": 1,
+        "fields": {
+            "uuid": "cf5d946e-f31b-47dd-8a3c-61926249b9c5",
+            "naam": "autorisaties",
+            "documentatie_link": "",
+            "filters": "[]"
+        }
+    },
+    {
+        "model": "datamodel.kanaal",
+        "pk": 2,
+        "fields": {
+            "uuid": "e0209166-83c1-4b10-afbf-2340132f14c6",
+            "naam": "documenten",
+            "documentatie_link": "",
+            "filters": "[\"bronorganisatie\",\"informatieobjecttype\",\"vertrouwelijkheidaanduiding\"]"
+        }
+    },
+    {
+        "model": "datamodel.kanaal",
+        "pk": 3,
+        "fields": {
+            "uuid": "67909a9a-4b2d-4ce7-a6fa-fded78381490",
+            "naam": "besluiten",
+            "documentatie_link": "",
+            "filters": "[\"verantwoordelijke_organisatie\",\"besluittype\"]"
+        }
+    },
+    {
+        "model": "datamodel.kanaal",
+        "pk": 4,
+        "fields": {
+            "uuid": "2dbb135d-f7b8-4ff2-8c5e-6d2fff4b691d",
+            "naam": "zaaktypen",
+            "documentatie_link": "",
+            "filters": "[\"catalogus\"]"
+        }
+    },
+    {
+        "model": "datamodel.kanaal",
+        "pk": 5,
+        "fields": {
+            "uuid": "d0a2cd21-e2e5-4419-a52b-fbe21bbe5ade",
+            "naam": "informatieobjecttypen",
+            "documentatie_link": "",
+            "filters": "[\"catalogus\"]"
+        }
+    },
+    {
+        "model": "datamodel.kanaal",
+        "pk": 6,
+        "fields": {
+            "uuid": "d9b48739-0910-4629-8d36-c9486311085b",
+            "naam": "besluittypen",
+            "documentatie_link": "",
+            "filters": "[\"catalogus\"]"
+        }
+    },
+    {
+        "model": "datamodel.kanaal",
+        "pk": 7,
+        "fields": {
+            "uuid": "9d22f618-a021-4a7f-93ce-51d4719e1b57",
+            "naam": "zaken",
+            "documentatie_link": "",
+            "filters": "[\"bronorganisatie\",\"zaaktype\",\"vertrouwelijkheidaanduiding\"]"
+        }
+    }
+]

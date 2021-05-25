@@ -1,0 +1,139 @@
+version: "3.8"
+
+services:
+
+  # Database - shared by Open Zaak & Open Notificaties
+  db:
+    image: postgis/postgis:11-3.0
+    environment:
+      - POSTGRES_PASSWORD=
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    command: postgres -c max_connections=300 -c log_min_messages=LOG
+    volumes:
+      - vol_drc_db:/var/lib/postgresql/data
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    networks:
+     dev_network:
+      aliases:
+       - db
+
+  # Cache db - shared by Open Zaak & Open Notificaties
+  redis:
+    image: redis:5
+    networks:
+     dev_network:
+      aliases:
+       - redis
+
+  # Message broker - Open Notificaties
+  rabbitmq:
+    image: rabbitmq:3.7-alpine
+    # environment:
+    #   - RABBITMQ_DEFAULT_USER=guest
+    #   - RABBITMQ_DEFAULT_PASS=guest
+    networks:
+     dev_network:
+      aliases:
+       - rabbitmq
+
+  open-zaak.local:
+    image: docker.io/openzaak/open-zaak:latest
+    environment:
+      - DJANGO_SETTINGS_MODULE=openzaak.conf.docker
+      - SECRET_KEY=${SECRET_KEY:-splfak=i9e72pqk_9&2$s002d43sty1t#i)yxpa39(ja7p7z3x}
+      - DB_HOST=db
+      - DB_NAME=openzaak
+      - DB_USER=openzaak
+      - IS_HTTPS=no
+      - ALLOWED_HOSTS=open-zaak.local,open-zaak.local:8000,localhost,localhost:8000
+      - CACHE_DEFAULT=redis:6379/0
+      - CACHE_AXES=redis:6379/0
+    volumes:
+      - ./fixtures/open-zaak:/app/fixtures
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+      - redis
+    networks:
+     dev_network:
+      aliases:
+       - open-zaak.local
+
+  open-notificaties-worker:
+    image: openzaak/open-notificaties:1.1.2
+    environment: &open-notificaties-env
+      - DJANGO_SETTINGS_MODULE=nrc.conf.docker
+      - SECRET_KEY=${SECRET_KEY:-y8=ynp!*&3z6!0ujpg$0nry%j#1z2@%hq9+1doh1bl+86w)730}
+      - RABBITMQ_HOST=rabbitmq
+      - PUBLISH_BROKER_URL=amqp://guest:guest@rabbitmq:5672/%2F
+      - CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672//
+      - CELERY_RESULT_BACKEND=amqp://guest:guest@rabbitmq:5672//
+      - CELERY_LOGLEVEL=DEBUG
+      - DB_HOST=db
+      - DB_NAME=opennotificaties
+      - DB_USER=opennotificaties
+      - IS_HTTPS=no
+      - ALLOWED_HOSTS=*
+      - CACHE_DEFAULT=redis:6379/1
+      - CACHE_AXES=redis:6379/1
+    command: /celery_worker.sh
+    depends_on:
+      - db
+      - rabbitmq
+    networks:
+     dev_network:
+      aliases:
+       - open-notificaties-worker
+       
+  open-notificaties.local:
+    image: openzaak/open-notificaties:1.1.2
+    environment: *open-notificaties-env
+    volumes:
+      - ./fixtures/open-notificaties:/app/fixtures
+    ports:
+      - 8001:8000
+    depends_on:
+      - db
+      - rabbitmq
+      - redis
+      - open-notificaties-worker
+    networks:
+     dev_network:
+      aliases:
+       - open-notificaties.local
+
+  drc.local:
+    image: docker.io/vngr/gemma-drc:1.0.1.post0
+    environment:
+      - DJANGO_SETTINGS_MODULE=drc.conf.docker
+      - SECRET_KEY=${SECRET_KEY:-5k_*2!3(#du#nv&+z#88jtm9=g+4)@nh)utv@#u)#3!m@b-0p1}
+      - DB_HOST=db
+      - DB_NAME=drc
+      - DB_USER=drc
+      - IS_HTTPS=no
+      - ALLOWED_HOSTS=drc.local,drc.local:8000,localhost,localhost:8000
+      - SENDFILE_BACKEND=sendfile.backends.simple
+      - PYTHONUNBUFFERED=1
+    ports:
+      - 8002:8000
+    volumes:
+      - ./fixtures/drc:/app/fixtures:ro
+      - vol_drc_media:/app/media
+      - vol_drc_private_media:/app/private-media
+    depends_on:
+      - db
+    networks:
+     dev_network:
+      aliases:
+       - drc.local
+
+networks:
+ dev_network:
+  external: true
+
+volumes:
+  vol_drc_db:
+  vol_drc_media:
+  vol_drc_private_media:
+    

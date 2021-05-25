@@ -1,0 +1,17 @@
+[
+    {
+        "model": "notifications.notificationsconfig",
+        "pk": 1,
+        "fields": {
+            "api_root": "http://open-notificaties.local:8000/api/v1/"
+        }
+    },
+    {
+        "model": "authorizations.authorizationsconfig",
+        "pk": 1,
+        "fields": {
+            "api_root": "http://open-zaak.local:8000/autorisaties/api/v1/",
+            "component": "nrc"
+        }
+    }
+]
