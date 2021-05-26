@@ -52,14 +52,20 @@ Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [docum
 &nbsp;&nbsp;&#10004; test_list_gebruiksrechten_limited_to_authorized_zaken;\
 &nbsp;&nbsp;&#10004; test_create_gebruiksrechten_limited_to_authorized_zaken;\
 &nbsp;&nbsp;&#10004; test_list_oio_limited_to_authorized_zaken;\
-&nbsp;&nbsp;&#10004; test_list_oio_limited_to_authorized_zaken;
+&nbsp;&nbsp;&#10004; test_detail_oio_limited_to_authorized_zaken;
 
 ## Maven
 
-Run tests:
+Run tests (default) with external DRC (gemma):
 
 ```
 mvn clean install -Dnashorn.args=--no-deprecation-warning
+```
+
+Run tests with internal DRC (openzaak):
+
+```
+mvn clean install -Dnashorn.args=--no-deprecation-warning -Denv=prod
 ```
 
 Run build:

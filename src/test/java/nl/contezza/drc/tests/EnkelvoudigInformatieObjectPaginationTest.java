@@ -37,12 +37,12 @@ public class EnkelvoudigInformatieObjectPaginationTest extends RestTest {
 	public void test_pagination_default() {
 		EIOService eioService = new EIOService();
 
-		String id = randomString(10);
+		String rsin = randomRsin();
 
-		eioService.testCreate(informatieobjecttypeUrl, id);
-		eioService.testCreate(informatieobjecttypeUrl, id);
+		eioService.testCreate(informatieobjecttypeUrl, "beschrijving", "inhoud", "openbaar", rsin);
+		eioService.testCreate(informatieobjecttypeUrl, "beschrijving", "inhoud", "openbaar", rsin);
 
-		Response res = eioService.listEIO(id, null, null);
+		Response res = eioService.listEIO(null, rsin, null);
 
 		Assert.assertEquals(res.getStatusCode(), 200);
 		Assert.assertEquals((int) res.body().path("results.size()"), 2);
@@ -59,12 +59,12 @@ public class EnkelvoudigInformatieObjectPaginationTest extends RestTest {
 
 		EIOService eioService = new EIOService();
 
-		String id = randomString(10);
+		String rsin = randomRsin();
 
-		eioService.testCreate(informatieobjecttypeUrl, id);
-		eioService.testCreate(informatieobjecttypeUrl, id);
+		eioService.testCreate(informatieobjecttypeUrl, "beschrijving", "inhoud", "openbaar", rsin);
+		eioService.testCreate(informatieobjecttypeUrl, "beschrijving", "inhoud", "openbaar", rsin);
 
-		Response res = eioService.listEIO(id, null, 1);
+		Response res = eioService.listEIO(null, rsin, 1);
 
 		Assert.assertEquals(res.getStatusCode(), 200);
 		Assert.assertEquals((int) res.body().path("results.size()"), 2);

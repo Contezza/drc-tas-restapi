@@ -171,8 +171,8 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 		Assert.assertEquals(res.getStatusCode(), 204);
 
 		// FIXME: returns 500 error??
-		// res = eioService.download(json.getString("inhoud"), "application/octet-stream");
-		// Assert.assertEquals(res.getStatusCode(), 404);
+		res = eioService.download(json.getString("inhoud"), "application/octet-stream");
+		Assert.assertEquals(res.getStatusCode(), 404);
 	}
 
 	/**
@@ -316,7 +316,7 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 
 		Response res = eioService.testCreate(informatieobjecttypeUrl, new JSONArray().put(1).put(2).put(3));
 
-		// FIXME: not responding 400
-		Assert.assertEquals(res.getStatusCode(), 500);
+		// FIXME: not responding 400 but returns 500?
+		Assert.assertEquals(res.getStatusCode(), 400);
 	}
 }

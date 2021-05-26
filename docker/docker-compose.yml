@@ -37,8 +37,9 @@ services:
        - rabbitmq
 
   open-zaak.local:
-    image: docker.io/openzaak/open-zaak:latest
+    image: docker.io/openzaak/open-zaak:1.4.0
     environment:
+      - TZ=Europe/Amsterdam
       - DJANGO_SETTINGS_MODULE=openzaak.conf.docker
       - SECRET_KEY=${SECRET_KEY:-splfak=i9e72pqk_9&2$s002d43sty1t#i)yxpa39(ja7p7z3x}
       - DB_HOST=db
@@ -63,6 +64,7 @@ services:
   open-notificaties-worker:
     image: openzaak/open-notificaties:1.1.2
     environment: &open-notificaties-env
+      - TZ=Europe/Amsterdam
       - DJANGO_SETTINGS_MODULE=nrc.conf.docker
       - SECRET_KEY=${SECRET_KEY:-y8=ynp!*&3z6!0ujpg$0nry%j#1z2@%hq9+1doh1bl+86w)730}
       - RABBITMQ_HOST=rabbitmq
@@ -106,6 +108,7 @@ services:
   drc.local:
     image: docker.io/vngr/gemma-drc:1.0.1.post0
     environment:
+      - TZ=Europe/Amsterdam
       - DJANGO_SETTINGS_MODULE=drc.conf.docker
       - SECRET_KEY=${SECRET_KEY:-5k_*2!3(#du#nv&+z#88jtm9=g+4)@nh)utv@#u)#3!m@b-0p1}
       - DB_HOST=db

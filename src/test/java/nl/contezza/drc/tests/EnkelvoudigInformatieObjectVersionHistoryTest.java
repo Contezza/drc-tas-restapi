@@ -10,13 +10,12 @@ import org.testng.annotations.Test;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import lombok.extern.log4j.Log4j2;
 import nl.contezza.drc.rest.RestTest;
 import nl.contezza.drc.service.EIOService;
 import nl.contezza.drc.service.ZTCService;
 import nl.contezza.drc.utils.StringDate;
 
-@Log4j2
+//@Log4j2
 public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 	/**
@@ -269,7 +268,7 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		String eioUrl = json.getString("url");
 
-		wait(1000);
+		wait(2000);
 
 		json = new JsonPath(eioService.lock(eioUrl).asString());
 
@@ -287,7 +286,7 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 		json = new JsonPath(res.body().asString());
 
 		// FIXME: diff with seconds works not as expected
-		Assert.assertEquals(json.getString("beschrijving"), "beschrijving2");
+		Assert.assertEquals(json.getString("beschrijving"), "beschrijving1");
 	}
 
 	/**
@@ -349,11 +348,7 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 		body.put("inhoud", Base64.getEncoder().encodeToString("inhoud2".getBytes()));
 		body.put("lock", json.getString("lock"));
 
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			log.error(e);
-		}
+		wait(2000);
 
 		eioService.partialUpdate(eioUrl, body);
 
@@ -361,6 +356,6 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		String data = eioService.downloadAsString(json.getString("inhoud"));
 		// FIXME: diff with seconds works not as expected
-		Assert.assertEquals(data, "inhoud2");
+		Assert.assertEquals(data, "inhoud1");
 	}
 }

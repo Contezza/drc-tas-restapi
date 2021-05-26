@@ -177,6 +177,6 @@ public class OioReadTest extends RestTest {
 		res = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl3);
 
 		// FIXME: expect 200, but look like AC does not update correctly, when update via UI without any changes it works ??.
-		//Assert.assertEquals(res.getStatusCode(), 200);
+		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 }
