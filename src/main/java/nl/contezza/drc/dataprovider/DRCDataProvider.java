@@ -202,6 +202,7 @@ public class DRCDataProvider {
 		json.put("gerelateerdeZaaktypen", new JSONArray());
 		json.put("beginGeldigheid", StringDate.toDateString(2019, 1, 1));
 		json.put("versiedatum", StringDate.toDateString(2019, 1, 1));
+		json.put("productenOfDiensten", new JSONArray());
 		return json.toString();
 	}
 

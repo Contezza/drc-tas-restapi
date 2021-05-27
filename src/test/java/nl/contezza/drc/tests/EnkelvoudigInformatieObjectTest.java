@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import nl.contezza.drc.rest.RestTest;
+import nl.contezza.drc.service.DRCRequestSpecification;
 import nl.contezza.drc.service.EIOService;
 import nl.contezza.drc.service.OIOService;
 import nl.contezza.drc.service.ZRCService;
@@ -266,11 +267,13 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L318">python code</a>}.
+	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/stable/1.0.x/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L318">python code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObject")
 	public void test_destroy_with_relations_not_allowed() {
-		OIOService oioService = new OIOService();
+
+		EIOService eioService = new EIOService();
+		eioTestObject = new JsonPath(eioService.testCreate(informatieobjecttypeUrl).asString());
 
 		String eioUrl = eioTestObject.getString("url").replace(DRC_BASE_URI, DRC_DOCKER_URI);
 		String zaakUrl = zaakTestObject.getString("url").replace(ZRC_BASE_URI, ZRC_DOCKER_URI);
@@ -282,14 +285,19 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 		Assert.assertEquals(res.getStatusCode(), 201);
 
 		// Retrieve oio URL
+		OIOService oioService = new OIOService();
 		res = oioService.listOIO(null, eioTestObject.getString("url"));
 		String oioUrl = (String) res.body().path("[0].url");
 
 		// Delete oio
 		res = oioService.delete(oioUrl);
 		Assert.assertEquals(res.getStatusCode(), 400);
-		// FIXME: does not provide code 'pending-relations'
-		Assert.assertEquals(res.body().path("invalidParams[0].code"), "remote-relation-exists");
+		// FIXME: does not provide code 'pending-relations' or 'inconsistent-relation'
+		if (DRCRequestSpecification.BASE_PATH.equals("/documenten/api/v1")) {
+			Assert.assertEquals(res.body().path("invalidParams[0].code"), "inconsistent-relation");
+		} else {
+			Assert.assertEquals(res.body().path("invalidParams[0].code"), "remote-relation-exists");
+		}
 	}
 
 	/**

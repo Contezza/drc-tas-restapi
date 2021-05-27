@@ -54,22 +54,51 @@ Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [docum
 &nbsp;&nbsp;&#10004; test_list_oio_limited_to_authorized_zaken;\
 &nbsp;&nbsp;&#10004; test_detail_oio_limited_to_authorized_zaken;
 
+## Docker
+
+Run docker before executing tests:
+
+```
+cd docker
+docker-compose up -d
+```
+
+* http://localhost:8000 (open-zaak)
+* http://localhost:8001 (open-notificaties)
+* http://localhost:8002 (drc-gemma)
+
+Login: admin/admin
+
 ## Maven
 
-Run tests (default) with external DRC (gemma):
+Run tests (default) with DRC gemma (external):
 
 ```
 mvn clean install -Dnashorn.args=--no-deprecation-warning
 ```
 
-Run tests with internal DRC (openzaak):
+Run tests with different environment:
 
 ```
-mvn clean install -Dnashorn.args=--no-deprecation-warning -Denv=prod
+// DRC Gemma (external)
+mvn clean install -Dnashorn.args=--no-deprecation-warning -Denv=drc
+// DRC Open Zaak (internal)
+mvn clean install -Dnashorn.args=--no-deprecation-warning -Denv=open-zaak
+// DRC Alfresco (external)
+mvn clean install -Dnashorn.args=--no-deprecation-warning -Denv=alfresco
 ```
 
 Run build:
 
 ```
 mvn clean install -DskipTests=true
+```
+
+## Reports
+
+Open following files for test results:
+
+```
+target/extent-output/execution.html
+target/surefire-reports/index.html
 ```
