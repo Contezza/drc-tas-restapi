@@ -159,7 +159,7 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L189">python code</a>}.
+	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/stable/1.0.x/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L189">python code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObject")
 	public void test_download_non_existing_eio() {
@@ -316,7 +316,7 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L346">python code</a>}.
+	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/stable/1.0.x/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L346">python code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObject")
 	public void test_invalid_inhoud() {
