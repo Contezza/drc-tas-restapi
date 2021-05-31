@@ -164,7 +164,7 @@ public class DRCDataProvider {
 		json.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
 		json.put("informatieobjecttype", iot);
 		if (integriteit == null) {
-			json.put("integriteit", (String) null);
+			json.put("integriteit", JSONObject.NULL);
 		} else {
 			json.put("integriteit", integriteit);
 		}
