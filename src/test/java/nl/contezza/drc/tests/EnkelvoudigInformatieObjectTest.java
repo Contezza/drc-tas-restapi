@@ -15,9 +15,7 @@ import org.testng.annotations.Test;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import nl.contezza.drc.rest.RestTest;
-import nl.contezza.drc.service.DRCRequestSpecification;
 import nl.contezza.drc.service.EIOService;
-import nl.contezza.drc.service.OIOService;
 import nl.contezza.drc.service.ZRCService;
 import nl.contezza.drc.service.ZTCService;
 import nl.contezza.drc.utils.StringDate;
@@ -284,20 +282,10 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 
 		Assert.assertEquals(res.getStatusCode(), 201);
 
-		// Retrieve oio URL
-		OIOService oioService = new OIOService();
-		res = oioService.listOIO(null, eioTestObject.getString("url"));
-		String oioUrl = (String) res.body().path("[0].url");
+		res = eioService.delete(eioTestObject.getString("url"));
 
-		// Delete oio
-		res = oioService.delete(oioUrl);
 		Assert.assertEquals(res.getStatusCode(), 400);
-		// FIXME: does not provide code 'pending-relations' or 'inconsistent-relation'
-		if (DRCRequestSpecification.BASE_PATH.equals("/documenten/api/v1") || DRCRequestSpecification.BASE_PATH.equals("/alfresco/service/drc/v1")) {
-			Assert.assertEquals(res.body().path("invalidParams[0].code"), "inconsistent-relation");
-		} else {
-			Assert.assertEquals(res.body().path("invalidParams[0].code"), "remote-relation-exists");
-		}
+		Assert.assertEquals(res.body().path("invalidParams[0].code"), "pending-relations");
 	}
 
 	/**
