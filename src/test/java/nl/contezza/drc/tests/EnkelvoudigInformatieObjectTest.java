@@ -85,7 +85,7 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 		Assert.assertEquals(eioService.downloadAsString(json.getString("inhoud")), "some file content");
 		Assert.assertEquals(json.getString("link"), "http://een.link");
 		Assert.assertEquals(json.getString("beschrijving"), "test_beschrijving");
-		Assert.assertEquals(json.getString("informatieobjecttype"), informatieobjecttypeUrl);
+		Assert.assertEquals(json.getString("informatieobjecttype").replace(ZTC_BASE_URI, ZTC_DOCKER_URI), informatieobjecttypeUrl);
 		Assert.assertEquals(json.getString("vertrouwelijkheidaanduiding"), "openbaar");
 		Assert.assertEquals(json.getInt("bestandsomvang"), 17);
 		Assert.assertEquals(json.getString("integriteit.algoritme"), "");
