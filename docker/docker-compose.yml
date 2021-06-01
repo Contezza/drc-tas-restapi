@@ -49,6 +49,7 @@ services:
       - ALLOWED_HOSTS=open-zaak.local,open-zaak.local:8000,localhost,localhost:8000
       - CACHE_DEFAULT=redis:6379/0
       - CACHE_AXES=redis:6379/0
+      - SENDFILE_BACKEND=sendfile.backends.simple
     volumes:
       - ./fixtures/open-zaak:/app/fixtures
     ports:
