@@ -260,13 +260,13 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 	}
 
 	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
-	public void test_eio_detail_filter_by_registratie_op() {		
+	public void test_eio_detail_filter_by_registratie_op() {
 
 		EIOService eioService = new EIOService();
 		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
 
 		Date date = new Date();
-		
+
 		String eioUrl = json.getString("url");
 
 		wait(2000);
