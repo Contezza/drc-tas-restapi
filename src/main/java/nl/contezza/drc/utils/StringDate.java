@@ -34,7 +34,7 @@ public class StringDate {
 		return cal.getTime();	
 	}
 	
-	private static String formatDate(Date date) {
+	public static String formatDate(Date date) {
 		if (date == null)
 			return null;
 		SimpleDateFormat sdf = new SimpleDateFormat(FORMAT_DATE);

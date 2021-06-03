@@ -2,6 +2,7 @@ package nl.contezza.drc.service;
 
 import static io.restassured.RestAssured.given;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -66,6 +67,19 @@ public class EIOService {
 		return given()
 				.spec(DRCRequestSpecification.getDefault())
 				.body(DRCDataProvider.testCreate(iot, beschrijving, inhoud))
+				.when()
+				.post("/enkelvoudiginformatieobjecten")
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
+	
+	public Response testCreate(String iot, Date creatiedatum) {
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getDefault())
+				.body(DRCDataProvider.testCreate(iot, creatiedatum))
 				.when()
 				.post("/enkelvoudiginformatieobjecten")
 				.then()
