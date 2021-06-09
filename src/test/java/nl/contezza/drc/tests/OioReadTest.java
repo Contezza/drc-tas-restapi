@@ -126,57 +126,61 @@ public class OioReadTest extends RestTest {
 		}
 
 		EIOService eioService = new EIOService();
+		OIOService oioService = new OIOService();
 
 		JsonPath json1 = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1", "openbaar").asString());
 		JsonPath json2 = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving2", "inhoud2", "vertrouwelijk").asString());
 		JsonPath json3 = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving3", "inhoud3", "zeer_geheim").asString());
 
-		log.debug(zaakTestObject.getString("identificatie"));
-
-		// ZRCService zrcService = new ZRCService();
-		Response res = zrcService.createZio(json1.getString("url").replace(DRC_BASE_URI, DRC_DOCKER_URI), zaakUrl);
-
-		Assert.assertEquals(res.getStatusCode(), 201);
-
-		res = zrcService.createZio(json2.getString("url").replace(DRC_BASE_URI, DRC_DOCKER_URI), zaakUrl);
+		// EIO 1
+		String eioUrl1 = json1.getString("url").replace(DRC_BASE_URI, DRC_DOCKER_URI);
+		Response res = zrcService.createZio(eioUrl1, zaakUrl);
 
 		Assert.assertEquals(res.getStatusCode(), 201);
 
-		res = zrcService.createZio(json3.getString("url").replace(DRC_BASE_URI, DRC_DOCKER_URI), zaakUrl);
+		res = oioService.listOIO(zaakUrl, eioUrl1);
+		String oioUrl1 = res.body().path("[0].url");
+
+		// EIO 2
+		String eioUrl2 = json2.getString("url").replace(DRC_BASE_URI, DRC_DOCKER_URI);
+		res = zrcService.createZio(eioUrl2, zaakUrl);
 
 		Assert.assertEquals(res.getStatusCode(), 201);
 
+		res = oioService.listOIO(zaakUrl, eioUrl2);
+		String oioUrl2 = res.body().path("[0].url");
+
+		// EIO 3
+		String eioUrl3 = json3.getString("url").replace(DRC_BASE_URI, DRC_DOCKER_URI);
+
+		res = zrcService.createZio(eioUrl3, zaakUrl);
+
+		Assert.assertEquals(res.getStatusCode(), 201);
+
+		res = oioService.listOIO(zaakUrl, eioUrl3);
+		String oioUrl3 = res.body().path("[0].url");
+
+		// Update auth
 		AuthService authService = new AuthService();
 		res = authService.list(DRCRequestSpecification.CLIENT_ID_READONLY, null);
 
 		String acUrl = res.body().path("results[0].url");
-		res = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen").put("documenten.bijwerken"), informatieobjecttypeUrl,
-				"zeer_geheim");
+		res = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen"), informatieobjecttypeUrl,
+				"confidentieel");
 
 		Assert.assertEquals(res.getStatusCode(), 200);
-
-		OIOService oioService = new OIOService();
-		res = oioService.listOIO(zaakUrl, null);
-
-		String oioUrl1 = res.body().path("[0].url");
-		String oioUrl2 = res.body().path("[1].url");
-		String oioUrl3 = res.body().path("[2].url");
-		
-		log.debug(oioUrl1);
-		log.debug(oioUrl2);
-		log.debug(oioUrl3);
 
 		res = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl1);
 
-		Assert.assertEquals(res.getStatusCode(), 403);
-		
+		Assert.assertEquals(res.getStatusCode(), 200);
+
 		res = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl2);
 
-		Assert.assertEquals(res.getStatusCode(), 403);
-		
+		Assert.assertEquals(res.getStatusCode(), 200);
+
 		res = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl3);
 
-		// FIXME: expect 200, but look like AC does not update correctly, when update via UI without any changes it works ??.
-		Assert.assertEquals(res.getStatusCode(), 200);
+		// FIXME: expect 403, but look like AC does not update correctly, when update via UI without any changes it works ??.
+		Assert.assertEquals(res.getStatusCode(), 403);
 	}
 }
