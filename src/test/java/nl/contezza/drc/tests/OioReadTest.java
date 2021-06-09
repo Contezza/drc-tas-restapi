@@ -138,8 +138,8 @@ public class OioReadTest extends RestTest {
 
 		Assert.assertEquals(res.getStatusCode(), 201);
 
-		res = oioService.listOIO(zaakUrl, eioUrl1);
-		String oioUrl1 = res.body().path("[0].url");
+		Response resOio1 = oioService.listOIO(zaakUrl, eioUrl1);
+		String oioUrl1 = resOio1.body().path("[0].url");
 
 		// EIO 2
 		String eioUrl2 = json2.getString("url").replace(DRC_BASE_URI, DRC_DOCKER_URI);
@@ -147,8 +147,8 @@ public class OioReadTest extends RestTest {
 
 		Assert.assertEquals(res.getStatusCode(), 201);
 
-		res = oioService.listOIO(zaakUrl, eioUrl2);
-		String oioUrl2 = res.body().path("[0].url");
+		Response resOio2 = oioService.listOIO(zaakUrl, eioUrl2);
+		String oioUrl2 = resOio2.body().path("[0].url");
 
 		// EIO 3
 		String eioUrl3 = json3.getString("url").replace(DRC_BASE_URI, DRC_DOCKER_URI);
@@ -157,18 +157,18 @@ public class OioReadTest extends RestTest {
 
 		Assert.assertEquals(res.getStatusCode(), 201);
 
-		res = oioService.listOIO(zaakUrl, eioUrl3);
-		String oioUrl3 = res.body().path("[0].url");
+		Response resOio3 = oioService.listOIO(zaakUrl, eioUrl3);
+		String oioUrl3 = resOio3.body().path("[0].url");
 
 		// Update auth
 		AuthService authService = new AuthService();
-		res = authService.list(DRCRequestSpecification.CLIENT_ID_READONLY, null);
+		Response resAuth = authService.list(DRCRequestSpecification.CLIENT_ID_READONLY, null);
 
-		String acUrl = res.body().path("results[0].url");
-		res = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen"), informatieobjecttypeUrl,
+		String acUrl = resAuth.body().path("results[0].url");
+		resAuth = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen"), informatieobjecttypeUrl,
 				"confidentieel");
 
-		Assert.assertEquals(res.getStatusCode(), 200);
+		Assert.assertEquals(resAuth.getStatusCode(), 200);
 
 		Response res1 = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl1);
 
