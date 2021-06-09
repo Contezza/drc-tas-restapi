@@ -170,17 +170,17 @@ public class OioReadTest extends RestTest {
 
 		Assert.assertEquals(res.getStatusCode(), 200);
 
-		res = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl1);
+		Response res1 = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl1);
 
-		Assert.assertEquals(res.getStatusCode(), 200);
+		Assert.assertEquals(res1.getStatusCode(), 200);
 
-		res = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl2);
+		Response res2 = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl2);
 
-		Assert.assertEquals(res.getStatusCode(), 200);
+		Assert.assertEquals(res2.getStatusCode(), 200);
 
-		res = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl3);
+		Response res3 = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl3);
 
 		// FIXME: expect 403, but look like AC does not update correctly, when update via UI without any changes it works ??.
-		Assert.assertEquals(res.getStatusCode(), 403);
+		Assert.assertEquals(res3.getStatusCode(), 403);
 	}
 }
