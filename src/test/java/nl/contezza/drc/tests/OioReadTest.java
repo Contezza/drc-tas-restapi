@@ -167,6 +167,9 @@ public class OioReadTest extends RestTest {
 		String acUrl = resAuth.body().path("results[0].url");
 		resAuth = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen"), informatieobjecttypeUrl,
 				"confidentieel");
+		
+		// Waiting for AC cache is up to date
+		wait(2000);
 
 		Assert.assertEquals(resAuth.getStatusCode(), 200);
 
@@ -180,7 +183,6 @@ public class OioReadTest extends RestTest {
 
 		Response res3 = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl3);
 
-		// FIXME: expect 403, but look like AC does not update correctly, when update via UI without any changes it works ??.
 		Assert.assertEquals(res3.getStatusCode(), 403);
 	}
 }
