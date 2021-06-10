@@ -107,7 +107,7 @@ services:
        - open-notificaties.local
 
   drc.local:
-    image: docker.io/vngr/gemma-drc:1.0.1.post0
+    image: docker.io/vngr/gemma-drc:1.0.1.post1
     environment:
       - TZ=Europe/Amsterdam
       - DJANGO_SETTINGS_MODULE=drc.conf.docker
