@@ -335,11 +335,11 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 	 */
 	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
 	public void test_eio_download_content_filter_by_registratie() {
-		Date date = new Date();
-
 		EIOService eioService = new EIOService();
 		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1").asString());
 
+		Date date = new Date();
+		
 		String eioUrl = json.getString("url");
 
 		json = new JsonPath(eioService.lock(eioUrl).asString());
