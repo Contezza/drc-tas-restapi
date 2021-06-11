@@ -1,0 +1,12 @@
+[
+	{
+		"model": "datamodel.abonnement",
+		"pk": 1,
+		"fields": {
+			"uuid": "f17ed00a-1ccf-4d28-8019-b1099a0ae96c",
+			"callback_url": "http://drc.local:8000/api/v1/callbacks",
+			"auth": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJkcmNfYXBpX3Rlc3RzIiwiaWF0IjoxNjIzMzk1OTQwLCJjbGllbnRfaWQiOiJkcmNfYXBpX3Rlc3RzIn0.NZ2NdXhReeN22mbm-FYbOU9Z1A2PNTJAkNVbFW1mgik",
+			"client_id": "drc_api_tests"
+		}
+	}
+]
