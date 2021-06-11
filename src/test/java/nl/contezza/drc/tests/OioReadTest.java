@@ -94,10 +94,10 @@ public class OioReadTest extends RestTest {
 		res = authService.list(DRCRequestSpecification.CLIENT_ID_READONLY, null);
 
 		String acUrl = res.body().path("results[0].url");
-		res = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen"), informatieobjecttypeUrl,
-				"openbaar");
+		Response resAuth = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen"),
+				informatieobjecttypeUrl, "openbaar");
 
-		Assert.assertEquals(res.getStatusCode(), 200);
+		Assert.assertEquals(resAuth.getStatusCode(), 200);
 
 		OIOService oioService = new OIOService();
 		res = oioService.listOIO(zaakUrl, null);
@@ -165,13 +165,15 @@ public class OioReadTest extends RestTest {
 		Response resAuth = authService.list(DRCRequestSpecification.CLIENT_ID_READONLY, null);
 
 		String acUrl = resAuth.body().path("results[0].url");
-		resAuth = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen"), informatieobjecttypeUrl,
-				"confidentieel");
-		
+		resAuth = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen"),
+				informatieobjecttypeUrl, "confidentieel");
+
 		Assert.assertEquals(resAuth.getStatusCode(), 200);
-		
-		// Waiting for AC cache is up to date.
+
+		// This is questionable because results is still random
 		wait(2000);
+		
+		// FIXME: Results are random: sometimes 200 / 403 (update in UI with no changes will indeed fix the response)
 
 		Response res1 = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl1);
 
@@ -182,8 +184,7 @@ public class OioReadTest extends RestTest {
 		Assert.assertEquals(res2.getStatusCode(), 200);
 
 		Response res3 = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl3);
-		
-		// FIXME: Result is random: sometimes 200 
+
 		Assert.assertEquals(res3.getStatusCode(), 403);
 	}
 }
