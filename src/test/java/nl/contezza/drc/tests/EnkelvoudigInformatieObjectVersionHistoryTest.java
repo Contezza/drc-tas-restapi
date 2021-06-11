@@ -300,7 +300,7 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		String eioUrl = json.getString("url");
 
-		Response res = eioService.getEIO(eioUrl, null, StringDate.toDatetimeString(2019, 1, 1));
+		Response res = eioService.getEIO(eioUrl, null, StringDate.toISO8601(StringDate.getDate(2019, 1, 1)));
 
 		Assert.assertEquals(res.getStatusCode(), 404);
 	}
