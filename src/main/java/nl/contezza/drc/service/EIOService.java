@@ -35,7 +35,7 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response testCreate(RequestSpecification requestSpecification, String iot) {
 		// @formatter:off
 		return given()
@@ -74,7 +74,7 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response testCreate(String iot, Date creatiedatum) {
 		// @formatter:off
 		return given()
@@ -87,7 +87,7 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response testCreate(String iot, String beschrijving, String inhoud, String vertrouwelijkheidaanduiding) {
 		// @formatter:off
 		return given()
@@ -100,7 +100,7 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response testCreate(String iot, String beschrijving, String inhoud, String vertrouwelijkheidaanduiding, String bronorganisatie) {
 		// @formatter:off
 		return given()
@@ -142,6 +142,21 @@ public class EIOService {
 		// @formatter:on
 	}
 
+	public Response unlock(String eioUrl, String lockId) {
+		String id = eioUrl.substring(eioUrl.lastIndexOf('/') + 1).trim();
+
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getDefault())
+				.body(DRCDataProvider.unlock(lockId))
+				.when()
+				.post("/enkelvoudiginformatieobjecten/" +id + "/unlock")
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
+
 	public Response update(String eioUrl, JSONObject body) {
 		String id = eioUrl.substring(eioUrl.lastIndexOf('/') + 1).trim();
 		// @formatter:off
@@ -155,7 +170,7 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response partialUpdate(String eioUrl, JSONObject body) {
 		String id = eioUrl.substring(eioUrl.lastIndexOf('/') + 1).trim();
 		// @formatter:off
@@ -201,7 +216,7 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response getEIO(RequestSpecification requestSpecification, String eioUrl, Integer version) {
 		// @formatter:off
 		return given().param("versie", version)
@@ -213,20 +228,19 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response getEIO(String eioUrl, Integer version, String registratieOp) {
 		String id = eioUrl.substring(eioUrl.lastIndexOf('/') + 1).trim();
 		Map<String, String> params = new HashMap<String, String>();
-		
+
 		if (version != null) {
 			params.put("versie", String.valueOf(version));
-		} 
-		
-		if (registratieOp!= null) {
+		}
+
+		if (registratieOp != null) {
 			params.put("registratieOp", registratieOp);
 		}
-		
-		
+
 		// @formatter:off
 		return given()
 				.params(params)
@@ -243,12 +257,12 @@ public class EIOService {
 		Map<String, String> params = new HashMap<String, String>();
 		if (identificatie != null) {
 			params.put("identificatie", identificatie);
-		} 
-		
+		}
+
 		if (bronorganisatie != null) {
 			params.put("bronorganisatie", bronorganisatie);
-		} 
-		
+		}
+
 		if (page != null) {
 			params.put("page", String.valueOf(page));
 		}
@@ -263,17 +277,17 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response listEIO(RequestSpecification requestSpecification, String identificatie, String bronorganisatie, Integer page) {
 		Map<String, String> params = new HashMap<String, String>();
 		if (identificatie != null) {
 			params.put("identificatie", identificatie);
-		} 
-		
+		}
+
 		if (bronorganisatie != null) {
 			params.put("bronorganisatie", bronorganisatie);
-		} 
-		
+		}
+
 		if (page != null) {
 			params.put("page", String.valueOf(page));
 		}
@@ -301,7 +315,6 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
-	
 
 	/**
 	 * Downoad content as string.
@@ -348,6 +361,5 @@ public class EIOService {
 		.response();
 		// @formatter:on
 	}
-
 
 }

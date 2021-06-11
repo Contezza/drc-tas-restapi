@@ -265,11 +265,11 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 		EIOService eioService = new EIOService();
 		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
 
+		wait(2000);
+
 		Date date = new Date();
 
 		String eioUrl = json.getString("url");
-
-		wait(2000);
 
 		json = new JsonPath(eioService.lock(eioUrl).asString());
 
@@ -280,7 +280,7 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		eioService.partialUpdate(eioUrl, body);
 
-		Response res = eioService.getEIO(eioUrl, null, StringDate.toDatetimeString(date));
+		Response res = eioService.getEIO(eioUrl, null, StringDate.toISO8601(date));
 
 		Assert.assertEquals(res.getStatusCode(), 200);
 
@@ -338,8 +338,10 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 		EIOService eioService = new EIOService();
 		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1").asString());
 
+		wait(2000);
+
 		Date date = new Date();
-		
+
 		String eioUrl = json.getString("url");
 
 		json = new JsonPath(eioService.lock(eioUrl).asString());
@@ -353,10 +355,9 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		eioService.partialUpdate(eioUrl, body);
 
-		json = new JsonPath(eioService.getEIO(eioUrl, null, StringDate.toDatetimeString(date)).asString());
+		json = new JsonPath(eioService.getEIO(eioUrl, null, StringDate.toISO8601(date)).asString());
 
 		String data = eioService.downloadAsString(json.getString("inhoud"));
-		// FIXME: diff with seconds works not as expected
 		Assert.assertEquals(data, "inhoud1");
 	}
 }

@@ -293,4 +293,11 @@ public class DRCDataProvider {
 		json.put("omschrijvingVoorwaarden", "Test");
 		return json.toString();
 	}
+	
+	@DataProvider(name = "unlock")
+	public static String unlock(String lockId) {
+		JSONObject json = new JSONObject();
+		json.put("lock", lockId);
+		return json.toString();
+	}
 }
