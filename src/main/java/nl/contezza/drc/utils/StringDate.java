@@ -38,7 +38,7 @@ public class StringDate {
 		return df.format(date);
 	}
 
-	private static Date getDate(int year, int month, int day) {
+	public static Date getDate(int year, int month, int day) {
 		Calendar cal = Calendar.getInstance();
 		cal.set(year, month, day);
 		return cal.getTime();

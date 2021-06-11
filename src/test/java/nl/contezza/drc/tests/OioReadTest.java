@@ -168,10 +168,10 @@ public class OioReadTest extends RestTest {
 		resAuth = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen"), informatieobjecttypeUrl,
 				"confidentieel");
 		
+		Assert.assertEquals(resAuth.getStatusCode(), 200);
+		
 		// Waiting for AC cache is up to date
 		wait(2000);
-
-		Assert.assertEquals(resAuth.getStatusCode(), 200);
 
 		Response res1 = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl1);
 

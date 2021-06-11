@@ -74,6 +74,19 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
+	
+	public Response testCreate(String iot, String beschrijving, String inhoud, Date creatiedatum) {
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getDefault())
+				.body(DRCDataProvider.testCreate(iot, beschrijving, inhoud, creatiedatum))
+				.when()
+				.post("/enkelvoudiginformatieobjecten")
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
 
 	public Response testCreate(String iot, Date creatiedatum) {
 		// @formatter:off
