@@ -286,7 +286,6 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		json = new JsonPath(res.body().asString());
 
-		// FIXME: diff with seconds works not as expected
 		Assert.assertEquals(json.getString("beschrijving"), "beschrijving1");
 	}
 

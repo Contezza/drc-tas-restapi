@@ -170,7 +170,7 @@ public class OioReadTest extends RestTest {
 		
 		Assert.assertEquals(resAuth.getStatusCode(), 200);
 		
-		// Waiting for AC cache is up to date
+		// Waiting for AC cache is up to date.
 		wait(2000);
 
 		Response res1 = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl1);
@@ -182,7 +182,8 @@ public class OioReadTest extends RestTest {
 		Assert.assertEquals(res2.getStatusCode(), 200);
 
 		Response res3 = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl3);
-
+		
+		// FIXME: Result is random: sometimes 200 
 		Assert.assertEquals(res3.getStatusCode(), 403);
 	}
 }

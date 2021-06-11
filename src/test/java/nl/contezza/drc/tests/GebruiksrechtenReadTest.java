@@ -68,7 +68,6 @@ public class GebruiksrechtenReadTest extends RestTest {
 		log.debug("URL1 (openbaar): " + new JsonPath(res1.asString()).getString("url"));
 		log.debug("URL2 (vertrouwelijk): " + new JsonPath(res2.asString()).getString("url"));
 
-		// FIXME: expect 200, but look like AC does not update correctly, when update via UI without any changes it works ??.
 		Assert.assertEquals(res.getStatusCode(), 200);
 
 		res = gebruiksrechtenService.get(DRCRequestSpecification.getReadonly(), new JsonPath(res2.asString()).getString("url"));
