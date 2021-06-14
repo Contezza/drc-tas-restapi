@@ -49,40 +49,18 @@ public class CustomVersionHistoryTest extends RestTest {
 		String eioUrl = json.getString("url");
 
 		// Update 1
-		String lock = new JsonPath(eioService.lock(eioUrl).asString()).getString("lock");
-
-		JSONObject body = new JSONObject();
-		body.put("beschrijving", "beschrijving1");
-		body.put("inhoud", Base64.getEncoder().encodeToString("some file content1".getBytes()));
-		body.put("lock", lock);
-
-		Response res = eioService.partialUpdate(eioUrl, body);
-		Assert.assertEquals(res.getStatusCode(), 200);
-
-		res = eioService.unlock(eioUrl, lock);
-		Assert.assertEquals(res.getStatusCode(), 204);
+		createVersion(eioUrl, "beschrijving1", "some file content1");
 
 		wait(2000);
 		Date now1 = new Date();
 
 		// Update 2
-		lock = new JsonPath(eioService.lock(eioUrl).asString()).getString("lock");
-
-		body = new JSONObject();
-		body.put("beschrijving", "beschrijving2");
-		body.put("inhoud", Base64.getEncoder().encodeToString("some file content2".getBytes()));
-		body.put("lock", lock);
-
-		res = eioService.partialUpdate(eioUrl, body);
-		Assert.assertEquals(res.getStatusCode(), 200);
-
-		res = eioService.unlock(eioUrl, lock);
-		Assert.assertEquals(res.getStatusCode(), 204);
+		createVersion(eioUrl, "beschrijving2", "some file content2");
 
 		wait(2000);
 		Date now2 = new Date();
 
-		res = eioService.getEIO(eioUrl, null, StringDate.toISO8601(now1));
+		Response res = eioService.getEIO(eioUrl, null, StringDate.toISO8601(now1));
 
 		Assert.assertEquals(res.getStatusCode(), 200);
 		json = new JsonPath(res.body().asString());
@@ -93,5 +71,53 @@ public class CustomVersionHistoryTest extends RestTest {
 		Assert.assertEquals(res.getStatusCode(), 200);
 		json = new JsonPath(res.body().asString());
 		Assert.assertEquals(json.getString("beschrijving"), "beschrijving2");
+	}
+
+	@Test(groups = "CustomVersionHistory")
+	public void test_versie_filter() {
+
+		EIOService eioService = new EIOService();
+		// Create EIO
+		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving0", "some content0", new Date()).asString()); // v1
+		String eioUrl = json.getString("url");
+
+		createVersion(eioUrl, "beschrijving1", "some content1"); // v2
+
+		// Get version 1
+		json = new JsonPath(eioService.getEIO(eioUrl, 1, null).asString());
+
+		Assert.assertEquals(json.getString("beschrijving"), "beschrijving0");
+		Assert.assertEquals(json.getInt("versie"), 1);
+		Assert.assertEquals(eioService.downloadAsString(json.getString("inhoud")), "some content0");
+
+		// Get version 2
+		json = new JsonPath(eioService.getEIO(eioUrl, 2, null).asString());
+
+		Assert.assertEquals(json.getString("beschrijving"), "beschrijving1");
+		Assert.assertEquals(json.getInt("versie"), 2);
+	}
+
+	/**
+	 * Create version by unllock, update and unlock EIO.
+	 * 
+	 * @param eioUrl       String eio url
+	 * @param beschrijving String description
+	 * @param inhoud       String some content
+	 * @return Response response of unlock request
+	 */
+	private Response createVersion(String eioUrl, String beschrijving, String inhoud) {
+		EIOService eioService = new EIOService();
+		String lock = new JsonPath(eioService.lock(eioUrl).asString()).getString("lock");
+
+		JSONObject body = new JSONObject();
+		body.put("beschrijving", beschrijving);
+		body.put("inhoud", Base64.getEncoder().encodeToString(inhoud.getBytes()));
+		body.put("lock", lock);
+
+		Response res = eioService.partialUpdate(eioUrl, body);
+		Assert.assertEquals(res.getStatusCode(), 200);
+		res = eioService.unlock(eioUrl, lock);
+		Assert.assertEquals(res.getStatusCode(), 204);
+		return res;
 	}
 }
