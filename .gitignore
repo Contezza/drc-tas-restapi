@@ -3,5 +3,6 @@
 .settings
 bin
 target
-
+.m2/repository
+*.log
 *.DS_Store

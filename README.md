@@ -94,6 +94,14 @@ Run build:
 mvn clean install -DskipTests=true
 ```
 
+## Docker
+
+When running the test in docker, change `service.baseuri` value with the value of `service.dockeruri`. In the following example you can run the test with the configured environment (`-Denv=alfresco`).
+
+```
+docker run -it --network=dev_network -v "$(pwd)":/root -w /root adoptopenjdk/maven-openjdk11:latest mvn clean install -Dnashorn.args=--no-deprecation-warning -Denv=alfresco
+```
+
 ## Reports
 
 Open following files for test results:
