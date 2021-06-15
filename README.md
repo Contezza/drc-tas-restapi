@@ -69,7 +69,7 @@ docker-compose up -d
 
 Login: admin/admin
 
-## Maven
+## Maven Test
 
 Run tests (default) with DRC gemma (external):
 
@@ -94,7 +94,7 @@ Run build:
 mvn clean install -DskipTests=true
 ```
 
-## Docker
+## Docker Test
 
 When running the test in docker, change `service.baseuri` value with the value of `service.dockeruri`. In the following example you can run the test with the configured environment (`-Denv=alfresco`).
 
