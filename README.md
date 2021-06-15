@@ -14,7 +14,7 @@ Bij gebruik van Eclipse installeer Lombok (Help -> Install New Software -> https
 
 Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [documenten api](https://github.com/VNG-Realisatie/documenten-api/tree/stable/1.0.x/src/drc/api/tests) repository.
 
-&nbsp;&nbsp;&#10004; [test_enkelvoudiginformatieobject.py](https://github.com/VNG-Realisatie/documenten-api/blob/stable/1.0.x/src/drc/api/tests/test_enkelvoudiginformatieobject.py) (25)
+&nbsp;&nbsp;&#10004; [test_enkelvoudiginformatieobject.py](https://github.com/VNG-Realisatie/documenten-api/blob/stable/1.0.x/src/drc/api/tests/test_enkelvoudiginformatieobject.py) (25) \
 &nbsp;&nbsp;&#10004; [test_auth.py](https://github.com/VNG-Realisatie/documenten-api/blob/stable/1.0.x/src/drc/api/tests/test_auth.py) (9)
 
 ## Docker
