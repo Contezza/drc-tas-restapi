@@ -8,5 +8,13 @@
 			"auth": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJkcmNfYXBpX3Rlc3RzIiwiaWF0IjoxNjIzMzk1OTQwLCJjbGllbnRfaWQiOiJkcmNfYXBpX3Rlc3RzIn0.NZ2NdXhReeN22mbm-FYbOU9Z1A2PNTJAkNVbFW1mgik",
 			"client_id": "drc_api_tests"
 		}
-	}
+	},
+    {
+        "model": "datamodel.filtergroup",
+        "pk": 1,
+        "fields": {
+            "abonnement": 1,
+            "kanaal": 1
+        }
+    }
 ]
