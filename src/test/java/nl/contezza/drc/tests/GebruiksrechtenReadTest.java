@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import lombok.extern.log4j.Log4j2;
 import nl.contezza.drc.rest.RestTest;
 import nl.contezza.drc.service.AuthService;
 import nl.contezza.drc.service.DRCRequestSpecification;
@@ -15,7 +14,7 @@ import nl.contezza.drc.service.EIOService;
 import nl.contezza.drc.service.GebruiksrechtenService;
 import nl.contezza.drc.service.ZTCService;
 
-@Log4j2
+//@Log4j2
 public class GebruiksrechtenReadTest extends RestTest {
 
 	/**
@@ -63,10 +62,9 @@ public class GebruiksrechtenReadTest extends RestTest {
 				"openbaar");
 		Assert.assertEquals(res.getStatusCode(), 200);
 
-		res = gebruiksrechtenService.get(DRCRequestSpecification.getReadonly(), new JsonPath(res1.asString()).getString("url"));
+		wait(2000);
 
-		log.debug("URL1 (openbaar): " + new JsonPath(res1.asString()).getString("url"));
-		log.debug("URL2 (vertrouwelijk): " + new JsonPath(res2.asString()).getString("url"));
+		res = gebruiksrechtenService.get(DRCRequestSpecification.getReadonly(), new JsonPath(res1.asString()).getString("url"));
 
 		Assert.assertEquals(res.getStatusCode(), 200);
 

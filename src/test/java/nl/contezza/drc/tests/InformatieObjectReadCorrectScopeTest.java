@@ -53,6 +53,8 @@ public class InformatieObjectReadCorrectScopeTest extends RestTest {
 		res = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen"), informatieobjecttypeUrl,
 				"openbaar");
 
+		wait(2000);
+		
 		Assert.assertEquals(res.getStatusCode(), 200);
 
 		res = eioService.listEIO(DRCRequestSpecification.getReadonly(), null, null, null);
@@ -93,6 +95,8 @@ public class InformatieObjectReadCorrectScopeTest extends RestTest {
 		res = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen"), informatieobjecttypeUrl,
 				"openbaar");
 
+		wait(2000);
+		
 		res = eioService.getEIO(DRCRequestSpecification.getReadonly(), json1.getString("url"), null);
 
 		Assert.assertEquals(res.getStatusCode(), 403);

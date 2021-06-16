@@ -17,7 +17,9 @@ public class OIOService {
 		Map<String, String> params = new HashMap<String, String>();
 		if (object != null) {
 			params.put("object", object);
-		} else if (informatieobject != null) {
+		}
+
+		if (informatieobject != null) {
 			params.put("informatieobject", informatieobject);
 		}
 		// @formatter:off
@@ -31,12 +33,14 @@ public class OIOService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response listOIO(RequestSpecification req, String object, String informatieobject) {
 		Map<String, String> params = new HashMap<String, String>();
 		if (object != null) {
 			params.put("object", object);
-		} else if (informatieobject != null) {
+		}
+
+		if (informatieobject != null) {
 			params.put("informatieobject", informatieobject);
 		}
 		// @formatter:off
@@ -50,7 +54,7 @@ public class OIOService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response getOIO(RequestSpecification req, String url) {
 		String id = url.substring(url.lastIndexOf('/') + 1).trim();
 		// @formatter:off

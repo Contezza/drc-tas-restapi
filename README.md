@@ -22,6 +22,7 @@ Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [docum
 Run docker before executing tests:
 
 ```
+// Without Alfresco
 cd docker
 docker-compose up -d
 ```

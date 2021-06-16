@@ -120,7 +120,7 @@ public class OioReadTest extends RestTest {
 
 		String zaakUrl = zaakTestObject.getString("url").replace(ZRC_BASE_URI, ZRC_DOCKER_URI);
 
-		// apparently we need to use localhost only for internal DRC??
+		// apparently we need to use localhost when not using docker for test
 		if (DRCRequestSpecification.BASE_PATH.equals("/documenten/api/v1")) {
 			zaakUrl = zaakTestObject.getString("url");
 		}
@@ -134,6 +134,9 @@ public class OioReadTest extends RestTest {
 
 		// EIO 1
 		String eioUrl1 = json1.getString("url").replace(DRC_BASE_URI, DRC_DOCKER_URI);
+		if (DRCRequestSpecification.BASE_PATH.equals("/documenten/api/v1")) {
+			eioUrl1 = json1.getString("url");
+		}
 		Response res = zrcService.createZio(eioUrl1, zaakUrl);
 
 		Assert.assertEquals(res.getStatusCode(), 201);
@@ -143,6 +146,9 @@ public class OioReadTest extends RestTest {
 
 		// EIO 2
 		String eioUrl2 = json2.getString("url").replace(DRC_BASE_URI, DRC_DOCKER_URI);
+		if (DRCRequestSpecification.BASE_PATH.equals("/documenten/api/v1")) {
+			eioUrl2 = json2.getString("url");
+		}
 		res = zrcService.createZio(eioUrl2, zaakUrl);
 
 		Assert.assertEquals(res.getStatusCode(), 201);
@@ -152,6 +158,9 @@ public class OioReadTest extends RestTest {
 
 		// EIO 3
 		String eioUrl3 = json3.getString("url").replace(DRC_BASE_URI, DRC_DOCKER_URI);
+		if (DRCRequestSpecification.BASE_PATH.equals("/documenten/api/v1")) {
+			eioUrl3 = json3.getString("url");
+		}
 
 		res = zrcService.createZio(eioUrl3, zaakUrl);
 
@@ -170,10 +179,7 @@ public class OioReadTest extends RestTest {
 
 		Assert.assertEquals(resAuth.getStatusCode(), 200);
 
-		// This is questionable because results is still random
 		wait(2000);
-		
-		// FIXME: Results are random: sometimes 200 / 403 (update in UI with no changes will indeed fix the response)
 
 		Response res1 = oioService.getOIO(DRCRequestSpecification.getReadonly(), oioUrl1);
 
