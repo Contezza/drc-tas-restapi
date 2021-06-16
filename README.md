@@ -19,17 +19,22 @@ Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [docum
 
 ## Docker
 
-Run docker before executing tests:
+Run docker before executing tests. Create `dev_network` if not already exists (`docker network create -d bridge dev_network`).
 
 ```
-// Without Alfresco
+// Open Zaak and DRC Gemma
 cd docker
 docker-compose up -d
+
+// Open Zaak, DRC Gemma and Alfresco
+cd docker
+docker-compose -f docker-compose.yml -f docker-compose.alfresco.yml up -d
 ```
 
 * http://localhost:8000 (open-zaak)
 * http://localhost:8001 (open-notificaties)
 * http://localhost:8002 (drc-gemma)
+* http://localhost:8080 (alfresco)
 
 Login: admin/admin
 
