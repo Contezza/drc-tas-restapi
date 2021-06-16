@@ -40,6 +40,10 @@ services:
       - transform-router
       - transform-core-aio
       - shared-file-store
+    networks:
+     dev_network:
+      aliases:
+       - drc-docker-platform.local
 
 #  drc-docker-share:
 #    image: hub.contezza.nl/projecten/utrecht/drc/share:latest
