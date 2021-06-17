@@ -1,18 +1,18 @@
 # DRC Test Automation System
 
-Documentregistratiecomponent (DRC) **T**est **A**utomation **S**ystem (TAS) **RESTAPI** is het project wat wordt gebruikt voor het testen van de DRC API comform referentieimplementatie van VNG Realisatie. De unit tests beschreven in dit project zijn een vertaling van de [python](https://www.python.org) tests van de [documenten api](https://github.com/VNG-Realisatie/documenten-api/tree/stable/1.0.x/src/drc/api/tests) repository.
+Document registration component (DRC) **T**est **A**utomation **S**ystem (TAS) **RESTAPI** is the project used for testing the DRC API according to reference implementation of VNG Realisatie. The unit tests described in this project are translated [python](https://www.python.org) tests from the [documenten api](https://github.com/VNG-Realisatie/documenten-api/tree/stable/1.0.x/src/drc/api/tests) repository.
 
-De volgende componenten worden in dit project gebruikt:
+The following components are used in this project:
 
 * [RestAssured](https://rest-assured.io); 
 * [TestNG](https://testng.org);
 * [Lombok](https://projectlombok.org).
 
-Bij gebruik van Eclipse installeer Lombok (Help -> Install New Software -> https://projectlombok.org/p2). Bezoek [project Lombok website](https://projectlombok.org/setup/eclipse) voor meer informatie.
+If using Eclipse install Lombok (Help -> Install New Software -> https://projectlombok.org/p2). Visit [project Lombok site](https://projectlombok.org/setup/eclipse) for more information.
 
 ## Tests
 
-Overzicht van de unit tests die zijn geïmplementeerd zoals beschreven op [documenten api](https://github.com/VNG-Realisatie/documenten-api/tree/stable/1.0.x/src/drc/api/tests) repository.
+Overview of the unit tests as described on [documenten api](https://github.com/VNG-Realisatie/documenten-api/tree/stable/1.0.x/src/drc/api/tests) repository.
 
 &nbsp;&nbsp;&#10004; [test_enkelvoudiginformatieobject.py](https://github.com/VNG-Realisatie/documenten-api/blob/stable/1.0.x/src/drc/api/tests/test_enkelvoudiginformatieobject.py) (25) \
 &nbsp;&nbsp;&#10004; [test_auth.py](https://github.com/VNG-Realisatie/documenten-api/blob/stable/1.0.x/src/drc/api/tests/test_auth.py) (9)
@@ -49,11 +49,11 @@ mvn clean install -Dnashorn.args=--no-deprecation-warning
 Run tests with different environment:
 
 ```
-// DRC Gemma (external)
+// DRC Gemma
 mvn clean install -Dnashorn.args=--no-deprecation-warning -Denv=drc
-// DRC Open Zaak (internal)
+// DRC Open Zaak
 mvn clean install -Dnashorn.args=--no-deprecation-warning -Denv=open-zaak
-// DRC Alfresco (external)
+// DRC Alfresco
 mvn clean install -Dnashorn.args=--no-deprecation-warning -Denv=alfresco
 ```
 
