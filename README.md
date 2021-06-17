@@ -49,7 +49,7 @@ mvn clean install -Dnashorn.args=--no-deprecation-warning
 Run tests with different environment:
 
 ```
-// DRC Gemma
+// DRC Gemma (reference implementation of VNG Realisatie)
 mvn clean install -Dnashorn.args=--no-deprecation-warning -Denv=drc
 // DRC Open Zaak
 mvn clean install -Dnashorn.args=--no-deprecation-warning -Denv=open-zaak
