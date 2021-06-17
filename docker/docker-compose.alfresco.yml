@@ -67,6 +67,8 @@ services:
       - "8983:8983"
     volumes:
       - vol_drc-docker-platform_solr_data:/opt/alfresco-search-services/data
+    networks:
+      - dev_network
 
   drc-docker-platform-activemq:
     image: alfresco/alfresco-activemq:5.15.8
@@ -75,6 +77,8 @@ services:
       - 5672:5672 # AMQP
       - 61616:61616 # OpenWire
       - 61613:61613 # STOMP
+    networks:
+      - dev_network
 
   transform-router:
     image: hub.contezza.nl/projecten/utrecht/alfresco-transform-router:1.2.0
@@ -85,6 +89,8 @@ services:
       FILE_STORE_URL: http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file
     ports:
       - 8095:8095
+    networks:
+      - dev_network
 
   transform-core-aio:
     image: alfresco/alfresco-transform-core-aio:2.2.2
@@ -94,6 +100,8 @@ services:
        "
       ACTIVEMQ_URL: nio://drc-docker-platform-activemq:61616
       FILE_STORE_URL: http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file
+    networks:
+      - dev_network
     # ports:
     #   - 8090:8090
 
@@ -107,6 +115,8 @@ services:
     #  - 8099:8099
     volumes:
       - vol_drc-docker-platform_shared_file_store:/tmp/Alfresco/sfs
+    networks:
+      - dev_network
 
 networks:
  dev_network:
