@@ -285,13 +285,14 @@ public class DRCDataProvider {
 		comp.put("informatieobjecttype", iotUrl);
 		comp.put("maxVertrouwelijkheidaanduiding", maxVertrouwelijkheid);
 		
+		
 		JSONArray arr = new JSONArray().put(comp);
 		
 		JSONObject json = new JSONObject();
 		json.put("clientIds", clientIds);
 		//json.put("label", "Test");
 		json.put("autorisaties", arr);
-
+		json.put("heeftAlleAutorisaties", false);
 		return json.toString();
 	}
 	

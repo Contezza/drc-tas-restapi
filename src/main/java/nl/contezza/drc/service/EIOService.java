@@ -154,6 +154,21 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
+	
+	public Response lock(RequestSpecification spec, String eioUrl) {
+
+		String id = eioUrl.substring(eioUrl.lastIndexOf('/') + 1).trim();
+
+		// @formatter:off
+		return given()
+				.spec(spec)
+				.when()
+				.post("/enkelvoudiginformatieobjecten/"+id + "/lock")
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
 
 	public Response unlock(String eioUrl, String lockId) {
 		String id = eioUrl.substring(eioUrl.lastIndexOf('/') + 1).trim();
