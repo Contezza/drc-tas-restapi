@@ -38,56 +38,55 @@ public class CustomScopeTest extends RestTest {
 		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 
-//	@Test(groups = "CustomScope")
-//	public void document_create_with_correct_scope() {
-//
-//		EIOService eioService = new EIOService();
-//
-//		// can create document
-//		updateReadOnlyClientScope(new JSONArray().put("documenten.lezen").put("documenten.aanmaken"), "zeer_geheim");
-//
-//		Response res = eioService.testCreate(DRCRequestSpecification.getReadonly(), informatieobjecttypeUrl);
-//
-//		Assert.assertEquals(res.getStatusCode(), 201);
-//	}
-//
-//	@Test(groups = "CustomScope")
-//	public void document_create_with_wrong_scope() {
-//
-//		EIOService eioService = new EIOService();
-//
-//		// cannot create document
-//		updateReadOnlyClientScope(new JSONArray().put("documenten.lezen"), "zeer_geheim");
-//
-//		Response res = eioService.testCreate(DRCRequestSpecification.getReadonly(), informatieobjecttypeUrl);
-//
-//		Assert.assertEquals(res.getStatusCode(), 403);
-//	}
-//
-//	@Test(groups = "CustomScope")
-//	public void lock_document_with_wrong_scope() {
-//
-//		EIOService eioService = new EIOService();
-//
-//		updateReadOnlyClientScope(new JSONArray().put("documenten.lezen").put("documenten.aanmaken"), "zeer_geheim");
-//
-//		JsonPath json = new JsonPath(eioService.testCreate(DRCRequestSpecification.getReadonly(), informatieobjecttypeUrl).asString());
-//
-//		String eioUrl = json.getString("url");
-//
-//		// cannot lock document
-//		Response res = eioService.lock(DRCRequestSpecification.getReadonly(), eioUrl);
-//
-//		Assert.assertEquals(res.getStatusCode(), 403);
-//	}
+	@Test(groups = "CustomScope")
+	public void document_create_with_correct_scope() {
+
+		EIOService eioService = new EIOService();
+
+		// can create document
+		updateReadOnlyClientScope(new JSONArray().put("documenten.lezen").put("documenten.aanmaken"), "zeer_geheim");
+
+		Response res = eioService.testCreate(DRCRequestSpecification.getReadonly(), informatieobjecttypeUrl);
+
+		Assert.assertEquals(res.getStatusCode(), 201);
+	}
+
+	@Test(groups = "CustomScope")
+	public void document_create_with_wrong_scope() {
+
+		EIOService eioService = new EIOService();
+
+		// cannot create document
+		updateReadOnlyClientScope(new JSONArray().put("documenten.lezen"), "zeer_geheim");
+
+		Response res = eioService.testCreate(DRCRequestSpecification.getReadonly(), informatieobjecttypeUrl);
+
+		Assert.assertEquals(res.getStatusCode(), 403);
+	}
+
+	@Test(groups = "CustomScope")
+	public void lock_document_with_wrong_scope() {
+
+		EIOService eioService = new EIOService();
+
+		updateReadOnlyClientScope(new JSONArray().put("documenten.lezen").put("documenten.aanmaken"), "zeer_geheim");
+
+		JsonPath json = new JsonPath(eioService.testCreate(DRCRequestSpecification.getReadonly(), informatieobjecttypeUrl).asString());
+
+		String eioUrl = json.getString("url");
+
+		// cannot lock document
+		Response res = eioService.lock(DRCRequestSpecification.getReadonly(), eioUrl);
+
+		Assert.assertEquals(res.getStatusCode(), 403);
+	}
 
 	@Test(groups = "CustomScope")
 	public void lock_document_with_correct_scope() {
 
 		EIOService eioService = new EIOService();
 
-		updateReadOnlyClientScope(new JSONArray().put("documenten.lezen").put("documenten.aanmaken").put("documenten.lock").put("documenten.geforceerd-unlock")
-				.put("documenten.bijwerken").put("documenten.verwijderen"), "zeer_geheim");
+		updateReadOnlyClientScope(new JSONArray().put("documenten.lezen").put("documenten.aanmaken").put("documenten.lock"), "zeer_geheim");
 
 		JsonPath json = new JsonPath(eioService.testCreate(DRCRequestSpecification.getReadonly(), informatieobjecttypeUrl).asString());
 
