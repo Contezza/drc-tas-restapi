@@ -41,10 +41,13 @@ public class CustomScopeTest extends RestTest {
 	@Test(groups = "CustomScope")
 	public void document_create_with_correct_scope() {
 
-		EIOService eioService = new EIOService();
+		AuthService authService = new AuthService();
 
 		// can create document
-		updateReadOnlyClientScope(new JSONArray().put("documenten.lezen").put("documenten.aanmaken"), "zeer_geheim");
+		authService.updateReadOnlyClientScope(new JSONArray().put("documenten.lezen").put("documenten.aanmaken"), "zeer_geheim", informatieobjecttypeUrl);
+		wait(2000);
+
+		EIOService eioService = new EIOService();
 
 		Response res = eioService.testCreate(DRCRequestSpecification.getReadonly(), informatieobjecttypeUrl);
 
@@ -54,10 +57,13 @@ public class CustomScopeTest extends RestTest {
 	@Test(groups = "CustomScope")
 	public void document_create_with_wrong_scope() {
 
-		EIOService eioService = new EIOService();
+		AuthService authService = new AuthService();
 
 		// cannot create document
-		updateReadOnlyClientScope(new JSONArray().put("documenten.lezen"), "zeer_geheim");
+		authService.updateReadOnlyClientScope(new JSONArray().put("documenten.lezen"), "zeer_geheim", informatieobjecttypeUrl);
+		wait(2000);
+
+		EIOService eioService = new EIOService();
 
 		Response res = eioService.testCreate(DRCRequestSpecification.getReadonly(), informatieobjecttypeUrl);
 
@@ -67,9 +73,12 @@ public class CustomScopeTest extends RestTest {
 	@Test(groups = "CustomScope")
 	public void lock_document_with_wrong_scope() {
 
-		EIOService eioService = new EIOService();
+		AuthService authService = new AuthService();
 
-		updateReadOnlyClientScope(new JSONArray().put("documenten.lezen").put("documenten.aanmaken"), "zeer_geheim");
+		authService.updateReadOnlyClientScope(new JSONArray().put("documenten.lezen").put("documenten.aanmaken"), "zeer_geheim", informatieobjecttypeUrl);
+		wait(2000);
+
+		EIOService eioService = new EIOService();
 
 		JsonPath json = new JsonPath(eioService.testCreate(DRCRequestSpecification.getReadonly(), informatieobjecttypeUrl).asString());
 
@@ -84,9 +93,12 @@ public class CustomScopeTest extends RestTest {
 	@Test(groups = "CustomScope")
 	public void lock_document_with_correct_scope() {
 
-		EIOService eioService = new EIOService();
+		AuthService authService = new AuthService();
 
-		updateReadOnlyClientScope(new JSONArray().put("documenten.lezen").put("documenten.aanmaken").put("documenten.lock"), "zeer_geheim");
+		authService.updateReadOnlyClientScope(new JSONArray().put("documenten.lezen").put("documenten.aanmaken").put("documenten.lock"), "zeer_geheim", informatieobjecttypeUrl);
+		wait(2000);
+
+		EIOService eioService = new EIOService();
 
 		JsonPath json = new JsonPath(eioService.testCreate(DRCRequestSpecification.getReadonly(), informatieobjecttypeUrl).asString());
 
@@ -97,23 +109,18 @@ public class CustomScopeTest extends RestTest {
 		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 
-	/**
-	 * Update scopes of read only client
-	 * 
-	 * @param scopes          JSONArray array of scopes
-	 * @param confidentiality String confidentiality level
-	 */
-	private void updateReadOnlyClientScope(JSONArray scopes, String confidentiality) {
+	@Test(groups = "CustomScope")
+	public void cannot_read_with_create_document_scope() {
+
 		AuthService authService = new AuthService();
 
-		// get url of client_id
-		Response res = authService.list(DRCRequestSpecification.CLIENT_ID_READONLY, null);
-		String acUrl = res.body().path("results[0].url");
-
-		// update client
-		res = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), scopes, informatieobjecttypeUrl, confidentiality);
-		Assert.assertEquals(res.getStatusCode(), 200);
-
+		authService.updateReadOnlyClientScope(new JSONArray().put("documenten.aanmaken"), "zeer_geheim", informatieobjecttypeUrl);
 		wait(2000);
+
+		EIOService eioService = new EIOService();
+
+		Response res = eioService.listEIO(DRCRequestSpecification.getReadonly(), null, null, null);
+
+		Assert.assertEquals(res.getStatusCode(), 403);
 	}
 }

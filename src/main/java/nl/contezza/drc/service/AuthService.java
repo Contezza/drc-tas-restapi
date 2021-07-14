@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.json.JSONArray;
+import org.testng.Assert;
 
 import io.restassured.response.Response;
 import lombok.AllArgsConstructor;
@@ -46,5 +47,24 @@ public class AuthService {
 				.extract()
 				.response();
 		// @formatter:on
+	}
+
+	/**
+	 * Update scopes of read only client
+	 * 
+	 * @param scopes                  JSONArray array of scopes
+	 * @param confidentiality         String confidentiality level
+	 * @param informatieobjecttypeUrl String iot
+	 */
+	public void updateReadOnlyClientScope(JSONArray scopes, String confidentiality, String informatieobjecttypeUrl) {
+		AuthService authService = new AuthService();
+
+		// get url of client_id
+		Response res = authService.list(DRCRequestSpecification.CLIENT_ID_READONLY, null);
+		String acUrl = res.body().path("results[0].url");
+
+		// update client
+		res = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), scopes, informatieobjecttypeUrl, confidentiality);
+		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 }

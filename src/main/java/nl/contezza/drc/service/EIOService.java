@@ -100,6 +100,19 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
+	
+	public Response testCreateReqOnly(String iot, RequestSpecification spec) {
+		// @formatter:off
+		return given()
+				.spec(spec)
+				.body(DRCDataProvider.testCreateReqOnly(iot))
+				.when()
+				.post("/enkelvoudiginformatieobjecten")
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
 
 	public Response testCreate(String iot, String beschrijving, String inhoud, String vertrouwelijkheidaanduiding) {
 		// @formatter:off

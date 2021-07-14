@@ -4,6 +4,7 @@ import static io.restassured.RestAssured.given;
 
 import java.util.Date;
 
+import org.json.JSONArray;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -11,6 +12,7 @@ import org.testng.annotations.Test;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import nl.contezza.drc.rest.RestTest;
+import nl.contezza.drc.service.AuthService;
 import nl.contezza.drc.service.DRCRequestSpecification;
 import nl.contezza.drc.service.EIOService;
 import nl.contezza.drc.service.ZTCService;
@@ -52,5 +54,19 @@ public class CustomInputValidationTest extends RestTest {
 		Response res = given().spec(DRCRequestSpecification.getDefault()).when().patch("/enkelvoudiginformatieobjecten/" + id + "/unlock").then().extract().response();
 
 		Assert.assertEquals(res.getStatusCode(), 405);
+	}
+
+	@Test(groups = "CustomInputValidation")
+	public void create_eio_with_only_required_items() {
+
+		AuthService authService = new AuthService();
+		authService.updateReadOnlyClientScope(new JSONArray().put("documenten.aanmaken"), "zeer_geheim", informatieobjecttypeUrl);
+		wait(2000);
+
+		EIOService eioService = new EIOService();
+
+		Response res = eioService.testCreateReqOnly(informatieobjecttypeUrl, DRCRequestSpecification.getReadonly());
+
+		Assert.assertEquals(res.getStatusCode(), 201);
 	}
 }

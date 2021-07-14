@@ -55,6 +55,19 @@ public class DRCDataProvider {
 	}
 	
 	@DataProvider(name = "test_create")
+	public static String testCreateReqOnly(String iot) {
+		JSONObject json = new JSONObject();
+		json.put("bronorganisatie", "159351741");
+		json.put("creatiedatum", StringDate.toDateString(2020, 8, 1));
+		json.put("titel", "detailed summary");
+		json.put("auteur", "test_auteur");
+		json.put("taal", "eng");
+		json.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
+		json.put("informatieobjecttype", iot);
+		return json.toString();
+	}
+	
+	@DataProvider(name = "test_create")
 	public static String testCreate(String iot, Date creatiedatum ) {
 		JSONObject json = new JSONObject();
 		json.put("identificatie", UUID.randomUUID().toString());
