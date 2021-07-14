@@ -46,7 +46,7 @@ Run tests (default) with DRC gemma (external):
 mvn clean install -Dnashorn.args=--no-deprecation-warning
 ```
 
-Run tests with different environment:
+When running the test wihout docker, [change](src/main/resources/environments) `service.baseuri` value with localhost. Run tests with different environment:
 
 ```
 // DRC Gemma (reference implementation of VNG Realisatie)
@@ -65,7 +65,7 @@ mvn clean install -DskipTests=true
 
 ## Docker Test
 
-When running the test in docker, [change](src/main/resources/environments) `service.baseuri` value with the value of `service.dockeruri`. In the following example you can run the test with the configured environment (`-Denv=alfresco`).
+In the following example you can run the test with the configured environment (`-Denv=alfresco`).
 
 ```
 docker run -it --network=dev_network -v "$(pwd)":/root -w /root adoptopenjdk/maven-openjdk11:latest mvn clean install -Dnashorn.args=--no-deprecation-warning -Denv=alfresco
