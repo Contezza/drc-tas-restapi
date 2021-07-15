@@ -110,6 +110,26 @@ public class CustomScopeTest extends RestTest {
 	}
 
 	@Test(groups = "CustomScope")
+	public void unlock_document_with_correct_scope() {
+
+		// Update read-only client scope
+		AuthService authService = new AuthService();
+		authService.updateReadOnlyClientScope(new JSONArray().put("documenten.lezen").put("documenten.aanmaken").put("documenten.lock"), "zeer_geheim", informatieobjecttypeUrl);
+		wait(2000);
+
+		// create document
+		EIOService eioService = new EIOService();
+		String eioUrl = new JsonPath(eioService.testCreate(DRCRequestSpecification.getReadonly(), informatieobjecttypeUrl).asString()).getString("url");
+
+		// lock document
+		String lock = new JsonPath(eioService.lock(DRCRequestSpecification.getReadonly(), eioUrl).asString()).getString("lock");
+
+		// unlock document
+		Response res = eioService.unlock(DRCRequestSpecification.getReadonly(), eioUrl, lock);
+		Assert.assertEquals(res.getStatusCode(), 204);
+	}
+
+	@Test(groups = "CustomScope")
 	public void cannot_read_with_create_document_scope() {
 
 		AuthService authService = new AuthService();

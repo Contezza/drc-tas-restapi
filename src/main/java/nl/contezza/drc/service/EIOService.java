@@ -74,7 +74,7 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response testCreate(String iot, String beschrijving, String inhoud, Date creatiedatum) {
 		// @formatter:off
 		return given()
@@ -100,7 +100,7 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response testCreateReqOnly(String iot, RequestSpecification spec) {
 		// @formatter:off
 		return given()
@@ -167,7 +167,7 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response lock(RequestSpecification spec, String eioUrl) {
 
 		String id = eioUrl.substring(eioUrl.lastIndexOf('/') + 1).trim();
@@ -189,6 +189,21 @@ public class EIOService {
 		// @formatter:off
 		return given()
 				.spec(DRCRequestSpecification.getDefault())
+				.body(DRCDataProvider.unlock(lockId))
+				.when()
+				.post("/enkelvoudiginformatieobjecten/" +id + "/unlock")
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
+
+	public Response unlock(RequestSpecification spec, String eioUrl, String lockId) {
+		String id = eioUrl.substring(eioUrl.lastIndexOf('/') + 1).trim();
+
+		// @formatter:off
+		return given()
+				.spec(spec)
 				.body(DRCDataProvider.unlock(lockId))
 				.when()
 				.post("/enkelvoudiginformatieobjecten/" +id + "/unlock")
