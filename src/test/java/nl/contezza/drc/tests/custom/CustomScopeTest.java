@@ -147,13 +147,17 @@ public class CustomScopeTest extends RestTest {
 	}
 
 	@Test(groups = "CustomScope")
-	public void unlock_without_body() {
+	public void unlock_without_body_with_all_auths() {
 
 		EIOService eioService = new EIOService();
 
 		// Create EIO
 		JsonPath json = new JsonPath(eioService.testCreate(DRCRequestSpecification.getDefault(), informatieobjecttypeUrl).asString());
 		String eioUrl = json.getString("url");
+
+		AuthService authService = new AuthService();
+
+		authService.list("drc_api_tests", null);
 
 		// Lock file
 		eioService.lock(DRCRequestSpecification.getDefault(), eioUrl);
@@ -162,6 +166,6 @@ public class CustomScopeTest extends RestTest {
 		String id = eioUrl.substring(eioUrl.lastIndexOf('/') + 1).trim();
 		Response res = given().spec(DRCRequestSpecification.getDefault()).when().post("/enkelvoudiginformatieobjecten/" + id + "/unlock").then().extract().response();
 
-		Assert.assertEquals(res.getStatusCode(), 400);
+		Assert.assertEquals(res.getStatusCode(), 204);
 	}
 }
