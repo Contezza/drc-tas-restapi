@@ -1,5 +1,7 @@
 package nl.contezza.drc.tests.custom;
 
+import static io.restassured.RestAssured.given;
+
 import org.json.JSONArray;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -142,5 +144,24 @@ public class CustomScopeTest extends RestTest {
 		Response res = eioService.listEIO(DRCRequestSpecification.getReadonly(), null, null, null);
 
 		Assert.assertEquals(res.getStatusCode(), 403);
+	}
+
+	@Test(groups = "CustomScope")
+	public void unlock_without_body() {
+
+		EIOService eioService = new EIOService();
+
+		// Create EIO
+		JsonPath json = new JsonPath(eioService.testCreate(DRCRequestSpecification.getDefault(), informatieobjecttypeUrl).asString());
+		String eioUrl = json.getString("url");
+
+		// Lock file
+		eioService.lock(DRCRequestSpecification.getDefault(), eioUrl);
+
+		// Unlock without body
+		String id = eioUrl.substring(eioUrl.lastIndexOf('/') + 1).trim();
+		Response res = given().spec(DRCRequestSpecification.getDefault()).when().post("/enkelvoudiginformatieobjecten/" + id + "/unlock").then().extract().response();
+
+		Assert.assertEquals(res.getStatusCode(), 400);
 	}
 }
