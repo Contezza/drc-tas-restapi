@@ -79,3 +79,7 @@ Open following files for test results:
 target/extent-output/execution.html
 target/surefire-reports/index.html
 ```
+
+## License
+
+Licensed under the [EUPL](LICENSE.md)
