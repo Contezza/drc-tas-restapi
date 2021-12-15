@@ -84,10 +84,17 @@ public class CustomFilterParamsTest extends RestTest {
 		eioService.testCreate(informatieobjecttypeUrl2, foo);
 		eioService.testCreate(informatieobjecttypeUrl, bar);
 
+		// Including filter
 		Response res = eioService.listEIO(DRCRequestSpecification.getReadonly(), foo, bronorganisatie, null);
 
 		Assert.assertEquals(res.getStatusCode(), 200);
 		Assert.assertEquals((int) res.body().path("results.size()"), 2);
 		Assert.assertEquals((String) res.body().path("results[0].identificatie"), foo);
+		
+		// Without any filter
+		res = eioService.listEIO(DRCRequestSpecification.getReadonly(), null, null, null);
+
+		Assert.assertEquals(res.getStatusCode(), 200);
+		Assert.assertEquals((int) res.body().path("results.size()"), 3);
 	}
 }
