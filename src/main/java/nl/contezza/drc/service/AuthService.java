@@ -48,7 +48,39 @@ public class AuthService {
 				.response();
 		// @formatter:on
 	}
+	
+	public Response updatePartial(String acUrl, JSONArray clientIds,  JSONArray auths, Boolean heeftAlleAutorisaties) {
+		String id = acUrl.substring(acUrl.lastIndexOf('/') + 1).trim();
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getAC())
+				.body(DRCDataProvider.updatePartialAC(clientIds, auths, heeftAlleAutorisaties))
+				.when()
+				.patch("/applicaties/" + id)
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
 
+	/**
+	 * Update scopes of read only client
+	 * @param scopes JSONArray scopes
+	 * @param auths JSONArray auths
+	 * @param heeftAlleAutorisaties
+	 */
+	public void updateReadOnlyClientScope(JSONArray scopes, JSONArray auths, Boolean heeftAlleAutorisaties) {
+		AuthService authService = new AuthService();
+
+		// get url of client_id
+		Response res = authService.list(DRCRequestSpecification.CLIENT_ID_READONLY, null);
+		String acUrl = res.body().path("results[0].url");
+
+		// update client
+		res = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), auths, heeftAlleAutorisaties);
+		Assert.assertEquals(res.getStatusCode(), 200);
+	}
+	
 	/**
 	 * Update scopes of read only client
 	 * 
