@@ -97,7 +97,8 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 		Assert.assertEquals(res.getStatusCode(), 200);
 
 		json = new JsonPath(res.body().asString());
-
+		
+		Assert.assertEquals(eioUrl, json.getString("url"));
 		Assert.assertEquals(json.getString("beschrijving"), "beschrijving2");
 		Assert.assertEquals(json.getInt("versie"), 2);
 
