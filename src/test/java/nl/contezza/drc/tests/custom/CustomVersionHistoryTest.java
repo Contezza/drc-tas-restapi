@@ -96,6 +96,40 @@ public class CustomVersionHistoryTest extends RestTest {
 		Assert.assertEquals(json.getString("beschrijving"), "beschrijving1");
 		Assert.assertEquals(json.getInt("versie"), 2);
 	}
+	
+	@Test(groups = "CustomVersionHistory")
+	public void test_update_bestandsnaam() {
+		EIOService eioService = new EIOService();
+
+		// Create EIO
+		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
+		String eioUrl = json.getString("url");
+
+		// Lock EIO
+		String lock = new JsonPath(eioService.lock(eioUrl).asString()).getString("lock");
+		
+		// Validate original name
+		json = new JsonPath(eioService.getEIO(eioUrl, null, null).asString());
+		Assert.assertEquals(json.getString("bestandsnaam"), "dummy.txt");
+
+		// Change name
+		JSONObject body = new JSONObject();
+		body.put("bestandsnaam", "dummy2.txt");
+		body.put("lock", lock);
+
+		Response res = eioService.partialUpdate(eioUrl, body);
+		Assert.assertEquals(res.getStatusCode(), 200);
+
+		json = new JsonPath(res.asString());
+		Assert.assertEquals(json.getString("bestandsnaam"), "dummy2.txt");
+
+		// Unlock file
+		res = eioService.unlock(eioUrl, lock);
+		Assert.assertEquals(res.getStatusCode(), 204);
+
+		json = new JsonPath(eioService.getEIO(eioUrl, null, null).asString());
+		Assert.assertEquals(json.getString("bestandsnaam"), "dummy2.txt");
+	}
 
 	/**
 	 * Create version by unllock, update and unlock EIO.
