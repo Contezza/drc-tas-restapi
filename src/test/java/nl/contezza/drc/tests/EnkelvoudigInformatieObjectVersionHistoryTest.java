@@ -360,4 +360,27 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 		String data = eioService.downloadAsString(json.getString("inhoud"));
 		Assert.assertEquals(data, "inhoud1");
 	}
+	
+	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
+	public void test_eio_version_number_during_locked() {
+		EIOService eioService = new EIOService();
+		
+		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl).asString());
+		Assert.assertEquals(json.getString("versie"), "1");
+
+		String eioUrl = json.getString("url");
+
+		// Version 2
+		json = new JsonPath(eioService.lock(eioUrl).asString());	
+		eioService.unlock(eioUrl, json.getString("lock"));
+
+		// Only lock
+		eioService.lock(eioUrl);	
+
+		Response res2 = eioService.getEIO(eioUrl, null, null);
+		Assert.assertEquals(res2.getStatusCode(), 200);
+
+		JsonPath json2 = new JsonPath(res2.asString());
+		Assert.assertEquals(json2.getString("versie"), "2");
+	}
 }

@@ -161,7 +161,7 @@ public class EIOService {
 		return given()
 				.spec(DRCRequestSpecification.getDefault())
 				.when()
-				.post("/enkelvoudiginformatieobjecten/"+id + "/lock")
+				.post("/enkelvoudiginformatieobjecten/"+ id + "/lock")
 				.then()
 				.extract()
 				.response();
