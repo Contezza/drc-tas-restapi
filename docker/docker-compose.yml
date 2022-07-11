@@ -41,7 +41,7 @@ services:
     environment:
       - TZ=Europe/Amsterdam
       - DJANGO_SETTINGS_MODULE=openzaak.conf.docker
-      - SECRET_KEY=${SECRET_KEY:-splfak=i9e72pqk_9&2$s002d43sty1t#i)yxpa39(ja7p7z3x}
+      - SECRET_KEY=somesecretkey
       - DB_HOST=db
       - DB_NAME=openzaak
       - DB_USER=openzaak
@@ -67,7 +67,7 @@ services:
     environment: &open-notificaties-env
       - TZ=Europe/Amsterdam
       - DJANGO_SETTINGS_MODULE=nrc.conf.docker
-      - SECRET_KEY=${SECRET_KEY:-y8=ynp!*&3z6!0ujpg$0nry%j#1z2@%hq9+1doh1bl+86w)730}
+      - SECRET_KEY=somesecretkey
       - RABBITMQ_HOST=rabbitmq
       - PUBLISH_BROKER_URL=amqp://guest:guest@rabbitmq:5672/%2F
       - CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672//
@@ -111,7 +111,7 @@ services:
     environment:
       - TZ=Europe/Amsterdam
       - DJANGO_SETTINGS_MODULE=drc.conf.docker
-      - SECRET_KEY=${SECRET_KEY:-5k_*2!3(#du#nv&+z#88jtm9=g+4)@nh)utv@#u)#3!m@b-0p1}
+      - SECRET_KEY=somesecretkey
       - DB_HOST=db
       - DB_NAME=drc
       - DB_USER=drc
