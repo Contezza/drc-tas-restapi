@@ -1,0 +1,82 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.wordWrap": "off",
+  "editor.wordWrapColumn": 180,
+  "editor.inlayHints.enabled": false,
+  "editor.fontSize": 14,
+  "prettier.printWidth": 180,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "html.format.wrapAttributes": "force-aligned",
+  "html.format.enable": true,
+  "[javascript][javascriptreact][typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json][jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[css][scss][less]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[ftl]": {
+    "editor.defaultFormatter": "AntonLilleby.xp-freemarker-formatter",
+    "editor.formatOnSave": false
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java",
+    "editor.wordWrap": "off",
+    "editor.wordWrapColumn": 200,
+    "editor.fontWeight": 500
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "maven.excludedFolders": [
+    "**/.*",
+    "**/node_modules",
+    "**/target",
+    "**/bin",
+    "**/test/test-projects"
+  ],
+  "java.import.exclusions": [
+    "**/node_modules/**",
+    "**/.metadata/**",
+    "**/archetype-resources/**",
+    "**/META-INF/maven/**",
+    "**/test/test-projects/**"
+  ],
+  "editor.lightbulb.enabled": false,
+  "java.checkstyle.configuration": "${workspaceFolder}/.vscode/java-checkstyle.xml",
+  "java.checkstyle.version": "10.3.4",
+  "git.inputValidation": "off",
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "java.compile.nullAnalysis.mode": "automatic",
+  "cSpell.words": [
+    "bestandsomvang"
+  ]
+}

@@ -4,9 +4,9 @@ Document registration component (DRC) **T**est **A**utomation **S**ystem (TAS) *
 
 The following components are used in this project:
 
-* [RestAssured](https://rest-assured.io); 
-* [TestNG](https://testng.org);
-* [Lombok](https://projectlombok.org).
+- [RestAssured](https://rest-assured.io);
+- [TestNG](https://testng.org);
+- [Lombok](https://projectlombok.org).
 
 If using Eclipse install Lombok (Help -> Install New Software -> https://projectlombok.org/p2). Visit [project Lombok site](https://projectlombok.org/setup/eclipse) for more information.
 
@@ -31,10 +31,11 @@ cd docker
 docker-compose -f docker-compose.yml -f docker-compose.alfresco.yml up -d
 ```
 
-* http://localhost:8000 (open-zaak)
-* http://localhost:8001 (open-notificaties)
-* http://localhost:8002 (drc-gemma)
-* http://localhost:8080 (alfresco)
+- http://localhost:8000 (open-zaak)
+- http://localhost:8001 (open-notificaties)
+- http://localhost:8002 (drc-gemma)
+- http://localhost:8080/alfresco (alfresco)
+- http://localhost:8081/share (share client)
 
 Login: admin/admin
 

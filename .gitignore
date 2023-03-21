@@ -6,3 +6,6 @@ target
 .m2/repository
 *.log
 *.DS_Store
+/.apt_generated/
+/.apt_generated_tests/
+log*

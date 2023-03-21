@@ -1,0 +1,34 @@
+[
+  {
+    "model": "authorizations.applicatie",
+    "pk": 3,
+    "fields": {
+      "uuid": "8aa37d94-f2ff-4388-b27c-ea2527458054",
+      "client_ids": "[\"drc_api_tests\"]",
+      "label": "drc_api_tests",
+      "heeft_alle_autorisaties": true
+    }
+  },
+  {
+    "model": "zgw_consumers.service",
+    "pk": 1,
+    "fields": {
+      "label": "NRC",
+      "oas": "http://open-notificaties.local:8000/api/v1/schema/openapi.yml",
+      "oas_file": "",
+      "api_type": "nrc",
+      "api_root": "http://open-notificaties.local:8000/api/v1/",
+      "client_id": "drc",
+      "secret": "drc",
+      "auth_type": "zgw",
+      "header_key": "",
+      "header_value": "",
+      "nlx": "",
+      "user_id": "drc",
+      "user_representation": "OpenZaak",
+      "client_certificate": null,
+      "server_certificate": null
+    }
+  },
+  { "model": "notifications_api_common.notificationsconfig", "pk": 1, "fields": { "notifications_api_service": 1 } }
+]

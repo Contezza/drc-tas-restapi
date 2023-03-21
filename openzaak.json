@@ -1,0 +1,2157 @@
+[
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "contenttypes", "model": "contenttype" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "auth", "model": "permission" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "auth", "model": "group" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "sessions", "model": "session" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "sites", "model": "site" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "admin_index", "model": "contenttypeproxy" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "admin_index", "model": "appgroup" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "admin_index", "model": "applink" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "admin", "model": "logentry" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "axes", "model": "accessattempt" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "axes", "model": "accesslog" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "django_db_logger", "model": "statuslog" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "vng_api_common", "model": "jwtsecret" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "vng_api_common", "model": "apicredential" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "authorizations", "model": "authorizationsconfig" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "authorizations", "model": "applicatie" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "authorizations", "model": "autorisatie" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "audittrails", "model": "audittrail" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "notifications", "model": "notificationsconfig" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "notifications", "model": "subscription" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "notifications_api_common", "model": "notificationsconfig" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "notifications_api_common", "model": "subscription" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "simple_certmanager", "model": "certificate" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zgw_consumers", "model": "certificate" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zgw_consumers", "model": "service" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zgw_consumers", "model": "nlxconfig" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "drc_cmis", "model": "cmisconfig" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "drc_cmis", "model": "urlmapping" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "mozilla_django_oidc_db", "model": "openidconnectconfig" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "accounts", "model": "user" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "autorisaties", "model": "autorisatiespec" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "zaakidentificatie" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "zaak" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "relevantezaakrelatie" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "status" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "resultaat" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "rol" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "zaakobject" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "zaakeigenschap" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "zaakkenmerk" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "zaakinformatieobject" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "klantcontact" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "zaakbesluit" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "zaakcontactmoment" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "zaakverzoek" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "buurt" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "gemeente" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "gemeentelijkeopenbareruimte" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "huishouden" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "inrichtingselement" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "kunstwerkdeel" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "maatschappelijkeactiviteit" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "openbareruimte" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "pand" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "spoorbaandeel" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "terreindeel" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "waterdeel" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "wegdeel" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "wijk" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "woonplaats" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "overige" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "terreingebouwdobject" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "wozdeelobject" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "wozwaarde" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "wozobject" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "zakelijkrecht" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "kadastraleonroerendezaak" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "zakelijkrechtheeftalsgerechtigde" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "adres" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "natuurlijkpersoon" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "nietnatuurlijkpersoon" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "vestiging" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "organisatorischeeenheid" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "medewerker" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "zaken", "model": "subverblijfbuitenland" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "besluiten", "model": "besluit" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "besluiten", "model": "besluitinformatieobject" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "documenten", "model": "enkelvoudiginformatieobjectcanonical" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "documenten", "model": "enkelvoudiginformatieobject" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "documenten", "model": "bestandsdeel" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "documenten", "model": "gebruiksrechten" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "documenten", "model": "objectinformatieobject" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "catalogi", "model": "besluittype" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "catalogi", "model": "catalogus" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "catalogi", "model": "eigenschapspecificatie" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "catalogi", "model": "eigenschap" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "catalogi", "model": "informatieobjecttype" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "catalogi", "model": "zaaktypeinformatieobjecttype" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "catalogi", "model": "zaaktypenrelatie" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "catalogi", "model": "resultaattype" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "catalogi", "model": "roltype" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "catalogi", "model": "statustype" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "catalogi", "model": "zaaktype" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "config", "model": "internalservice" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "config", "model": "featureflags" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "selectielijst", "model": "referentielijstconfig" } },
+  { "model": "contenttypes.contenttype", "fields": { "app_label": "notifications_log", "model": "failednotification" } },
+  { "model": "auth.permission", "fields": { "name": "Can add content type", "content_type": ["contenttypes", "contenttype"], "codename": "add_contenttype" } },
+  { "model": "auth.permission", "fields": { "name": "Can change content type", "content_type": ["contenttypes", "contenttype"], "codename": "change_contenttype" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete content type", "content_type": ["contenttypes", "contenttype"], "codename": "delete_contenttype" } },
+  { "model": "auth.permission", "fields": { "name": "Can view content type", "content_type": ["contenttypes", "contenttype"], "codename": "view_contenttype" } },
+  { "model": "auth.permission", "fields": { "name": "Can add permission", "content_type": ["auth", "permission"], "codename": "add_permission" } },
+  { "model": "auth.permission", "fields": { "name": "Can change permission", "content_type": ["auth", "permission"], "codename": "change_permission" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete permission", "content_type": ["auth", "permission"], "codename": "delete_permission" } },
+  { "model": "auth.permission", "fields": { "name": "Can view permission", "content_type": ["auth", "permission"], "codename": "view_permission" } },
+  { "model": "auth.permission", "fields": { "name": "Can add group", "content_type": ["auth", "group"], "codename": "add_group" } },
+  { "model": "auth.permission", "fields": { "name": "Can change group", "content_type": ["auth", "group"], "codename": "change_group" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete group", "content_type": ["auth", "group"], "codename": "delete_group" } },
+  { "model": "auth.permission", "fields": { "name": "Can view group", "content_type": ["auth", "group"], "codename": "view_group" } },
+  { "model": "auth.permission", "fields": { "name": "Can add session", "content_type": ["sessions", "session"], "codename": "add_session" } },
+  { "model": "auth.permission", "fields": { "name": "Can change session", "content_type": ["sessions", "session"], "codename": "change_session" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete session", "content_type": ["sessions", "session"], "codename": "delete_session" } },
+  { "model": "auth.permission", "fields": { "name": "Can view session", "content_type": ["sessions", "session"], "codename": "view_session" } },
+  { "model": "auth.permission", "fields": { "name": "Can add site", "content_type": ["sites", "site"], "codename": "add_site" } },
+  { "model": "auth.permission", "fields": { "name": "Can change site", "content_type": ["sites", "site"], "codename": "change_site" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete site", "content_type": ["sites", "site"], "codename": "delete_site" } },
+  { "model": "auth.permission", "fields": { "name": "Can view site", "content_type": ["sites", "site"], "codename": "view_site" } },
+  { "model": "auth.permission", "fields": { "name": "Can add content type proxy", "content_type": ["admin_index", "contenttypeproxy"], "codename": "add_contenttypeproxy" } },
+  { "model": "auth.permission", "fields": { "name": "Can change content type proxy", "content_type": ["admin_index", "contenttypeproxy"], "codename": "change_contenttypeproxy" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete content type proxy", "content_type": ["admin_index", "contenttypeproxy"], "codename": "delete_contenttypeproxy" } },
+  { "model": "auth.permission", "fields": { "name": "Can view content type proxy", "content_type": ["admin_index", "contenttypeproxy"], "codename": "view_contenttypeproxy" } },
+  { "model": "auth.permission", "fields": { "name": "Can add application group", "content_type": ["admin_index", "appgroup"], "codename": "add_appgroup" } },
+  { "model": "auth.permission", "fields": { "name": "Can change application group", "content_type": ["admin_index", "appgroup"], "codename": "change_appgroup" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete application group", "content_type": ["admin_index", "appgroup"], "codename": "delete_appgroup" } },
+  { "model": "auth.permission", "fields": { "name": "Can view application group", "content_type": ["admin_index", "appgroup"], "codename": "view_appgroup" } },
+  { "model": "auth.permission", "fields": { "name": "Can add application link", "content_type": ["admin_index", "applink"], "codename": "add_applink" } },
+  { "model": "auth.permission", "fields": { "name": "Can change application link", "content_type": ["admin_index", "applink"], "codename": "change_applink" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete application link", "content_type": ["admin_index", "applink"], "codename": "delete_applink" } },
+  { "model": "auth.permission", "fields": { "name": "Can view application link", "content_type": ["admin_index", "applink"], "codename": "view_applink" } },
+  { "model": "auth.permission", "fields": { "name": "Can add log entry", "content_type": ["admin", "logentry"], "codename": "add_logentry" } },
+  { "model": "auth.permission", "fields": { "name": "Can change log entry", "content_type": ["admin", "logentry"], "codename": "change_logentry" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete log entry", "content_type": ["admin", "logentry"], "codename": "delete_logentry" } },
+  { "model": "auth.permission", "fields": { "name": "Can view log entry", "content_type": ["admin", "logentry"], "codename": "view_logentry" } },
+  { "model": "auth.permission", "fields": { "name": "Can add access attempt", "content_type": ["axes", "accessattempt"], "codename": "add_accessattempt" } },
+  { "model": "auth.permission", "fields": { "name": "Can change access attempt", "content_type": ["axes", "accessattempt"], "codename": "change_accessattempt" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete access attempt", "content_type": ["axes", "accessattempt"], "codename": "delete_accessattempt" } },
+  { "model": "auth.permission", "fields": { "name": "Can view access attempt", "content_type": ["axes", "accessattempt"], "codename": "view_accessattempt" } },
+  { "model": "auth.permission", "fields": { "name": "Can add access log", "content_type": ["axes", "accesslog"], "codename": "add_accesslog" } },
+  { "model": "auth.permission", "fields": { "name": "Can change access log", "content_type": ["axes", "accesslog"], "codename": "change_accesslog" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete access log", "content_type": ["axes", "accesslog"], "codename": "delete_accesslog" } },
+  { "model": "auth.permission", "fields": { "name": "Can view access log", "content_type": ["axes", "accesslog"], "codename": "view_accesslog" } },
+  { "model": "auth.permission", "fields": { "name": "Can add Logging", "content_type": ["django_db_logger", "statuslog"], "codename": "add_statuslog" } },
+  { "model": "auth.permission", "fields": { "name": "Can change Logging", "content_type": ["django_db_logger", "statuslog"], "codename": "change_statuslog" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete Logging", "content_type": ["django_db_logger", "statuslog"], "codename": "delete_statuslog" } },
+  { "model": "auth.permission", "fields": { "name": "Can view Logging", "content_type": ["django_db_logger", "statuslog"], "codename": "view_statuslog" } },
+  { "model": "auth.permission", "fields": { "name": "Can add client credential", "content_type": ["vng_api_common", "jwtsecret"], "codename": "add_jwtsecret" } },
+  { "model": "auth.permission", "fields": { "name": "Can change client credential", "content_type": ["vng_api_common", "jwtsecret"], "codename": "change_jwtsecret" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete client credential", "content_type": ["vng_api_common", "jwtsecret"], "codename": "delete_jwtsecret" } },
+  { "model": "auth.permission", "fields": { "name": "Can view client credential", "content_type": ["vng_api_common", "jwtsecret"], "codename": "view_jwtsecret" } },
+  { "model": "auth.permission", "fields": { "name": "Can add external API credential", "content_type": ["vng_api_common", "apicredential"], "codename": "add_apicredential" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change external API credential", "content_type": ["vng_api_common", "apicredential"], "codename": "change_apicredential" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete external API credential", "content_type": ["vng_api_common", "apicredential"], "codename": "delete_apicredential" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can view external API credential", "content_type": ["vng_api_common", "apicredential"], "codename": "view_apicredential" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add Autorisatiecomponentconfiguratie", "content_type": ["authorizations", "authorizationsconfig"], "codename": "add_authorizationsconfig" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change Autorisatiecomponentconfiguratie", "content_type": ["authorizations", "authorizationsconfig"], "codename": "change_authorizationsconfig" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete Autorisatiecomponentconfiguratie", "content_type": ["authorizations", "authorizationsconfig"], "codename": "delete_authorizationsconfig" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view Autorisatiecomponentconfiguratie", "content_type": ["authorizations", "authorizationsconfig"], "codename": "view_authorizationsconfig" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add applicatie", "content_type": ["authorizations", "applicatie"], "codename": "add_applicatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can change applicatie", "content_type": ["authorizations", "applicatie"], "codename": "change_applicatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete applicatie", "content_type": ["authorizations", "applicatie"], "codename": "delete_applicatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can view applicatie", "content_type": ["authorizations", "applicatie"], "codename": "view_applicatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can add autorisatie", "content_type": ["authorizations", "autorisatie"], "codename": "add_autorisatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can change autorisatie", "content_type": ["authorizations", "autorisatie"], "codename": "change_autorisatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete autorisatie", "content_type": ["authorizations", "autorisatie"], "codename": "delete_autorisatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can view autorisatie", "content_type": ["authorizations", "autorisatie"], "codename": "view_autorisatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can add audit trail", "content_type": ["audittrails", "audittrail"], "codename": "add_audittrail" } },
+  { "model": "auth.permission", "fields": { "name": "Can change audit trail", "content_type": ["audittrails", "audittrail"], "codename": "change_audittrail" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete audit trail", "content_type": ["audittrails", "audittrail"], "codename": "delete_audittrail" } },
+  { "model": "auth.permission", "fields": { "name": "Can view audit trail", "content_type": ["audittrails", "audittrail"], "codename": "view_audittrail" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add Notificatiescomponentconfiguratie", "content_type": ["notifications", "notificationsconfig"], "codename": "add_notificationsconfig" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change Notificatiescomponentconfiguratie", "content_type": ["notifications", "notificationsconfig"], "codename": "change_notificationsconfig" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete Notificatiescomponentconfiguratie", "content_type": ["notifications", "notificationsconfig"], "codename": "delete_notificationsconfig" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view Notificatiescomponentconfiguratie", "content_type": ["notifications", "notificationsconfig"], "codename": "view_notificationsconfig" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add Webhook subscription", "content_type": ["notifications", "subscription"], "codename": "add_subscription" } },
+  { "model": "auth.permission", "fields": { "name": "Can change Webhook subscription", "content_type": ["notifications", "subscription"], "codename": "change_subscription" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete Webhook subscription", "content_type": ["notifications", "subscription"], "codename": "delete_subscription" } },
+  { "model": "auth.permission", "fields": { "name": "Can view Webhook subscription", "content_type": ["notifications", "subscription"], "codename": "view_subscription" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add Notificatiescomponentconfiguratie", "content_type": ["notifications_api_common", "notificationsconfig"], "codename": "add_notificationsconfig" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change Notificatiescomponentconfiguratie",
+      "content_type": ["notifications_api_common", "notificationsconfig"],
+      "codename": "change_notificationsconfig"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete Notificatiescomponentconfiguratie",
+      "content_type": ["notifications_api_common", "notificationsconfig"],
+      "codename": "delete_notificationsconfig"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view Notificatiescomponentconfiguratie", "content_type": ["notifications_api_common", "notificationsconfig"], "codename": "view_notificationsconfig" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add Webhook subscription", "content_type": ["notifications_api_common", "subscription"], "codename": "add_subscription" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change Webhook subscription", "content_type": ["notifications_api_common", "subscription"], "codename": "change_subscription" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete Webhook subscription", "content_type": ["notifications_api_common", "subscription"], "codename": "delete_subscription" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view Webhook subscription", "content_type": ["notifications_api_common", "subscription"], "codename": "view_subscription" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add certificate", "content_type": ["simple_certmanager", "certificate"], "codename": "add_certificate" } },
+  { "model": "auth.permission", "fields": { "name": "Can change certificate", "content_type": ["simple_certmanager", "certificate"], "codename": "change_certificate" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete certificate", "content_type": ["simple_certmanager", "certificate"], "codename": "delete_certificate" } },
+  { "model": "auth.permission", "fields": { "name": "Can view certificate", "content_type": ["simple_certmanager", "certificate"], "codename": "view_certificate" } },
+  { "model": "auth.permission", "fields": { "name": "Can add certificate", "content_type": ["zgw_consumers", "certificate"], "codename": "add_certificate" } },
+  { "model": "auth.permission", "fields": { "name": "Can change certificate", "content_type": ["zgw_consumers", "certificate"], "codename": "change_certificate" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete certificate", "content_type": ["zgw_consumers", "certificate"], "codename": "delete_certificate" } },
+  { "model": "auth.permission", "fields": { "name": "Can view certificate", "content_type": ["zgw_consumers", "certificate"], "codename": "view_certificate" } },
+  { "model": "auth.permission", "fields": { "name": "Can add service", "content_type": ["zgw_consumers", "service"], "codename": "add_service" } },
+  { "model": "auth.permission", "fields": { "name": "Can change service", "content_type": ["zgw_consumers", "service"], "codename": "change_service" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete service", "content_type": ["zgw_consumers", "service"], "codename": "delete_service" } },
+  { "model": "auth.permission", "fields": { "name": "Can view service", "content_type": ["zgw_consumers", "service"], "codename": "view_service" } },
+  { "model": "auth.permission", "fields": { "name": "Can add NLX configuration", "content_type": ["zgw_consumers", "nlxconfig"], "codename": "add_nlxconfig" } },
+  { "model": "auth.permission", "fields": { "name": "Can change NLX configuration", "content_type": ["zgw_consumers", "nlxconfig"], "codename": "change_nlxconfig" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete NLX configuration", "content_type": ["zgw_consumers", "nlxconfig"], "codename": "delete_nlxconfig" } },
+  { "model": "auth.permission", "fields": { "name": "Can view NLX configuration", "content_type": ["zgw_consumers", "nlxconfig"], "codename": "view_nlxconfig" } },
+  { "model": "auth.permission", "fields": { "name": "Can add CMIS Configuration", "content_type": ["drc_cmis", "cmisconfig"], "codename": "add_cmisconfig" } },
+  { "model": "auth.permission", "fields": { "name": "Can change CMIS Configuration", "content_type": ["drc_cmis", "cmisconfig"], "codename": "change_cmisconfig" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete CMIS Configuration", "content_type": ["drc_cmis", "cmisconfig"], "codename": "delete_cmisconfig" } },
+  { "model": "auth.permission", "fields": { "name": "Can view CMIS Configuration", "content_type": ["drc_cmis", "cmisconfig"], "codename": "view_cmisconfig" } },
+  { "model": "auth.permission", "fields": { "name": "Can add URL mapping", "content_type": ["drc_cmis", "urlmapping"], "codename": "add_urlmapping" } },
+  { "model": "auth.permission", "fields": { "name": "Can change URL mapping", "content_type": ["drc_cmis", "urlmapping"], "codename": "change_urlmapping" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete URL mapping", "content_type": ["drc_cmis", "urlmapping"], "codename": "delete_urlmapping" } },
+  { "model": "auth.permission", "fields": { "name": "Can view URL mapping", "content_type": ["drc_cmis", "urlmapping"], "codename": "view_urlmapping" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add OpenID Connect configuration", "content_type": ["mozilla_django_oidc_db", "openidconnectconfig"], "codename": "add_openidconnectconfig" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change OpenID Connect configuration", "content_type": ["mozilla_django_oidc_db", "openidconnectconfig"], "codename": "change_openidconnectconfig" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete OpenID Connect configuration", "content_type": ["mozilla_django_oidc_db", "openidconnectconfig"], "codename": "delete_openidconnectconfig" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view OpenID Connect configuration", "content_type": ["mozilla_django_oidc_db", "openidconnectconfig"], "codename": "view_openidconnectconfig" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add user", "content_type": ["accounts", "user"], "codename": "add_user" } },
+  { "model": "auth.permission", "fields": { "name": "Can change user", "content_type": ["accounts", "user"], "codename": "change_user" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete user", "content_type": ["accounts", "user"], "codename": "delete_user" } },
+  { "model": "auth.permission", "fields": { "name": "Can view user", "content_type": ["accounts", "user"], "codename": "view_user" } },
+  { "model": "auth.permission", "fields": { "name": "Can add autorisatiespec", "content_type": ["autorisaties", "autorisatiespec"], "codename": "add_autorisatiespec" } },
+  { "model": "auth.permission", "fields": { "name": "Can change autorisatiespec", "content_type": ["autorisaties", "autorisatiespec"], "codename": "change_autorisatiespec" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete autorisatiespec", "content_type": ["autorisaties", "autorisatiespec"], "codename": "delete_autorisatiespec" } },
+  { "model": "auth.permission", "fields": { "name": "Can view autorisatiespec", "content_type": ["autorisaties", "autorisatiespec"], "codename": "view_autorisatiespec" } },
+  { "model": "auth.permission", "fields": { "name": "Can add zaak identification", "content_type": ["zaken", "zaakidentificatie"], "codename": "add_zaakidentificatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can change zaak identification", "content_type": ["zaken", "zaakidentificatie"], "codename": "change_zaakidentificatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete zaak identification", "content_type": ["zaken", "zaakidentificatie"], "codename": "delete_zaakidentificatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can view zaak identification", "content_type": ["zaken", "zaakidentificatie"], "codename": "view_zaakidentificatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can add zaak", "content_type": ["zaken", "zaak"], "codename": "add_zaak" } },
+  { "model": "auth.permission", "fields": { "name": "Can change zaak", "content_type": ["zaken", "zaak"], "codename": "change_zaak" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete zaak", "content_type": ["zaken", "zaak"], "codename": "delete_zaak" } },
+  { "model": "auth.permission", "fields": { "name": "Can view zaak", "content_type": ["zaken", "zaak"], "codename": "view_zaak" } },
+  { "model": "auth.permission", "fields": { "name": "Can add relevante zaak relatie", "content_type": ["zaken", "relevantezaakrelatie"], "codename": "add_relevantezaakrelatie" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change relevante zaak relatie", "content_type": ["zaken", "relevantezaakrelatie"], "codename": "change_relevantezaakrelatie" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete relevante zaak relatie", "content_type": ["zaken", "relevantezaakrelatie"], "codename": "delete_relevantezaakrelatie" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view relevante zaak relatie", "content_type": ["zaken", "relevantezaakrelatie"], "codename": "view_relevantezaakrelatie" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add status", "content_type": ["zaken", "status"], "codename": "add_status" } },
+  { "model": "auth.permission", "fields": { "name": "Can change status", "content_type": ["zaken", "status"], "codename": "change_status" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete status", "content_type": ["zaken", "status"], "codename": "delete_status" } },
+  { "model": "auth.permission", "fields": { "name": "Can view status", "content_type": ["zaken", "status"], "codename": "view_status" } },
+  { "model": "auth.permission", "fields": { "name": "Can add resultaat", "content_type": ["zaken", "resultaat"], "codename": "add_resultaat" } },
+  { "model": "auth.permission", "fields": { "name": "Can change resultaat", "content_type": ["zaken", "resultaat"], "codename": "change_resultaat" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete resultaat", "content_type": ["zaken", "resultaat"], "codename": "delete_resultaat" } },
+  { "model": "auth.permission", "fields": { "name": "Can view resultaat", "content_type": ["zaken", "resultaat"], "codename": "view_resultaat" } },
+  { "model": "auth.permission", "fields": { "name": "Can add Rol", "content_type": ["zaken", "rol"], "codename": "add_rol" } },
+  { "model": "auth.permission", "fields": { "name": "Can change Rol", "content_type": ["zaken", "rol"], "codename": "change_rol" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete Rol", "content_type": ["zaken", "rol"], "codename": "delete_rol" } },
+  { "model": "auth.permission", "fields": { "name": "Can view Rol", "content_type": ["zaken", "rol"], "codename": "view_rol" } },
+  { "model": "auth.permission", "fields": { "name": "Can add zaakobject", "content_type": ["zaken", "zaakobject"], "codename": "add_zaakobject" } },
+  { "model": "auth.permission", "fields": { "name": "Can change zaakobject", "content_type": ["zaken", "zaakobject"], "codename": "change_zaakobject" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete zaakobject", "content_type": ["zaken", "zaakobject"], "codename": "delete_zaakobject" } },
+  { "model": "auth.permission", "fields": { "name": "Can view zaakobject", "content_type": ["zaken", "zaakobject"], "codename": "view_zaakobject" } },
+  { "model": "auth.permission", "fields": { "name": "Can add zaakeigenschap", "content_type": ["zaken", "zaakeigenschap"], "codename": "add_zaakeigenschap" } },
+  { "model": "auth.permission", "fields": { "name": "Can change zaakeigenschap", "content_type": ["zaken", "zaakeigenschap"], "codename": "change_zaakeigenschap" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete zaakeigenschap", "content_type": ["zaken", "zaakeigenschap"], "codename": "delete_zaakeigenschap" } },
+  { "model": "auth.permission", "fields": { "name": "Can view zaakeigenschap", "content_type": ["zaken", "zaakeigenschap"], "codename": "view_zaakeigenschap" } },
+  { "model": "auth.permission", "fields": { "name": "Can add zaak kenmerk", "content_type": ["zaken", "zaakkenmerk"], "codename": "add_zaakkenmerk" } },
+  { "model": "auth.permission", "fields": { "name": "Can change zaak kenmerk", "content_type": ["zaken", "zaakkenmerk"], "codename": "change_zaakkenmerk" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete zaak kenmerk", "content_type": ["zaken", "zaakkenmerk"], "codename": "delete_zaakkenmerk" } },
+  { "model": "auth.permission", "fields": { "name": "Can view zaak kenmerk", "content_type": ["zaken", "zaakkenmerk"], "codename": "view_zaakkenmerk" } },
+  { "model": "auth.permission", "fields": { "name": "Can add zaakinformatieobject", "content_type": ["zaken", "zaakinformatieobject"], "codename": "add_zaakinformatieobject" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change zaakinformatieobject", "content_type": ["zaken", "zaakinformatieobject"], "codename": "change_zaakinformatieobject" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete zaakinformatieobject", "content_type": ["zaken", "zaakinformatieobject"], "codename": "delete_zaakinformatieobject" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can view zaakinformatieobject", "content_type": ["zaken", "zaakinformatieobject"], "codename": "view_zaakinformatieobject" } },
+  { "model": "auth.permission", "fields": { "name": "Can add klantcontact", "content_type": ["zaken", "klantcontact"], "codename": "add_klantcontact" } },
+  { "model": "auth.permission", "fields": { "name": "Can change klantcontact", "content_type": ["zaken", "klantcontact"], "codename": "change_klantcontact" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete klantcontact", "content_type": ["zaken", "klantcontact"], "codename": "delete_klantcontact" } },
+  { "model": "auth.permission", "fields": { "name": "Can view klantcontact", "content_type": ["zaken", "klantcontact"], "codename": "view_klantcontact" } },
+  { "model": "auth.permission", "fields": { "name": "Can add zaakbesluit", "content_type": ["zaken", "zaakbesluit"], "codename": "add_zaakbesluit" } },
+  { "model": "auth.permission", "fields": { "name": "Can change zaakbesluit", "content_type": ["zaken", "zaakbesluit"], "codename": "change_zaakbesluit" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete zaakbesluit", "content_type": ["zaken", "zaakbesluit"], "codename": "delete_zaakbesluit" } },
+  { "model": "auth.permission", "fields": { "name": "Can view zaakbesluit", "content_type": ["zaken", "zaakbesluit"], "codename": "view_zaakbesluit" } },
+  { "model": "auth.permission", "fields": { "name": "Can add contactmoment", "content_type": ["zaken", "zaakcontactmoment"], "codename": "add_zaakcontactmoment" } },
+  { "model": "auth.permission", "fields": { "name": "Can change contactmoment", "content_type": ["zaken", "zaakcontactmoment"], "codename": "change_zaakcontactmoment" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete contactmoment", "content_type": ["zaken", "zaakcontactmoment"], "codename": "delete_zaakcontactmoment" } },
+  { "model": "auth.permission", "fields": { "name": "Can view contactmoment", "content_type": ["zaken", "zaakcontactmoment"], "codename": "view_zaakcontactmoment" } },
+  { "model": "auth.permission", "fields": { "name": "Can add zaakverzoek", "content_type": ["zaken", "zaakverzoek"], "codename": "add_zaakverzoek" } },
+  { "model": "auth.permission", "fields": { "name": "Can change zaakverzoek", "content_type": ["zaken", "zaakverzoek"], "codename": "change_zaakverzoek" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete zaakverzoek", "content_type": ["zaken", "zaakverzoek"], "codename": "delete_zaakverzoek" } },
+  { "model": "auth.permission", "fields": { "name": "Can view zaakverzoek", "content_type": ["zaken", "zaakverzoek"], "codename": "view_zaakverzoek" } },
+  { "model": "auth.permission", "fields": { "name": "Can add buurt", "content_type": ["zaken", "buurt"], "codename": "add_buurt" } },
+  { "model": "auth.permission", "fields": { "name": "Can change buurt", "content_type": ["zaken", "buurt"], "codename": "change_buurt" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete buurt", "content_type": ["zaken", "buurt"], "codename": "delete_buurt" } },
+  { "model": "auth.permission", "fields": { "name": "Can view buurt", "content_type": ["zaken", "buurt"], "codename": "view_buurt" } },
+  { "model": "auth.permission", "fields": { "name": "Can add gemeente", "content_type": ["zaken", "gemeente"], "codename": "add_gemeente" } },
+  { "model": "auth.permission", "fields": { "name": "Can change gemeente", "content_type": ["zaken", "gemeente"], "codename": "change_gemeente" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete gemeente", "content_type": ["zaken", "gemeente"], "codename": "delete_gemeente" } },
+  { "model": "auth.permission", "fields": { "name": "Can view gemeente", "content_type": ["zaken", "gemeente"], "codename": "view_gemeente" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add gemeentelijke openbare ruimte", "content_type": ["zaken", "gemeentelijkeopenbareruimte"], "codename": "add_gemeentelijkeopenbareruimte" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change gemeentelijke openbare ruimte", "content_type": ["zaken", "gemeentelijkeopenbareruimte"], "codename": "change_gemeentelijkeopenbareruimte" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete gemeentelijke openbare ruimte", "content_type": ["zaken", "gemeentelijkeopenbareruimte"], "codename": "delete_gemeentelijkeopenbareruimte" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view gemeentelijke openbare ruimte", "content_type": ["zaken", "gemeentelijkeopenbareruimte"], "codename": "view_gemeentelijkeopenbareruimte" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add huishouden", "content_type": ["zaken", "huishouden"], "codename": "add_huishouden" } },
+  { "model": "auth.permission", "fields": { "name": "Can change huishouden", "content_type": ["zaken", "huishouden"], "codename": "change_huishouden" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete huishouden", "content_type": ["zaken", "huishouden"], "codename": "delete_huishouden" } },
+  { "model": "auth.permission", "fields": { "name": "Can view huishouden", "content_type": ["zaken", "huishouden"], "codename": "view_huishouden" } },
+  { "model": "auth.permission", "fields": { "name": "Can add inrichtingselement", "content_type": ["zaken", "inrichtingselement"], "codename": "add_inrichtingselement" } },
+  { "model": "auth.permission", "fields": { "name": "Can change inrichtingselement", "content_type": ["zaken", "inrichtingselement"], "codename": "change_inrichtingselement" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete inrichtingselement", "content_type": ["zaken", "inrichtingselement"], "codename": "delete_inrichtingselement" } },
+  { "model": "auth.permission", "fields": { "name": "Can view inrichtingselement", "content_type": ["zaken", "inrichtingselement"], "codename": "view_inrichtingselement" } },
+  { "model": "auth.permission", "fields": { "name": "Can add kunstwerkdeel", "content_type": ["zaken", "kunstwerkdeel"], "codename": "add_kunstwerkdeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can change kunstwerkdeel", "content_type": ["zaken", "kunstwerkdeel"], "codename": "change_kunstwerkdeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete kunstwerkdeel", "content_type": ["zaken", "kunstwerkdeel"], "codename": "delete_kunstwerkdeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can view kunstwerkdeel", "content_type": ["zaken", "kunstwerkdeel"], "codename": "view_kunstwerkdeel" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add maatschappelijke activiteit", "content_type": ["zaken", "maatschappelijkeactiviteit"], "codename": "add_maatschappelijkeactiviteit" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change maatschappelijke activiteit", "content_type": ["zaken", "maatschappelijkeactiviteit"], "codename": "change_maatschappelijkeactiviteit" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete maatschappelijke activiteit", "content_type": ["zaken", "maatschappelijkeactiviteit"], "codename": "delete_maatschappelijkeactiviteit" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view maatschappelijke activiteit", "content_type": ["zaken", "maatschappelijkeactiviteit"], "codename": "view_maatschappelijkeactiviteit" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add openbare ruimte", "content_type": ["zaken", "openbareruimte"], "codename": "add_openbareruimte" } },
+  { "model": "auth.permission", "fields": { "name": "Can change openbare ruimte", "content_type": ["zaken", "openbareruimte"], "codename": "change_openbareruimte" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete openbare ruimte", "content_type": ["zaken", "openbareruimte"], "codename": "delete_openbareruimte" } },
+  { "model": "auth.permission", "fields": { "name": "Can view openbare ruimte", "content_type": ["zaken", "openbareruimte"], "codename": "view_openbareruimte" } },
+  { "model": "auth.permission", "fields": { "name": "Can add pand", "content_type": ["zaken", "pand"], "codename": "add_pand" } },
+  { "model": "auth.permission", "fields": { "name": "Can change pand", "content_type": ["zaken", "pand"], "codename": "change_pand" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete pand", "content_type": ["zaken", "pand"], "codename": "delete_pand" } },
+  { "model": "auth.permission", "fields": { "name": "Can view pand", "content_type": ["zaken", "pand"], "codename": "view_pand" } },
+  { "model": "auth.permission", "fields": { "name": "Can add spoorbaandeel", "content_type": ["zaken", "spoorbaandeel"], "codename": "add_spoorbaandeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can change spoorbaandeel", "content_type": ["zaken", "spoorbaandeel"], "codename": "change_spoorbaandeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete spoorbaandeel", "content_type": ["zaken", "spoorbaandeel"], "codename": "delete_spoorbaandeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can view spoorbaandeel", "content_type": ["zaken", "spoorbaandeel"], "codename": "view_spoorbaandeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can add terreindeel", "content_type": ["zaken", "terreindeel"], "codename": "add_terreindeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can change terreindeel", "content_type": ["zaken", "terreindeel"], "codename": "change_terreindeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete terreindeel", "content_type": ["zaken", "terreindeel"], "codename": "delete_terreindeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can view terreindeel", "content_type": ["zaken", "terreindeel"], "codename": "view_terreindeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can add waterdeel", "content_type": ["zaken", "waterdeel"], "codename": "add_waterdeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can change waterdeel", "content_type": ["zaken", "waterdeel"], "codename": "change_waterdeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete waterdeel", "content_type": ["zaken", "waterdeel"], "codename": "delete_waterdeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can view waterdeel", "content_type": ["zaken", "waterdeel"], "codename": "view_waterdeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can add wegdeel", "content_type": ["zaken", "wegdeel"], "codename": "add_wegdeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can change wegdeel", "content_type": ["zaken", "wegdeel"], "codename": "change_wegdeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete wegdeel", "content_type": ["zaken", "wegdeel"], "codename": "delete_wegdeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can view wegdeel", "content_type": ["zaken", "wegdeel"], "codename": "view_wegdeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can add wijk", "content_type": ["zaken", "wijk"], "codename": "add_wijk" } },
+  { "model": "auth.permission", "fields": { "name": "Can change wijk", "content_type": ["zaken", "wijk"], "codename": "change_wijk" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete wijk", "content_type": ["zaken", "wijk"], "codename": "delete_wijk" } },
+  { "model": "auth.permission", "fields": { "name": "Can view wijk", "content_type": ["zaken", "wijk"], "codename": "view_wijk" } },
+  { "model": "auth.permission", "fields": { "name": "Can add woonplaats", "content_type": ["zaken", "woonplaats"], "codename": "add_woonplaats" } },
+  { "model": "auth.permission", "fields": { "name": "Can change woonplaats", "content_type": ["zaken", "woonplaats"], "codename": "change_woonplaats" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete woonplaats", "content_type": ["zaken", "woonplaats"], "codename": "delete_woonplaats" } },
+  { "model": "auth.permission", "fields": { "name": "Can view woonplaats", "content_type": ["zaken", "woonplaats"], "codename": "view_woonplaats" } },
+  { "model": "auth.permission", "fields": { "name": "Can add overig", "content_type": ["zaken", "overige"], "codename": "add_overige" } },
+  { "model": "auth.permission", "fields": { "name": "Can change overig", "content_type": ["zaken", "overige"], "codename": "change_overige" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete overig", "content_type": ["zaken", "overige"], "codename": "delete_overige" } },
+  { "model": "auth.permission", "fields": { "name": "Can view overig", "content_type": ["zaken", "overige"], "codename": "view_overige" } },
+  { "model": "auth.permission", "fields": { "name": "Can add terreingebouwd object", "content_type": ["zaken", "terreingebouwdobject"], "codename": "add_terreingebouwdobject" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change terreingebouwd object", "content_type": ["zaken", "terreingebouwdobject"], "codename": "change_terreingebouwdobject" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete terreingebouwd object", "content_type": ["zaken", "terreingebouwdobject"], "codename": "delete_terreingebouwdobject" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view terreingebouwd object", "content_type": ["zaken", "terreingebouwdobject"], "codename": "view_terreingebouwdobject" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add WOZ-deelobject", "content_type": ["zaken", "wozdeelobject"], "codename": "add_wozdeelobject" } },
+  { "model": "auth.permission", "fields": { "name": "Can change WOZ-deelobject", "content_type": ["zaken", "wozdeelobject"], "codename": "change_wozdeelobject" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete WOZ-deelobject", "content_type": ["zaken", "wozdeelobject"], "codename": "delete_wozdeelobject" } },
+  { "model": "auth.permission", "fields": { "name": "Can view WOZ-deelobject", "content_type": ["zaken", "wozdeelobject"], "codename": "view_wozdeelobject" } },
+  { "model": "auth.permission", "fields": { "name": "Can add WOZ-waarde", "content_type": ["zaken", "wozwaarde"], "codename": "add_wozwaarde" } },
+  { "model": "auth.permission", "fields": { "name": "Can change WOZ-waarde", "content_type": ["zaken", "wozwaarde"], "codename": "change_wozwaarde" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete WOZ-waarde", "content_type": ["zaken", "wozwaarde"], "codename": "delete_wozwaarde" } },
+  { "model": "auth.permission", "fields": { "name": "Can view WOZ-waarde", "content_type": ["zaken", "wozwaarde"], "codename": "view_wozwaarde" } },
+  { "model": "auth.permission", "fields": { "name": "Can add WOZ-object", "content_type": ["zaken", "wozobject"], "codename": "add_wozobject" } },
+  { "model": "auth.permission", "fields": { "name": "Can change WOZ-object", "content_type": ["zaken", "wozobject"], "codename": "change_wozobject" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete WOZ-object", "content_type": ["zaken", "wozobject"], "codename": "delete_wozobject" } },
+  { "model": "auth.permission", "fields": { "name": "Can view WOZ-object", "content_type": ["zaken", "wozobject"], "codename": "view_wozobject" } },
+  { "model": "auth.permission", "fields": { "name": "Can add zakelijk recht", "content_type": ["zaken", "zakelijkrecht"], "codename": "add_zakelijkrecht" } },
+  { "model": "auth.permission", "fields": { "name": "Can change zakelijk recht", "content_type": ["zaken", "zakelijkrecht"], "codename": "change_zakelijkrecht" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete zakelijk recht", "content_type": ["zaken", "zakelijkrecht"], "codename": "delete_zakelijkrecht" } },
+  { "model": "auth.permission", "fields": { "name": "Can view zakelijk recht", "content_type": ["zaken", "zakelijkrecht"], "codename": "view_zakelijkrecht" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add kadastrale onroerende zaak", "content_type": ["zaken", "kadastraleonroerendezaak"], "codename": "add_kadastraleonroerendezaak" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change kadastrale onroerende zaak", "content_type": ["zaken", "kadastraleonroerendezaak"], "codename": "change_kadastraleonroerendezaak" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete kadastrale onroerende zaak", "content_type": ["zaken", "kadastraleonroerendezaak"], "codename": "delete_kadastraleonroerendezaak" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view kadastrale onroerende zaak", "content_type": ["zaken", "kadastraleonroerendezaak"], "codename": "view_kadastraleonroerendezaak" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add zakelijk recht heeft als gerechtigde",
+      "content_type": ["zaken", "zakelijkrechtheeftalsgerechtigde"],
+      "codename": "add_zakelijkrechtheeftalsgerechtigde"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change zakelijk recht heeft als gerechtigde",
+      "content_type": ["zaken", "zakelijkrechtheeftalsgerechtigde"],
+      "codename": "change_zakelijkrechtheeftalsgerechtigde"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete zakelijk recht heeft als gerechtigde",
+      "content_type": ["zaken", "zakelijkrechtheeftalsgerechtigde"],
+      "codename": "delete_zakelijkrechtheeftalsgerechtigde"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view zakelijk recht heeft als gerechtigde",
+      "content_type": ["zaken", "zakelijkrechtheeftalsgerechtigde"],
+      "codename": "view_zakelijkrechtheeftalsgerechtigde"
+    }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add adres", "content_type": ["zaken", "adres"], "codename": "add_adres" } },
+  { "model": "auth.permission", "fields": { "name": "Can change adres", "content_type": ["zaken", "adres"], "codename": "change_adres" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete adres", "content_type": ["zaken", "adres"], "codename": "delete_adres" } },
+  { "model": "auth.permission", "fields": { "name": "Can view adres", "content_type": ["zaken", "adres"], "codename": "view_adres" } },
+  { "model": "auth.permission", "fields": { "name": "Can add natuurlijk persoon", "content_type": ["zaken", "natuurlijkpersoon"], "codename": "add_natuurlijkpersoon" } },
+  { "model": "auth.permission", "fields": { "name": "Can change natuurlijk persoon", "content_type": ["zaken", "natuurlijkpersoon"], "codename": "change_natuurlijkpersoon" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete natuurlijk persoon", "content_type": ["zaken", "natuurlijkpersoon"], "codename": "delete_natuurlijkpersoon" } },
+  { "model": "auth.permission", "fields": { "name": "Can view natuurlijk persoon", "content_type": ["zaken", "natuurlijkpersoon"], "codename": "view_natuurlijkpersoon" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add niet-natuurlijk persoon", "content_type": ["zaken", "nietnatuurlijkpersoon"], "codename": "add_nietnatuurlijkpersoon" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change niet-natuurlijk persoon", "content_type": ["zaken", "nietnatuurlijkpersoon"], "codename": "change_nietnatuurlijkpersoon" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete niet-natuurlijk persoon", "content_type": ["zaken", "nietnatuurlijkpersoon"], "codename": "delete_nietnatuurlijkpersoon" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view niet-natuurlijk persoon", "content_type": ["zaken", "nietnatuurlijkpersoon"], "codename": "view_nietnatuurlijkpersoon" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add vestiging", "content_type": ["zaken", "vestiging"], "codename": "add_vestiging" } },
+  { "model": "auth.permission", "fields": { "name": "Can change vestiging", "content_type": ["zaken", "vestiging"], "codename": "change_vestiging" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete vestiging", "content_type": ["zaken", "vestiging"], "codename": "delete_vestiging" } },
+  { "model": "auth.permission", "fields": { "name": "Can view vestiging", "content_type": ["zaken", "vestiging"], "codename": "view_vestiging" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add organisatorische eenheid", "content_type": ["zaken", "organisatorischeeenheid"], "codename": "add_organisatorischeeenheid" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change organisatorische eenheid", "content_type": ["zaken", "organisatorischeeenheid"], "codename": "change_organisatorischeeenheid" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete organisatorische eenheid", "content_type": ["zaken", "organisatorischeeenheid"], "codename": "delete_organisatorischeeenheid" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view organisatorische eenheid", "content_type": ["zaken", "organisatorischeeenheid"], "codename": "view_organisatorischeeenheid" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add medewerker", "content_type": ["zaken", "medewerker"], "codename": "add_medewerker" } },
+  { "model": "auth.permission", "fields": { "name": "Can change medewerker", "content_type": ["zaken", "medewerker"], "codename": "change_medewerker" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete medewerker", "content_type": ["zaken", "medewerker"], "codename": "delete_medewerker" } },
+  { "model": "auth.permission", "fields": { "name": "Can view medewerker", "content_type": ["zaken", "medewerker"], "codename": "view_medewerker" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add sub verblijf buitenland", "content_type": ["zaken", "subverblijfbuitenland"], "codename": "add_subverblijfbuitenland" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change sub verblijf buitenland", "content_type": ["zaken", "subverblijfbuitenland"], "codename": "change_subverblijfbuitenland" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete sub verblijf buitenland", "content_type": ["zaken", "subverblijfbuitenland"], "codename": "delete_subverblijfbuitenland" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view sub verblijf buitenland", "content_type": ["zaken", "subverblijfbuitenland"], "codename": "view_subverblijfbuitenland" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add besluit", "content_type": ["besluiten", "besluit"], "codename": "add_besluit" } },
+  { "model": "auth.permission", "fields": { "name": "Can change besluit", "content_type": ["besluiten", "besluit"], "codename": "change_besluit" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete besluit", "content_type": ["besluiten", "besluit"], "codename": "delete_besluit" } },
+  { "model": "auth.permission", "fields": { "name": "Can view besluit", "content_type": ["besluiten", "besluit"], "codename": "view_besluit" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add besluitinformatieobject", "content_type": ["besluiten", "besluitinformatieobject"], "codename": "add_besluitinformatieobject" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change besluitinformatieobject", "content_type": ["besluiten", "besluitinformatieobject"], "codename": "change_besluitinformatieobject" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete besluitinformatieobject", "content_type": ["besluiten", "besluitinformatieobject"], "codename": "delete_besluitinformatieobject" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view besluitinformatieobject", "content_type": ["besluiten", "besluitinformatieobject"], "codename": "view_besluitinformatieobject" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add enkelvoudig informatie object canonical",
+      "content_type": ["documenten", "enkelvoudiginformatieobjectcanonical"],
+      "codename": "add_enkelvoudiginformatieobjectcanonical"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change enkelvoudig informatie object canonical",
+      "content_type": ["documenten", "enkelvoudiginformatieobjectcanonical"],
+      "codename": "change_enkelvoudiginformatieobjectcanonical"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete enkelvoudig informatie object canonical",
+      "content_type": ["documenten", "enkelvoudiginformatieobjectcanonical"],
+      "codename": "delete_enkelvoudiginformatieobjectcanonical"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view enkelvoudig informatie object canonical",
+      "content_type": ["documenten", "enkelvoudiginformatieobjectcanonical"],
+      "codename": "view_enkelvoudiginformatieobjectcanonical"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add Document", "content_type": ["documenten", "enkelvoudiginformatieobject"], "codename": "add_enkelvoudiginformatieobject" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change Document", "content_type": ["documenten", "enkelvoudiginformatieobject"], "codename": "change_enkelvoudiginformatieobject" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete Document", "content_type": ["documenten", "enkelvoudiginformatieobject"], "codename": "delete_enkelvoudiginformatieobject" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view Document", "content_type": ["documenten", "enkelvoudiginformatieobject"], "codename": "view_enkelvoudiginformatieobject" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add bestandsdeel", "content_type": ["documenten", "bestandsdeel"], "codename": "add_bestandsdeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can change bestandsdeel", "content_type": ["documenten", "bestandsdeel"], "codename": "change_bestandsdeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete bestandsdeel", "content_type": ["documenten", "bestandsdeel"], "codename": "delete_bestandsdeel" } },
+  { "model": "auth.permission", "fields": { "name": "Can view bestandsdeel", "content_type": ["documenten", "bestandsdeel"], "codename": "view_bestandsdeel" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add gebruiksrecht informatieobject", "content_type": ["documenten", "gebruiksrechten"], "codename": "add_gebruiksrechten" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change gebruiksrecht informatieobject", "content_type": ["documenten", "gebruiksrechten"], "codename": "change_gebruiksrechten" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete gebruiksrecht informatieobject", "content_type": ["documenten", "gebruiksrechten"], "codename": "delete_gebruiksrechten" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view gebruiksrecht informatieobject", "content_type": ["documenten", "gebruiksrechten"], "codename": "view_gebruiksrechten" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add objectinformatieobject", "content_type": ["documenten", "objectinformatieobject"], "codename": "add_objectinformatieobject" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change objectinformatieobject", "content_type": ["documenten", "objectinformatieobject"], "codename": "change_objectinformatieobject" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete objectinformatieobject", "content_type": ["documenten", "objectinformatieobject"], "codename": "delete_objectinformatieobject" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view objectinformatieobject", "content_type": ["documenten", "objectinformatieobject"], "codename": "view_objectinformatieobject" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add besluittype", "content_type": ["catalogi", "besluittype"], "codename": "add_besluittype" } },
+  { "model": "auth.permission", "fields": { "name": "Can change besluittype", "content_type": ["catalogi", "besluittype"], "codename": "change_besluittype" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete besluittype", "content_type": ["catalogi", "besluittype"], "codename": "delete_besluittype" } },
+  { "model": "auth.permission", "fields": { "name": "Can view besluittype", "content_type": ["catalogi", "besluittype"], "codename": "view_besluittype" } },
+  { "model": "auth.permission", "fields": { "name": "Can add catalogus", "content_type": ["catalogi", "catalogus"], "codename": "add_catalogus" } },
+  { "model": "auth.permission", "fields": { "name": "Can change catalogus", "content_type": ["catalogi", "catalogus"], "codename": "change_catalogus" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete catalogus", "content_type": ["catalogi", "catalogus"], "codename": "delete_catalogus" } },
+  { "model": "auth.permission", "fields": { "name": "Can view catalogus", "content_type": ["catalogi", "catalogus"], "codename": "view_catalogus" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add Eigenschap specificatie", "content_type": ["catalogi", "eigenschapspecificatie"], "codename": "add_eigenschapspecificatie" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change Eigenschap specificatie", "content_type": ["catalogi", "eigenschapspecificatie"], "codename": "change_eigenschapspecificatie" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete Eigenschap specificatie", "content_type": ["catalogi", "eigenschapspecificatie"], "codename": "delete_eigenschapspecificatie" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view Eigenschap specificatie", "content_type": ["catalogi", "eigenschapspecificatie"], "codename": "view_eigenschapspecificatie" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add Eigenschap", "content_type": ["catalogi", "eigenschap"], "codename": "add_eigenschap" } },
+  { "model": "auth.permission", "fields": { "name": "Can change Eigenschap", "content_type": ["catalogi", "eigenschap"], "codename": "change_eigenschap" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete Eigenschap", "content_type": ["catalogi", "eigenschap"], "codename": "delete_eigenschap" } },
+  { "model": "auth.permission", "fields": { "name": "Can view Eigenschap", "content_type": ["catalogi", "eigenschap"], "codename": "view_eigenschap" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add Informatieobjecttype", "content_type": ["catalogi", "informatieobjecttype"], "codename": "add_informatieobjecttype" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change Informatieobjecttype", "content_type": ["catalogi", "informatieobjecttype"], "codename": "change_informatieobjecttype" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete Informatieobjecttype", "content_type": ["catalogi", "informatieobjecttype"], "codename": "delete_informatieobjecttype" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view Informatieobjecttype", "content_type": ["catalogi", "informatieobjecttype"], "codename": "view_informatieobjecttype" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add Zaak-Informatieobject-Type", "content_type": ["catalogi", "zaaktypeinformatieobjecttype"], "codename": "add_zaaktypeinformatieobjecttype" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change Zaak-Informatieobject-Type", "content_type": ["catalogi", "zaaktypeinformatieobjecttype"], "codename": "change_zaaktypeinformatieobjecttype" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete Zaak-Informatieobject-Type", "content_type": ["catalogi", "zaaktypeinformatieobjecttype"], "codename": "delete_zaaktypeinformatieobjecttype" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view Zaak-Informatieobject-Type", "content_type": ["catalogi", "zaaktypeinformatieobjecttype"], "codename": "view_zaaktypeinformatieobjecttype" }
+  },
+  { "model": "auth.permission", "fields": { "name": "Can add Zaaktypenrelatie", "content_type": ["catalogi", "zaaktypenrelatie"], "codename": "add_zaaktypenrelatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can change Zaaktypenrelatie", "content_type": ["catalogi", "zaaktypenrelatie"], "codename": "change_zaaktypenrelatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete Zaaktypenrelatie", "content_type": ["catalogi", "zaaktypenrelatie"], "codename": "delete_zaaktypenrelatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can view Zaaktypenrelatie", "content_type": ["catalogi", "zaaktypenrelatie"], "codename": "view_zaaktypenrelatie" } },
+  { "model": "auth.permission", "fields": { "name": "Can add resultaattype", "content_type": ["catalogi", "resultaattype"], "codename": "add_resultaattype" } },
+  { "model": "auth.permission", "fields": { "name": "Can change resultaattype", "content_type": ["catalogi", "resultaattype"], "codename": "change_resultaattype" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete resultaattype", "content_type": ["catalogi", "resultaattype"], "codename": "delete_resultaattype" } },
+  { "model": "auth.permission", "fields": { "name": "Can view resultaattype", "content_type": ["catalogi", "resultaattype"], "codename": "view_resultaattype" } },
+  { "model": "auth.permission", "fields": { "name": "Can add Roltype", "content_type": ["catalogi", "roltype"], "codename": "add_roltype" } },
+  { "model": "auth.permission", "fields": { "name": "Can change Roltype", "content_type": ["catalogi", "roltype"], "codename": "change_roltype" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete Roltype", "content_type": ["catalogi", "roltype"], "codename": "delete_roltype" } },
+  { "model": "auth.permission", "fields": { "name": "Can view Roltype", "content_type": ["catalogi", "roltype"], "codename": "view_roltype" } },
+  { "model": "auth.permission", "fields": { "name": "Can add Statustype", "content_type": ["catalogi", "statustype"], "codename": "add_statustype" } },
+  { "model": "auth.permission", "fields": { "name": "Can change Statustype", "content_type": ["catalogi", "statustype"], "codename": "change_statustype" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete Statustype", "content_type": ["catalogi", "statustype"], "codename": "delete_statustype" } },
+  { "model": "auth.permission", "fields": { "name": "Can view Statustype", "content_type": ["catalogi", "statustype"], "codename": "view_statustype" } },
+  { "model": "auth.permission", "fields": { "name": "Can add Zaaktype", "content_type": ["catalogi", "zaaktype"], "codename": "add_zaaktype" } },
+  { "model": "auth.permission", "fields": { "name": "Can change Zaaktype", "content_type": ["catalogi", "zaaktype"], "codename": "change_zaaktype" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete Zaaktype", "content_type": ["catalogi", "zaaktype"], "codename": "delete_zaaktype" } },
+  { "model": "auth.permission", "fields": { "name": "Can view Zaaktype", "content_type": ["catalogi", "zaaktype"], "codename": "view_zaaktype" } },
+  { "model": "auth.permission", "fields": { "name": "Can add Internal service", "content_type": ["config", "internalservice"], "codename": "add_internalservice" } },
+  { "model": "auth.permission", "fields": { "name": "Can change Internal service", "content_type": ["config", "internalservice"], "codename": "change_internalservice" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete Internal service", "content_type": ["config", "internalservice"], "codename": "delete_internalservice" } },
+  { "model": "auth.permission", "fields": { "name": "Can view Internal service", "content_type": ["config", "internalservice"], "codename": "view_internalservice" } },
+  { "model": "auth.permission", "fields": { "name": "Can add feature flags", "content_type": ["config", "featureflags"], "codename": "add_featureflags" } },
+  { "model": "auth.permission", "fields": { "name": "Can change feature flags", "content_type": ["config", "featureflags"], "codename": "change_featureflags" } },
+  { "model": "auth.permission", "fields": { "name": "Can delete feature flags", "content_type": ["config", "featureflags"], "codename": "delete_featureflags" } },
+  { "model": "auth.permission", "fields": { "name": "Can view feature flags", "content_type": ["config", "featureflags"], "codename": "view_featureflags" } },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add Selectielijstconfiguratie", "content_type": ["selectielijst", "referentielijstconfig"], "codename": "add_referentielijstconfig" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change Selectielijstconfiguratie", "content_type": ["selectielijst", "referentielijstconfig"], "codename": "change_referentielijstconfig" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete Selectielijstconfiguratie", "content_type": ["selectielijst", "referentielijstconfig"], "codename": "delete_referentielijstconfig" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view Selectielijstconfiguratie", "content_type": ["selectielijst", "referentielijstconfig"], "codename": "view_referentielijstconfig" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can add failed notification", "content_type": ["notifications_log", "failednotification"], "codename": "add_failednotification" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can change failed notification", "content_type": ["notifications_log", "failednotification"], "codename": "change_failednotification" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can delete failed notification", "content_type": ["notifications_log", "failednotification"], "codename": "delete_failednotification" }
+  },
+  {
+    "model": "auth.permission",
+    "fields": { "name": "Can view failed notification", "content_type": ["notifications_log", "failednotification"], "codename": "view_failednotification" }
+  },
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "Admin",
+      "permissions": [
+        ["add_user", "accounts", "user"],
+        ["change_user", "accounts", "user"],
+        ["delete_user", "accounts", "user"],
+        ["view_user", "accounts", "user"],
+        ["add_logentry", "admin", "logentry"],
+        ["change_logentry", "admin", "logentry"],
+        ["delete_logentry", "admin", "logentry"],
+        ["view_logentry", "admin", "logentry"],
+        ["add_appgroup", "admin_index", "appgroup"],
+        ["change_appgroup", "admin_index", "appgroup"],
+        ["delete_appgroup", "admin_index", "appgroup"],
+        ["view_appgroup", "admin_index", "appgroup"],
+        ["add_applink", "admin_index", "applink"],
+        ["change_applink", "admin_index", "applink"],
+        ["delete_applink", "admin_index", "applink"],
+        ["view_applink", "admin_index", "applink"],
+        ["add_contenttypeproxy", "admin_index", "contenttypeproxy"],
+        ["change_contenttypeproxy", "admin_index", "contenttypeproxy"],
+        ["delete_contenttypeproxy", "admin_index", "contenttypeproxy"],
+        ["view_contenttypeproxy", "admin_index", "contenttypeproxy"],
+        ["add_audittrail", "audittrails", "audittrail"],
+        ["change_audittrail", "audittrails", "audittrail"],
+        ["delete_audittrail", "audittrails", "audittrail"],
+        ["view_audittrail", "audittrails", "audittrail"],
+        ["add_group", "auth", "group"],
+        ["change_group", "auth", "group"],
+        ["delete_group", "auth", "group"],
+        ["view_group", "auth", "group"],
+        ["add_permission", "auth", "permission"],
+        ["change_permission", "auth", "permission"],
+        ["delete_permission", "auth", "permission"],
+        ["view_permission", "auth", "permission"],
+        ["add_applicatie", "authorizations", "applicatie"],
+        ["change_applicatie", "authorizations", "applicatie"],
+        ["delete_applicatie", "authorizations", "applicatie"],
+        ["view_applicatie", "authorizations", "applicatie"],
+        ["add_authorizationsconfig", "authorizations", "authorizationsconfig"],
+        ["change_authorizationsconfig", "authorizations", "authorizationsconfig"],
+        ["delete_authorizationsconfig", "authorizations", "authorizationsconfig"],
+        ["view_authorizationsconfig", "authorizations", "authorizationsconfig"],
+        ["add_autorisatie", "authorizations", "autorisatie"],
+        ["change_autorisatie", "authorizations", "autorisatie"],
+        ["delete_autorisatie", "authorizations", "autorisatie"],
+        ["view_autorisatie", "authorizations", "autorisatie"],
+        ["add_autorisatiespec", "autorisaties", "autorisatiespec"],
+        ["change_autorisatiespec", "autorisaties", "autorisatiespec"],
+        ["delete_autorisatiespec", "autorisaties", "autorisatiespec"],
+        ["view_autorisatiespec", "autorisaties", "autorisatiespec"],
+        ["add_accessattempt", "axes", "accessattempt"],
+        ["change_accessattempt", "axes", "accessattempt"],
+        ["delete_accessattempt", "axes", "accessattempt"],
+        ["view_accessattempt", "axes", "accessattempt"],
+        ["add_accesslog", "axes", "accesslog"],
+        ["change_accesslog", "axes", "accesslog"],
+        ["delete_accesslog", "axes", "accesslog"],
+        ["view_accesslog", "axes", "accesslog"],
+        ["add_besluit", "besluiten", "besluit"],
+        ["change_besluit", "besluiten", "besluit"],
+        ["delete_besluit", "besluiten", "besluit"],
+        ["view_besluit", "besluiten", "besluit"],
+        ["add_besluitinformatieobject", "besluiten", "besluitinformatieobject"],
+        ["change_besluitinformatieobject", "besluiten", "besluitinformatieobject"],
+        ["delete_besluitinformatieobject", "besluiten", "besluitinformatieobject"],
+        ["view_besluitinformatieobject", "besluiten", "besluitinformatieobject"],
+        ["add_besluittype", "catalogi", "besluittype"],
+        ["change_besluittype", "catalogi", "besluittype"],
+        ["delete_besluittype", "catalogi", "besluittype"],
+        ["view_besluittype", "catalogi", "besluittype"],
+        ["add_catalogus", "catalogi", "catalogus"],
+        ["change_catalogus", "catalogi", "catalogus"],
+        ["delete_catalogus", "catalogi", "catalogus"],
+        ["view_catalogus", "catalogi", "catalogus"],
+        ["add_eigenschap", "catalogi", "eigenschap"],
+        ["change_eigenschap", "catalogi", "eigenschap"],
+        ["delete_eigenschap", "catalogi", "eigenschap"],
+        ["view_eigenschap", "catalogi", "eigenschap"],
+        ["add_eigenschapspecificatie", "catalogi", "eigenschapspecificatie"],
+        ["change_eigenschapspecificatie", "catalogi", "eigenschapspecificatie"],
+        ["delete_eigenschapspecificatie", "catalogi", "eigenschapspecificatie"],
+        ["view_eigenschapspecificatie", "catalogi", "eigenschapspecificatie"],
+        ["add_informatieobjecttype", "catalogi", "informatieobjecttype"],
+        ["change_informatieobjecttype", "catalogi", "informatieobjecttype"],
+        ["delete_informatieobjecttype", "catalogi", "informatieobjecttype"],
+        ["view_informatieobjecttype", "catalogi", "informatieobjecttype"],
+        ["add_resultaattype", "catalogi", "resultaattype"],
+        ["change_resultaattype", "catalogi", "resultaattype"],
+        ["delete_resultaattype", "catalogi", "resultaattype"],
+        ["view_resultaattype", "catalogi", "resultaattype"],
+        ["add_roltype", "catalogi", "roltype"],
+        ["change_roltype", "catalogi", "roltype"],
+        ["delete_roltype", "catalogi", "roltype"],
+        ["view_roltype", "catalogi", "roltype"],
+        ["add_statustype", "catalogi", "statustype"],
+        ["change_statustype", "catalogi", "statustype"],
+        ["delete_statustype", "catalogi", "statustype"],
+        ["view_statustype", "catalogi", "statustype"],
+        ["add_zaaktype", "catalogi", "zaaktype"],
+        ["change_zaaktype", "catalogi", "zaaktype"],
+        ["delete_zaaktype", "catalogi", "zaaktype"],
+        ["view_zaaktype", "catalogi", "zaaktype"],
+        ["add_zaaktypeinformatieobjecttype", "catalogi", "zaaktypeinformatieobjecttype"],
+        ["change_zaaktypeinformatieobjecttype", "catalogi", "zaaktypeinformatieobjecttype"],
+        ["delete_zaaktypeinformatieobjecttype", "catalogi", "zaaktypeinformatieobjecttype"],
+        ["view_zaaktypeinformatieobjecttype", "catalogi", "zaaktypeinformatieobjecttype"],
+        ["add_zaaktypenrelatie", "catalogi", "zaaktypenrelatie"],
+        ["change_zaaktypenrelatie", "catalogi", "zaaktypenrelatie"],
+        ["delete_zaaktypenrelatie", "catalogi", "zaaktypenrelatie"],
+        ["view_zaaktypenrelatie", "catalogi", "zaaktypenrelatie"],
+        ["add_contenttype", "contenttypes", "contenttype"],
+        ["change_contenttype", "contenttypes", "contenttype"],
+        ["delete_contenttype", "contenttypes", "contenttype"],
+        ["view_contenttype", "contenttypes", "contenttype"],
+        ["add_statuslog", "django_db_logger", "statuslog"],
+        ["change_statuslog", "django_db_logger", "statuslog"],
+        ["delete_statuslog", "django_db_logger", "statuslog"],
+        ["view_statuslog", "django_db_logger", "statuslog"],
+        ["add_enkelvoudiginformatieobject", "documenten", "enkelvoudiginformatieobject"],
+        ["change_enkelvoudiginformatieobject", "documenten", "enkelvoudiginformatieobject"],
+        ["delete_enkelvoudiginformatieobject", "documenten", "enkelvoudiginformatieobject"],
+        ["view_enkelvoudiginformatieobject", "documenten", "enkelvoudiginformatieobject"],
+        ["add_enkelvoudiginformatieobjectcanonical", "documenten", "enkelvoudiginformatieobjectcanonical"],
+        ["change_enkelvoudiginformatieobjectcanonical", "documenten", "enkelvoudiginformatieobjectcanonical"],
+        ["delete_enkelvoudiginformatieobjectcanonical", "documenten", "enkelvoudiginformatieobjectcanonical"],
+        ["view_enkelvoudiginformatieobjectcanonical", "documenten", "enkelvoudiginformatieobjectcanonical"],
+        ["add_gebruiksrechten", "documenten", "gebruiksrechten"],
+        ["change_gebruiksrechten", "documenten", "gebruiksrechten"],
+        ["delete_gebruiksrechten", "documenten", "gebruiksrechten"],
+        ["view_gebruiksrechten", "documenten", "gebruiksrechten"],
+        ["add_objectinformatieobject", "documenten", "objectinformatieobject"],
+        ["change_objectinformatieobject", "documenten", "objectinformatieobject"],
+        ["delete_objectinformatieobject", "documenten", "objectinformatieobject"],
+        ["view_objectinformatieobject", "documenten", "objectinformatieobject"],
+        ["add_notificationsconfig", "notifications", "notificationsconfig"],
+        ["change_notificationsconfig", "notifications", "notificationsconfig"],
+        ["delete_notificationsconfig", "notifications", "notificationsconfig"],
+        ["view_notificationsconfig", "notifications", "notificationsconfig"],
+        ["add_subscription", "notifications", "subscription"],
+        ["change_subscription", "notifications", "subscription"],
+        ["delete_subscription", "notifications", "subscription"],
+        ["view_subscription", "notifications", "subscription"],
+        ["add_failednotification", "notifications_log", "failednotification"],
+        ["change_failednotification", "notifications_log", "failednotification"],
+        ["delete_failednotification", "notifications_log", "failednotification"],
+        ["view_failednotification", "notifications_log", "failednotification"],
+        ["add_session", "sessions", "session"],
+        ["change_session", "sessions", "session"],
+        ["delete_session", "sessions", "session"],
+        ["view_session", "sessions", "session"],
+        ["add_site", "sites", "site"],
+        ["change_site", "sites", "site"],
+        ["delete_site", "sites", "site"],
+        ["view_site", "sites", "site"],
+        ["add_jwtsecret", "vng_api_common", "jwtsecret"],
+        ["change_jwtsecret", "vng_api_common", "jwtsecret"],
+        ["delete_jwtsecret", "vng_api_common", "jwtsecret"],
+        ["view_jwtsecret", "vng_api_common", "jwtsecret"],
+        ["add_adres", "zaken", "adres"],
+        ["change_adres", "zaken", "adres"],
+        ["delete_adres", "zaken", "adres"],
+        ["view_adres", "zaken", "adres"],
+        ["add_buurt", "zaken", "buurt"],
+        ["change_buurt", "zaken", "buurt"],
+        ["delete_buurt", "zaken", "buurt"],
+        ["view_buurt", "zaken", "buurt"],
+        ["add_gemeente", "zaken", "gemeente"],
+        ["change_gemeente", "zaken", "gemeente"],
+        ["delete_gemeente", "zaken", "gemeente"],
+        ["view_gemeente", "zaken", "gemeente"],
+        ["add_gemeentelijkeopenbareruimte", "zaken", "gemeentelijkeopenbareruimte"],
+        ["change_gemeentelijkeopenbareruimte", "zaken", "gemeentelijkeopenbareruimte"],
+        ["delete_gemeentelijkeopenbareruimte", "zaken", "gemeentelijkeopenbareruimte"],
+        ["view_gemeentelijkeopenbareruimte", "zaken", "gemeentelijkeopenbareruimte"],
+        ["add_huishouden", "zaken", "huishouden"],
+        ["change_huishouden", "zaken", "huishouden"],
+        ["delete_huishouden", "zaken", "huishouden"],
+        ["view_huishouden", "zaken", "huishouden"],
+        ["add_inrichtingselement", "zaken", "inrichtingselement"],
+        ["change_inrichtingselement", "zaken", "inrichtingselement"],
+        ["delete_inrichtingselement", "zaken", "inrichtingselement"],
+        ["view_inrichtingselement", "zaken", "inrichtingselement"],
+        ["add_kadastraleonroerendezaak", "zaken", "kadastraleonroerendezaak"],
+        ["change_kadastraleonroerendezaak", "zaken", "kadastraleonroerendezaak"],
+        ["delete_kadastraleonroerendezaak", "zaken", "kadastraleonroerendezaak"],
+        ["view_kadastraleonroerendezaak", "zaken", "kadastraleonroerendezaak"],
+        ["add_klantcontact", "zaken", "klantcontact"],
+        ["change_klantcontact", "zaken", "klantcontact"],
+        ["delete_klantcontact", "zaken", "klantcontact"],
+        ["view_klantcontact", "zaken", "klantcontact"],
+        ["add_kunstwerkdeel", "zaken", "kunstwerkdeel"],
+        ["change_kunstwerkdeel", "zaken", "kunstwerkdeel"],
+        ["delete_kunstwerkdeel", "zaken", "kunstwerkdeel"],
+        ["view_kunstwerkdeel", "zaken", "kunstwerkdeel"],
+        ["add_maatschappelijkeactiviteit", "zaken", "maatschappelijkeactiviteit"],
+        ["change_maatschappelijkeactiviteit", "zaken", "maatschappelijkeactiviteit"],
+        ["delete_maatschappelijkeactiviteit", "zaken", "maatschappelijkeactiviteit"],
+        ["view_maatschappelijkeactiviteit", "zaken", "maatschappelijkeactiviteit"],
+        ["add_medewerker", "zaken", "medewerker"],
+        ["change_medewerker", "zaken", "medewerker"],
+        ["delete_medewerker", "zaken", "medewerker"],
+        ["view_medewerker", "zaken", "medewerker"],
+        ["add_natuurlijkpersoon", "zaken", "natuurlijkpersoon"],
+        ["change_natuurlijkpersoon", "zaken", "natuurlijkpersoon"],
+        ["delete_natuurlijkpersoon", "zaken", "natuurlijkpersoon"],
+        ["view_natuurlijkpersoon", "zaken", "natuurlijkpersoon"],
+        ["add_nietnatuurlijkpersoon", "zaken", "nietnatuurlijkpersoon"],
+        ["change_nietnatuurlijkpersoon", "zaken", "nietnatuurlijkpersoon"],
+        ["delete_nietnatuurlijkpersoon", "zaken", "nietnatuurlijkpersoon"],
+        ["view_nietnatuurlijkpersoon", "zaken", "nietnatuurlijkpersoon"],
+        ["add_openbareruimte", "zaken", "openbareruimte"],
+        ["change_openbareruimte", "zaken", "openbareruimte"],
+        ["delete_openbareruimte", "zaken", "openbareruimte"],
+        ["view_openbareruimte", "zaken", "openbareruimte"],
+        ["add_organisatorischeeenheid", "zaken", "organisatorischeeenheid"],
+        ["change_organisatorischeeenheid", "zaken", "organisatorischeeenheid"],
+        ["delete_organisatorischeeenheid", "zaken", "organisatorischeeenheid"],
+        ["view_organisatorischeeenheid", "zaken", "organisatorischeeenheid"],
+        ["add_overige", "zaken", "overige"],
+        ["change_overige", "zaken", "overige"],
+        ["delete_overige", "zaken", "overige"],
+        ["view_overige", "zaken", "overige"],
+        ["add_pand", "zaken", "pand"],
+        ["change_pand", "zaken", "pand"],
+        ["delete_pand", "zaken", "pand"],
+        ["view_pand", "zaken", "pand"],
+        ["add_relevantezaakrelatie", "zaken", "relevantezaakrelatie"],
+        ["change_relevantezaakrelatie", "zaken", "relevantezaakrelatie"],
+        ["delete_relevantezaakrelatie", "zaken", "relevantezaakrelatie"],
+        ["view_relevantezaakrelatie", "zaken", "relevantezaakrelatie"],
+        ["add_resultaat", "zaken", "resultaat"],
+        ["change_resultaat", "zaken", "resultaat"],
+        ["delete_resultaat", "zaken", "resultaat"],
+        ["view_resultaat", "zaken", "resultaat"],
+        ["add_rol", "zaken", "rol"],
+        ["change_rol", "zaken", "rol"],
+        ["delete_rol", "zaken", "rol"],
+        ["view_rol", "zaken", "rol"],
+        ["add_spoorbaandeel", "zaken", "spoorbaandeel"],
+        ["change_spoorbaandeel", "zaken", "spoorbaandeel"],
+        ["delete_spoorbaandeel", "zaken", "spoorbaandeel"],
+        ["view_spoorbaandeel", "zaken", "spoorbaandeel"],
+        ["add_status", "zaken", "status"],
+        ["change_status", "zaken", "status"],
+        ["delete_status", "zaken", "status"],
+        ["view_status", "zaken", "status"],
+        ["add_subverblijfbuitenland", "zaken", "subverblijfbuitenland"],
+        ["change_subverblijfbuitenland", "zaken", "subverblijfbuitenland"],
+        ["delete_subverblijfbuitenland", "zaken", "subverblijfbuitenland"],
+        ["view_subverblijfbuitenland", "zaken", "subverblijfbuitenland"],
+        ["add_terreindeel", "zaken", "terreindeel"],
+        ["change_terreindeel", "zaken", "terreindeel"],
+        ["delete_terreindeel", "zaken", "terreindeel"],
+        ["view_terreindeel", "zaken", "terreindeel"],
+        ["add_terreingebouwdobject", "zaken", "terreingebouwdobject"],
+        ["change_terreingebouwdobject", "zaken", "terreingebouwdobject"],
+        ["delete_terreingebouwdobject", "zaken", "terreingebouwdobject"],
+        ["view_terreingebouwdobject", "zaken", "terreingebouwdobject"],
+        ["add_vestiging", "zaken", "vestiging"],
+        ["change_vestiging", "zaken", "vestiging"],
+        ["delete_vestiging", "zaken", "vestiging"],
+        ["view_vestiging", "zaken", "vestiging"],
+        ["add_waterdeel", "zaken", "waterdeel"],
+        ["change_waterdeel", "zaken", "waterdeel"],
+        ["delete_waterdeel", "zaken", "waterdeel"],
+        ["view_waterdeel", "zaken", "waterdeel"],
+        ["add_wegdeel", "zaken", "wegdeel"],
+        ["change_wegdeel", "zaken", "wegdeel"],
+        ["delete_wegdeel", "zaken", "wegdeel"],
+        ["view_wegdeel", "zaken", "wegdeel"],
+        ["add_wijk", "zaken", "wijk"],
+        ["change_wijk", "zaken", "wijk"],
+        ["delete_wijk", "zaken", "wijk"],
+        ["view_wijk", "zaken", "wijk"],
+        ["add_woonplaats", "zaken", "woonplaats"],
+        ["change_woonplaats", "zaken", "woonplaats"],
+        ["delete_woonplaats", "zaken", "woonplaats"],
+        ["view_woonplaats", "zaken", "woonplaats"],
+        ["add_wozdeelobject", "zaken", "wozdeelobject"],
+        ["change_wozdeelobject", "zaken", "wozdeelobject"],
+        ["delete_wozdeelobject", "zaken", "wozdeelobject"],
+        ["view_wozdeelobject", "zaken", "wozdeelobject"],
+        ["add_wozobject", "zaken", "wozobject"],
+        ["change_wozobject", "zaken", "wozobject"],
+        ["delete_wozobject", "zaken", "wozobject"],
+        ["view_wozobject", "zaken", "wozobject"],
+        ["add_wozwaarde", "zaken", "wozwaarde"],
+        ["change_wozwaarde", "zaken", "wozwaarde"],
+        ["delete_wozwaarde", "zaken", "wozwaarde"],
+        ["view_wozwaarde", "zaken", "wozwaarde"],
+        ["add_zaak", "zaken", "zaak"],
+        ["change_zaak", "zaken", "zaak"],
+        ["delete_zaak", "zaken", "zaak"],
+        ["view_zaak", "zaken", "zaak"],
+        ["add_zaakbesluit", "zaken", "zaakbesluit"],
+        ["change_zaakbesluit", "zaken", "zaakbesluit"],
+        ["delete_zaakbesluit", "zaken", "zaakbesluit"],
+        ["view_zaakbesluit", "zaken", "zaakbesluit"],
+        ["add_zaakeigenschap", "zaken", "zaakeigenschap"],
+        ["change_zaakeigenschap", "zaken", "zaakeigenschap"],
+        ["delete_zaakeigenschap", "zaken", "zaakeigenschap"],
+        ["view_zaakeigenschap", "zaken", "zaakeigenschap"],
+        ["add_zaakinformatieobject", "zaken", "zaakinformatieobject"],
+        ["change_zaakinformatieobject", "zaken", "zaakinformatieobject"],
+        ["delete_zaakinformatieobject", "zaken", "zaakinformatieobject"],
+        ["view_zaakinformatieobject", "zaken", "zaakinformatieobject"],
+        ["add_zaakkenmerk", "zaken", "zaakkenmerk"],
+        ["change_zaakkenmerk", "zaken", "zaakkenmerk"],
+        ["delete_zaakkenmerk", "zaken", "zaakkenmerk"],
+        ["view_zaakkenmerk", "zaken", "zaakkenmerk"],
+        ["add_zaakobject", "zaken", "zaakobject"],
+        ["change_zaakobject", "zaken", "zaakobject"],
+        ["delete_zaakobject", "zaken", "zaakobject"],
+        ["view_zaakobject", "zaken", "zaakobject"],
+        ["add_zakelijkrecht", "zaken", "zakelijkrecht"],
+        ["change_zakelijkrecht", "zaken", "zakelijkrecht"],
+        ["delete_zakelijkrecht", "zaken", "zakelijkrecht"],
+        ["view_zakelijkrecht", "zaken", "zakelijkrecht"],
+        ["add_zakelijkrechtheeftalsgerechtigde", "zaken", "zakelijkrechtheeftalsgerechtigde"],
+        ["change_zakelijkrechtheeftalsgerechtigde", "zaken", "zakelijkrechtheeftalsgerechtigde"],
+        ["delete_zakelijkrechtheeftalsgerechtigde", "zaken", "zakelijkrechtheeftalsgerechtigde"],
+        ["view_zakelijkrechtheeftalsgerechtigde", "zaken", "zakelijkrechtheeftalsgerechtigde"]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "Autorisaties admin",
+      "permissions": [
+        ["add_applicatie", "authorizations", "applicatie"],
+        ["change_applicatie", "authorizations", "applicatie"],
+        ["delete_applicatie", "authorizations", "applicatie"],
+        ["view_applicatie", "authorizations", "applicatie"],
+        ["add_authorizationsconfig", "authorizations", "authorizationsconfig"],
+        ["change_authorizationsconfig", "authorizations", "authorizationsconfig"],
+        ["delete_authorizationsconfig", "authorizations", "authorizationsconfig"],
+        ["view_authorizationsconfig", "authorizations", "authorizationsconfig"],
+        ["add_autorisatie", "authorizations", "autorisatie"],
+        ["change_autorisatie", "authorizations", "autorisatie"],
+        ["delete_autorisatie", "authorizations", "autorisatie"],
+        ["view_autorisatie", "authorizations", "autorisatie"],
+        ["add_autorisatiespec", "autorisaties", "autorisatiespec"],
+        ["change_autorisatiespec", "autorisaties", "autorisatiespec"],
+        ["delete_autorisatiespec", "autorisaties", "autorisatiespec"],
+        ["view_autorisatiespec", "autorisaties", "autorisatiespec"]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "Besluiten admin",
+      "permissions": [
+        ["add_besluit", "besluiten", "besluit"],
+        ["change_besluit", "besluiten", "besluit"],
+        ["delete_besluit", "besluiten", "besluit"],
+        ["view_besluit", "besluiten", "besluit"],
+        ["add_besluitinformatieobject", "besluiten", "besluitinformatieobject"],
+        ["change_besluitinformatieobject", "besluiten", "besluitinformatieobject"],
+        ["delete_besluitinformatieobject", "besluiten", "besluitinformatieobject"],
+        ["view_besluitinformatieobject", "besluiten", "besluitinformatieobject"]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "Catalogi admin",
+      "permissions": [
+        ["add_besluittype", "catalogi", "besluittype"],
+        ["change_besluittype", "catalogi", "besluittype"],
+        ["delete_besluittype", "catalogi", "besluittype"],
+        ["view_besluittype", "catalogi", "besluittype"],
+        ["add_catalogus", "catalogi", "catalogus"],
+        ["change_catalogus", "catalogi", "catalogus"],
+        ["delete_catalogus", "catalogi", "catalogus"],
+        ["view_catalogus", "catalogi", "catalogus"],
+        ["add_eigenschap", "catalogi", "eigenschap"],
+        ["change_eigenschap", "catalogi", "eigenschap"],
+        ["delete_eigenschap", "catalogi", "eigenschap"],
+        ["view_eigenschap", "catalogi", "eigenschap"],
+        ["add_eigenschapspecificatie", "catalogi", "eigenschapspecificatie"],
+        ["change_eigenschapspecificatie", "catalogi", "eigenschapspecificatie"],
+        ["delete_eigenschapspecificatie", "catalogi", "eigenschapspecificatie"],
+        ["view_eigenschapspecificatie", "catalogi", "eigenschapspecificatie"],
+        ["add_informatieobjecttype", "catalogi", "informatieobjecttype"],
+        ["change_informatieobjecttype", "catalogi", "informatieobjecttype"],
+        ["delete_informatieobjecttype", "catalogi", "informatieobjecttype"],
+        ["view_informatieobjecttype", "catalogi", "informatieobjecttype"],
+        ["add_resultaattype", "catalogi", "resultaattype"],
+        ["change_resultaattype", "catalogi", "resultaattype"],
+        ["delete_resultaattype", "catalogi", "resultaattype"],
+        ["view_resultaattype", "catalogi", "resultaattype"],
+        ["add_roltype", "catalogi", "roltype"],
+        ["change_roltype", "catalogi", "roltype"],
+        ["delete_roltype", "catalogi", "roltype"],
+        ["view_roltype", "catalogi", "roltype"],
+        ["add_statustype", "catalogi", "statustype"],
+        ["change_statustype", "catalogi", "statustype"],
+        ["delete_statustype", "catalogi", "statustype"],
+        ["view_statustype", "catalogi", "statustype"],
+        ["add_zaaktype", "catalogi", "zaaktype"],
+        ["change_zaaktype", "catalogi", "zaaktype"],
+        ["delete_zaaktype", "catalogi", "zaaktype"],
+        ["view_zaaktype", "catalogi", "zaaktype"],
+        ["add_zaaktypeinformatieobjecttype", "catalogi", "zaaktypeinformatieobjecttype"],
+        ["change_zaaktypeinformatieobjecttype", "catalogi", "zaaktypeinformatieobjecttype"],
+        ["delete_zaaktypeinformatieobjecttype", "catalogi", "zaaktypeinformatieobjecttype"],
+        ["view_zaaktypeinformatieobjecttype", "catalogi", "zaaktypeinformatieobjecttype"],
+        ["add_zaaktypenrelatie", "catalogi", "zaaktypenrelatie"],
+        ["change_zaaktypenrelatie", "catalogi", "zaaktypenrelatie"],
+        ["delete_zaaktypenrelatie", "catalogi", "zaaktypenrelatie"],
+        ["view_zaaktypenrelatie", "catalogi", "zaaktypenrelatie"]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "Documenten admin",
+      "permissions": [
+        ["add_enkelvoudiginformatieobject", "documenten", "enkelvoudiginformatieobject"],
+        ["change_enkelvoudiginformatieobject", "documenten", "enkelvoudiginformatieobject"],
+        ["delete_enkelvoudiginformatieobject", "documenten", "enkelvoudiginformatieobject"],
+        ["view_enkelvoudiginformatieobject", "documenten", "enkelvoudiginformatieobject"],
+        ["add_enkelvoudiginformatieobjectcanonical", "documenten", "enkelvoudiginformatieobjectcanonical"],
+        ["change_enkelvoudiginformatieobjectcanonical", "documenten", "enkelvoudiginformatieobjectcanonical"],
+        ["delete_enkelvoudiginformatieobjectcanonical", "documenten", "enkelvoudiginformatieobjectcanonical"],
+        ["view_enkelvoudiginformatieobjectcanonical", "documenten", "enkelvoudiginformatieobjectcanonical"],
+        ["add_gebruiksrechten", "documenten", "gebruiksrechten"],
+        ["change_gebruiksrechten", "documenten", "gebruiksrechten"],
+        ["delete_gebruiksrechten", "documenten", "gebruiksrechten"],
+        ["view_gebruiksrechten", "documenten", "gebruiksrechten"],
+        ["add_objectinformatieobject", "documenten", "objectinformatieobject"],
+        ["change_objectinformatieobject", "documenten", "objectinformatieobject"],
+        ["delete_objectinformatieobject", "documenten", "objectinformatieobject"],
+        ["view_objectinformatieobject", "documenten", "objectinformatieobject"]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "Zaken admin",
+      "permissions": [
+        ["add_adres", "zaken", "adres"],
+        ["change_adres", "zaken", "adres"],
+        ["delete_adres", "zaken", "adres"],
+        ["view_adres", "zaken", "adres"],
+        ["add_buurt", "zaken", "buurt"],
+        ["change_buurt", "zaken", "buurt"],
+        ["delete_buurt", "zaken", "buurt"],
+        ["view_buurt", "zaken", "buurt"],
+        ["add_gemeente", "zaken", "gemeente"],
+        ["change_gemeente", "zaken", "gemeente"],
+        ["delete_gemeente", "zaken", "gemeente"],
+        ["view_gemeente", "zaken", "gemeente"],
+        ["add_gemeentelijkeopenbareruimte", "zaken", "gemeentelijkeopenbareruimte"],
+        ["change_gemeentelijkeopenbareruimte", "zaken", "gemeentelijkeopenbareruimte"],
+        ["delete_gemeentelijkeopenbareruimte", "zaken", "gemeentelijkeopenbareruimte"],
+        ["view_gemeentelijkeopenbareruimte", "zaken", "gemeentelijkeopenbareruimte"],
+        ["add_huishouden", "zaken", "huishouden"],
+        ["change_huishouden", "zaken", "huishouden"],
+        ["delete_huishouden", "zaken", "huishouden"],
+        ["view_huishouden", "zaken", "huishouden"],
+        ["add_inrichtingselement", "zaken", "inrichtingselement"],
+        ["change_inrichtingselement", "zaken", "inrichtingselement"],
+        ["delete_inrichtingselement", "zaken", "inrichtingselement"],
+        ["view_inrichtingselement", "zaken", "inrichtingselement"],
+        ["add_kadastraleonroerendezaak", "zaken", "kadastraleonroerendezaak"],
+        ["change_kadastraleonroerendezaak", "zaken", "kadastraleonroerendezaak"],
+        ["delete_kadastraleonroerendezaak", "zaken", "kadastraleonroerendezaak"],
+        ["view_kadastraleonroerendezaak", "zaken", "kadastraleonroerendezaak"],
+        ["add_klantcontact", "zaken", "klantcontact"],
+        ["change_klantcontact", "zaken", "klantcontact"],
+        ["delete_klantcontact", "zaken", "klantcontact"],
+        ["view_klantcontact", "zaken", "klantcontact"],
+        ["add_kunstwerkdeel", "zaken", "kunstwerkdeel"],
+        ["change_kunstwerkdeel", "zaken", "kunstwerkdeel"],
+        ["delete_kunstwerkdeel", "zaken", "kunstwerkdeel"],
+        ["view_kunstwerkdeel", "zaken", "kunstwerkdeel"],
+        ["add_maatschappelijkeactiviteit", "zaken", "maatschappelijkeactiviteit"],
+        ["change_maatschappelijkeactiviteit", "zaken", "maatschappelijkeactiviteit"],
+        ["delete_maatschappelijkeactiviteit", "zaken", "maatschappelijkeactiviteit"],
+        ["view_maatschappelijkeactiviteit", "zaken", "maatschappelijkeactiviteit"],
+        ["add_medewerker", "zaken", "medewerker"],
+        ["change_medewerker", "zaken", "medewerker"],
+        ["delete_medewerker", "zaken", "medewerker"],
+        ["view_medewerker", "zaken", "medewerker"],
+        ["add_natuurlijkpersoon", "zaken", "natuurlijkpersoon"],
+        ["change_natuurlijkpersoon", "zaken", "natuurlijkpersoon"],
+        ["delete_natuurlijkpersoon", "zaken", "natuurlijkpersoon"],
+        ["view_natuurlijkpersoon", "zaken", "natuurlijkpersoon"],
+        ["add_nietnatuurlijkpersoon", "zaken", "nietnatuurlijkpersoon"],
+        ["change_nietnatuurlijkpersoon", "zaken", "nietnatuurlijkpersoon"],
+        ["delete_nietnatuurlijkpersoon", "zaken", "nietnatuurlijkpersoon"],
+        ["view_nietnatuurlijkpersoon", "zaken", "nietnatuurlijkpersoon"],
+        ["add_openbareruimte", "zaken", "openbareruimte"],
+        ["change_openbareruimte", "zaken", "openbareruimte"],
+        ["delete_openbareruimte", "zaken", "openbareruimte"],
+        ["view_openbareruimte", "zaken", "openbareruimte"],
+        ["add_organisatorischeeenheid", "zaken", "organisatorischeeenheid"],
+        ["change_organisatorischeeenheid", "zaken", "organisatorischeeenheid"],
+        ["delete_organisatorischeeenheid", "zaken", "organisatorischeeenheid"],
+        ["view_organisatorischeeenheid", "zaken", "organisatorischeeenheid"],
+        ["add_overige", "zaken", "overige"],
+        ["change_overige", "zaken", "overige"],
+        ["delete_overige", "zaken", "overige"],
+        ["view_overige", "zaken", "overige"],
+        ["add_pand", "zaken", "pand"],
+        ["change_pand", "zaken", "pand"],
+        ["delete_pand", "zaken", "pand"],
+        ["view_pand", "zaken", "pand"],
+        ["add_relevantezaakrelatie", "zaken", "relevantezaakrelatie"],
+        ["change_relevantezaakrelatie", "zaken", "relevantezaakrelatie"],
+        ["delete_relevantezaakrelatie", "zaken", "relevantezaakrelatie"],
+        ["view_relevantezaakrelatie", "zaken", "relevantezaakrelatie"],
+        ["add_resultaat", "zaken", "resultaat"],
+        ["change_resultaat", "zaken", "resultaat"],
+        ["delete_resultaat", "zaken", "resultaat"],
+        ["view_resultaat", "zaken", "resultaat"],
+        ["add_rol", "zaken", "rol"],
+        ["change_rol", "zaken", "rol"],
+        ["delete_rol", "zaken", "rol"],
+        ["view_rol", "zaken", "rol"],
+        ["add_spoorbaandeel", "zaken", "spoorbaandeel"],
+        ["change_spoorbaandeel", "zaken", "spoorbaandeel"],
+        ["delete_spoorbaandeel", "zaken", "spoorbaandeel"],
+        ["view_spoorbaandeel", "zaken", "spoorbaandeel"],
+        ["add_status", "zaken", "status"],
+        ["change_status", "zaken", "status"],
+        ["delete_status", "zaken", "status"],
+        ["view_status", "zaken", "status"],
+        ["add_subverblijfbuitenland", "zaken", "subverblijfbuitenland"],
+        ["change_subverblijfbuitenland", "zaken", "subverblijfbuitenland"],
+        ["delete_subverblijfbuitenland", "zaken", "subverblijfbuitenland"],
+        ["view_subverblijfbuitenland", "zaken", "subverblijfbuitenland"],
+        ["add_terreindeel", "zaken", "terreindeel"],
+        ["change_terreindeel", "zaken", "terreindeel"],
+        ["delete_terreindeel", "zaken", "terreindeel"],
+        ["view_terreindeel", "zaken", "terreindeel"],
+        ["add_terreingebouwdobject", "zaken", "terreingebouwdobject"],
+        ["change_terreingebouwdobject", "zaken", "terreingebouwdobject"],
+        ["delete_terreingebouwdobject", "zaken", "terreingebouwdobject"],
+        ["view_terreingebouwdobject", "zaken", "terreingebouwdobject"],
+        ["add_vestiging", "zaken", "vestiging"],
+        ["change_vestiging", "zaken", "vestiging"],
+        ["delete_vestiging", "zaken", "vestiging"],
+        ["view_vestiging", "zaken", "vestiging"],
+        ["add_waterdeel", "zaken", "waterdeel"],
+        ["change_waterdeel", "zaken", "waterdeel"],
+        ["delete_waterdeel", "zaken", "waterdeel"],
+        ["view_waterdeel", "zaken", "waterdeel"],
+        ["add_wegdeel", "zaken", "wegdeel"],
+        ["change_wegdeel", "zaken", "wegdeel"],
+        ["delete_wegdeel", "zaken", "wegdeel"],
+        ["view_wegdeel", "zaken", "wegdeel"],
+        ["add_wijk", "zaken", "wijk"],
+        ["change_wijk", "zaken", "wijk"],
+        ["delete_wijk", "zaken", "wijk"],
+        ["view_wijk", "zaken", "wijk"],
+        ["add_woonplaats", "zaken", "woonplaats"],
+        ["change_woonplaats", "zaken", "woonplaats"],
+        ["delete_woonplaats", "zaken", "woonplaats"],
+        ["view_woonplaats", "zaken", "woonplaats"],
+        ["add_wozdeelobject", "zaken", "wozdeelobject"],
+        ["change_wozdeelobject", "zaken", "wozdeelobject"],
+        ["delete_wozdeelobject", "zaken", "wozdeelobject"],
+        ["view_wozdeelobject", "zaken", "wozdeelobject"],
+        ["add_wozobject", "zaken", "wozobject"],
+        ["change_wozobject", "zaken", "wozobject"],
+        ["delete_wozobject", "zaken", "wozobject"],
+        ["view_wozobject", "zaken", "wozobject"],
+        ["add_wozwaarde", "zaken", "wozwaarde"],
+        ["change_wozwaarde", "zaken", "wozwaarde"],
+        ["delete_wozwaarde", "zaken", "wozwaarde"],
+        ["view_wozwaarde", "zaken", "wozwaarde"],
+        ["add_zaak", "zaken", "zaak"],
+        ["change_zaak", "zaken", "zaak"],
+        ["delete_zaak", "zaken", "zaak"],
+        ["view_zaak", "zaken", "zaak"],
+        ["add_zaakbesluit", "zaken", "zaakbesluit"],
+        ["change_zaakbesluit", "zaken", "zaakbesluit"],
+        ["delete_zaakbesluit", "zaken", "zaakbesluit"],
+        ["view_zaakbesluit", "zaken", "zaakbesluit"],
+        ["add_zaakeigenschap", "zaken", "zaakeigenschap"],
+        ["change_zaakeigenschap", "zaken", "zaakeigenschap"],
+        ["delete_zaakeigenschap", "zaken", "zaakeigenschap"],
+        ["view_zaakeigenschap", "zaken", "zaakeigenschap"],
+        ["add_zaakinformatieobject", "zaken", "zaakinformatieobject"],
+        ["change_zaakinformatieobject", "zaken", "zaakinformatieobject"],
+        ["delete_zaakinformatieobject", "zaken", "zaakinformatieobject"],
+        ["view_zaakinformatieobject", "zaken", "zaakinformatieobject"],
+        ["add_zaakkenmerk", "zaken", "zaakkenmerk"],
+        ["change_zaakkenmerk", "zaken", "zaakkenmerk"],
+        ["delete_zaakkenmerk", "zaken", "zaakkenmerk"],
+        ["view_zaakkenmerk", "zaken", "zaakkenmerk"],
+        ["add_zaakobject", "zaken", "zaakobject"],
+        ["change_zaakobject", "zaken", "zaakobject"],
+        ["delete_zaakobject", "zaken", "zaakobject"],
+        ["view_zaakobject", "zaken", "zaakobject"],
+        ["add_zakelijkrecht", "zaken", "zakelijkrecht"],
+        ["change_zakelijkrecht", "zaken", "zakelijkrecht"],
+        ["delete_zakelijkrecht", "zaken", "zakelijkrecht"],
+        ["view_zakelijkrecht", "zaken", "zakelijkrecht"],
+        ["add_zakelijkrechtheeftalsgerechtigde", "zaken", "zakelijkrechtheeftalsgerechtigde"],
+        ["change_zakelijkrechtheeftalsgerechtigde", "zaken", "zakelijkrechtheeftalsgerechtigde"],
+        ["delete_zakelijkrechtheeftalsgerechtigde", "zaken", "zakelijkrechtheeftalsgerechtigde"],
+        ["view_zakelijkrechtheeftalsgerechtigde", "zaken", "zakelijkrechtheeftalsgerechtigde"]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "Autorisaties read",
+      "permissions": [
+        ["view_applicatie", "authorizations", "applicatie"],
+        ["view_authorizationsconfig", "authorizations", "authorizationsconfig"],
+        ["view_autorisatie", "authorizations", "autorisatie"],
+        ["view_autorisatiespec", "autorisaties", "autorisatiespec"]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "Besluiten read",
+      "permissions": [
+        ["view_besluit", "besluiten", "besluit"],
+        ["view_besluitinformatieobject", "besluiten", "besluitinformatieobject"]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "Catalogi read",
+      "permissions": [
+        ["view_besluittype", "catalogi", "besluittype"],
+        ["view_catalogus", "catalogi", "catalogus"],
+        ["view_eigenschap", "catalogi", "eigenschap"],
+        ["view_eigenschapspecificatie", "catalogi", "eigenschapspecificatie"],
+        ["view_informatieobjecttype", "catalogi", "informatieobjecttype"],
+        ["view_resultaattype", "catalogi", "resultaattype"],
+        ["view_roltype", "catalogi", "roltype"],
+        ["view_statustype", "catalogi", "statustype"],
+        ["view_zaaktype", "catalogi", "zaaktype"],
+        ["view_zaaktypeinformatieobjecttype", "catalogi", "zaaktypeinformatieobjecttype"],
+        ["view_zaaktypenrelatie", "catalogi", "zaaktypenrelatie"]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "Documenten read",
+      "permissions": [
+        ["view_enkelvoudiginformatieobject", "documenten", "enkelvoudiginformatieobject"],
+        ["view_enkelvoudiginformatieobjectcanonical", "documenten", "enkelvoudiginformatieobjectcanonical"],
+        ["view_gebruiksrechten", "documenten", "gebruiksrechten"],
+        ["view_objectinformatieobject", "documenten", "objectinformatieobject"]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "Zaken read",
+      "permissions": [
+        ["view_adres", "zaken", "adres"],
+        ["view_buurt", "zaken", "buurt"],
+        ["view_gemeente", "zaken", "gemeente"],
+        ["view_gemeentelijkeopenbareruimte", "zaken", "gemeentelijkeopenbareruimte"],
+        ["view_huishouden", "zaken", "huishouden"],
+        ["view_inrichtingselement", "zaken", "inrichtingselement"],
+        ["view_kadastraleonroerendezaak", "zaken", "kadastraleonroerendezaak"],
+        ["view_klantcontact", "zaken", "klantcontact"],
+        ["view_kunstwerkdeel", "zaken", "kunstwerkdeel"],
+        ["view_maatschappelijkeactiviteit", "zaken", "maatschappelijkeactiviteit"],
+        ["view_medewerker", "zaken", "medewerker"],
+        ["view_natuurlijkpersoon", "zaken", "natuurlijkpersoon"],
+        ["view_nietnatuurlijkpersoon", "zaken", "nietnatuurlijkpersoon"],
+        ["view_openbareruimte", "zaken", "openbareruimte"],
+        ["view_organisatorischeeenheid", "zaken", "organisatorischeeenheid"],
+        ["view_overige", "zaken", "overige"],
+        ["view_pand", "zaken", "pand"],
+        ["view_relevantezaakrelatie", "zaken", "relevantezaakrelatie"],
+        ["view_resultaat", "zaken", "resultaat"],
+        ["view_rol", "zaken", "rol"],
+        ["view_spoorbaandeel", "zaken", "spoorbaandeel"],
+        ["view_status", "zaken", "status"],
+        ["view_subverblijfbuitenland", "zaken", "subverblijfbuitenland"],
+        ["view_terreindeel", "zaken", "terreindeel"],
+        ["view_terreingebouwdobject", "zaken", "terreingebouwdobject"],
+        ["view_vestiging", "zaken", "vestiging"],
+        ["view_waterdeel", "zaken", "waterdeel"],
+        ["view_wegdeel", "zaken", "wegdeel"],
+        ["view_wijk", "zaken", "wijk"],
+        ["view_woonplaats", "zaken", "woonplaats"],
+        ["view_wozdeelobject", "zaken", "wozdeelobject"],
+        ["view_wozobject", "zaken", "wozobject"],
+        ["view_wozwaarde", "zaken", "wozwaarde"],
+        ["view_zaak", "zaken", "zaak"],
+        ["view_zaakbesluit", "zaken", "zaakbesluit"],
+        ["view_zaakeigenschap", "zaken", "zaakeigenschap"],
+        ["view_zaakinformatieobject", "zaken", "zaakinformatieobject"],
+        ["view_zaakkenmerk", "zaken", "zaakkenmerk"],
+        ["view_zaakobject", "zaken", "zaakobject"],
+        ["view_zakelijkrecht", "zaken", "zakelijkrecht"],
+        ["view_zakelijkrechtheeftalsgerechtigde", "zaken", "zakelijkrechtheeftalsgerechtigde"]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "User admin",
+      "permissions": [
+        ["add_user", "accounts", "user"],
+        ["change_user", "accounts", "user"],
+        ["delete_user", "accounts", "user"],
+        ["view_user", "accounts", "user"],
+        ["view_group", "auth", "group"]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "API admin",
+      "permissions": [
+        ["add_applicatie", "authorizations", "applicatie"],
+        ["change_applicatie", "authorizations", "applicatie"],
+        ["delete_applicatie", "authorizations", "applicatie"],
+        ["view_applicatie", "authorizations", "applicatie"],
+        ["add_autorisatie", "authorizations", "autorisatie"],
+        ["change_autorisatie", "authorizations", "autorisatie"],
+        ["delete_autorisatie", "authorizations", "autorisatie"],
+        ["view_autorisatie", "authorizations", "autorisatie"],
+        ["add_autorisatiespec", "autorisaties", "autorisatiespec"],
+        ["change_autorisatiespec", "autorisaties", "autorisatiespec"],
+        ["delete_autorisatiespec", "autorisaties", "autorisatiespec"],
+        ["view_autorisatiespec", "autorisaties", "autorisatiespec"],
+        ["add_jwtsecret", "vng_api_common", "jwtsecret"],
+        ["change_jwtsecret", "vng_api_common", "jwtsecret"],
+        ["delete_jwtsecret", "vng_api_common", "jwtsecret"],
+        ["view_jwtsecret", "vng_api_common", "jwtsecret"]
+      ]
+    }
+  },
+  { "model": "sites.site", "fields": { "domain": "open-zaak.local:8000", "name": "open-zaak.local:8000" } },
+  {
+    "model": "admin_index.appgroup",
+    "fields": {
+      "order": 0,
+      "name": "Accounts",
+      "slug": "accounts",
+      "models": [
+        ["accounts", "user"],
+        ["auth", "group"]
+      ]
+    }
+  },
+  {
+    "model": "admin_index.appgroup",
+    "fields": {
+      "order": 1,
+      "name": "API Autorisaties",
+      "slug": "api-authorizations",
+      "models": [
+        ["authorizations", "applicatie"],
+        ["zgw_consumers", "certificate"],
+        ["zgw_consumers", "service"]
+      ]
+    }
+  },
+  {
+    "model": "admin_index.appgroup",
+    "fields": {
+      "order": 3,
+      "name": "Configuratie",
+      "slug": "configuration",
+      "models": [
+        ["admin_index", "appgroup"],
+        ["config", "featureflags"],
+        ["drc_cmis", "cmisconfig"],
+        ["mozilla_django_oidc_db", "openidconnectconfig"],
+        ["notifications_api_common", "notificationsconfig"],
+        ["notifications_api_common", "subscription"],
+        ["selectielijst", "referentielijstconfig"],
+        ["sites", "site"],
+        ["zgw_consumers", "nlxconfig"]
+      ]
+    }
+  },
+  {
+    "model": "admin_index.appgroup",
+    "fields": {
+      "order": 2,
+      "name": "Gegevens",
+      "slug": "gegevens",
+      "models": [
+        ["besluiten", "besluit"],
+        ["catalogi", "catalogus"],
+        ["documenten", "enkelvoudiginformatieobject"],
+        ["zaken", "zaak"]
+      ]
+    }
+  },
+  {
+    "model": "admin_index.appgroup",
+    "fields": {
+      "order": 4,
+      "name": "Logs",
+      "slug": "logs",
+      "models": [
+        ["axes", "accessattempt"],
+        ["axes", "accesslog"],
+        ["django_db_logger", "statuslog"],
+        ["notifications_log", "failednotification"]
+      ]
+    }
+  },
+  { "model": "admin_index.appgroup", "fields": { "order": 5, "name": "Handige links", "slug": "handige-links", "models": [] } },
+  { "model": "admin_index.applink", "fields": { "order": 0, "app_group": ["configuration"], "name": "Service configuration", "link": "/admin/config/detail/" } },
+  { "model": "admin_index.applink", "fields": { "order": 0, "app_group": ["handige-links"], "name": "Documentatie", "link": "https://open-zaak.readthedocs.org" } },
+  {
+    "model": "admin_index.applink",
+    "fields": {
+      "order": 1,
+      "app_group": ["handige-links"],
+      "name": "Mailing list",
+      "link": "https://lists.publiccode.net/hyperkitty/hyperkitty/list/openzaak-discuss@lists.publiccode.net/"
+    }
+  },
+  {
+    "model": "admin_index.applink",
+    "fields": {
+      "order": 2,
+      "app_group": ["handige-links"],
+      "name": "Opgeven als contactpersoon bij veiligheidslekken",
+      "link": "https://odoo.publiccode.net/survey/start/086e0627-8bc0-4b65-8aa9-f6872aba89d0"
+    }
+  },
+  { "model": "admin_index.applink", "fields": { "order": 3, "app_group": ["handige-links"], "name": "Website", "link": "https://openzaak.org/" } },
+  { "model": "admin_index.applink", "fields": { "order": 4, "app_group": ["handige-links"], "name": "Slack (kanaal #open-zaak)", "link": "https://samenorganiseren.slack.com/" } },
+  { "model": "admin_index.applink", "fields": { "order": 5, "app_group": ["handige-links"], "name": "Github", "link": "https://github.com/open-zaak/open-zaak" } },
+  {
+    "model": "admin_index.applink",
+    "fields": { "order": 6, "app_group": ["handige-links"], "name": "VNG-Standaard", "link": "https://www.vngrealisatie.nl/producten/api-standaarden-zaakgericht-werken" }
+  },
+  {
+    "model": "admin_index.applink",
+    "fields": { "order": 7, "app_group": ["handige-links"], "name": "VNG-Standaarddocumentatie", "link": "https://vng-realisatie.github.io/gemma-zaken/" }
+  },
+  {
+    "model": "admin_index.applink",
+    "fields": {
+      "order": 8,
+      "app_group": ["handige-links"],
+      "name": "Common Ground community",
+      "link": "https://commonground.nl/groups/view/d9c2f667-2f3e-4153-a79b-57dde7f56cc2/team-open-zaak"
+    }
+  },
+  {
+    "model": "axes.accesslog",
+    "pk": 1,
+    "fields": {
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+      "ip_address": "10.201.0.1",
+      "username": "admin",
+      "http_accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "path_info": "/admin/login/",
+      "attempt_time": "2023-03-21T12:46:05.583Z",
+      "logout_time": null
+    }
+  },
+  {
+    "model": "axes.accesslog",
+    "pk": 2,
+    "fields": {
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+      "ip_address": "10.201.0.1",
+      "username": "admin",
+      "http_accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "path_info": "/admin/login/",
+      "attempt_time": "2023-03-21T12:54:51.201Z",
+      "logout_time": null
+    }
+  },
+  {
+    "model": "axes.accesslog",
+    "pk": 3,
+    "fields": {
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+      "ip_address": "10.201.0.1",
+      "username": "admin",
+      "http_accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "path_info": "/admin/login/",
+      "attempt_time": "2023-03-21T12:57:11.802Z",
+      "logout_time": null
+    }
+  },
+  { "model": "vng_api_common.jwtsecret", "pk": 1, "fields": { "identifier": "drc_api_tests", "secret": "secret" } },
+  { "model": "vng_api_common.jwtsecret", "pk": 2, "fields": { "identifier": "drc_api_tests_limited", "secret": "secret_limited" } },
+  { "model": "vng_api_common.jwtsecret", "pk": 3, "fields": { "identifier": "openzaak", "secret": "openzaak" } },
+  { "model": "vng_api_common.jwtsecret", "pk": 4, "fields": { "identifier": "nrc", "secret": "nrc" } },
+  { "model": "vng_api_common.jwtsecret", "pk": 5, "fields": { "identifier": "drc", "secret": "drc" } },
+  { "model": "vng_api_common.jwtsecret", "pk": 6, "fields": { "identifier": "alfresco-drc", "secret": "RnaD8uuCqgETFKeX" } },
+  { "model": "vng_api_common.jwtsecret", "pk": 8, "fields": { "identifier": "drc_api_tests_readonly", "secret": "secret_readonly" } },
+  { "model": "vng_api_common.jwtsecret", "pk": 9, "fields": { "identifier": "drc_api_tests_wrong_scope", "secret": "secret_wrong_scope" } },
+  {
+    "model": "authorizations.applicatie",
+    "pk": 1,
+    "fields": { "uuid": "4223b169-ebc7-4410-900f-0ea2bf75dd83", "client_ids": "[\"drc_api_tests\"]", "label": "zgw api tests", "heeft_alle_autorisaties": true }
+  },
+  {
+    "model": "authorizations.applicatie",
+    "pk": 2,
+    "fields": { "uuid": "5ad64444-433d-41f4-a08a-a76fb0ad8d71", "client_ids": "[\"nrc\"]", "label": "nrc", "heeft_alle_autorisaties": true }
+  },
+  {
+    "model": "authorizations.applicatie",
+    "pk": 3,
+    "fields": { "uuid": "f78d0bca-8099-4eea-a8fd-40e2f0a1ba75", "client_ids": "[\"openzaak\"]", "label": "openzaak", "heeft_alle_autorisaties": true }
+  },
+  {
+    "model": "authorizations.applicatie",
+    "pk": 4,
+    "fields": { "uuid": "809e7ef5-6ca7-44b5-8caf-39549c9a1d82", "client_ids": "[\"drc\"]", "label": "drc", "heeft_alle_autorisaties": true }
+  },
+  {
+    "model": "authorizations.applicatie",
+    "pk": 5,
+    "fields": {
+      "uuid": "b91d00dc-c762-4211-9c10-5918c81e5de6",
+      "client_ids": "[\"b91d00dc-c762-4211-9c10-5918c81e5de6\"]",
+      "label": "DRC client",
+      "heeft_alle_autorisaties": false
+    }
+  },
+  {
+    "model": "authorizations.applicatie",
+    "pk": 7,
+    "fields": { "uuid": "75c2e359-f622-4b3b-9f22-46d1b526535e", "client_ids": "[\"drc_api_tests_readonly\"]", "label": "drc_api_tests_readonly", "heeft_alle_autorisaties": false }
+  },
+  {
+    "model": "authorizations.applicatie",
+    "pk": 8,
+    "fields": {
+      "uuid": "75c2e359-f622-4b3b-9f22-46d1b526515e",
+      "client_ids": "[\"drc_api_tests_wrong_scope\"]",
+      "label": "drc_api_tests_wrong_scope",
+      "heeft_alle_autorisaties": false
+    }
+  },
+  {
+    "model": "authorizations.autorisatie",
+    "pk": 1,
+    "fields": {
+      "applicatie": 5,
+      "component": "ac",
+      "scopes": "[\"autorisaties.lezen\"]",
+      "zaaktype": "",
+      "informatieobjecttype": "",
+      "besluittype": "",
+      "max_vertrouwelijkheidaanduiding": ""
+    }
+  },
+  {
+    "model": "authorizations.autorisatie",
+    "pk": 2,
+    "fields": {
+      "applicatie": 5,
+      "component": "nrc",
+      "scopes": "[\"notificaties.consumeren\", \"notificaties.publiceren\"]",
+      "zaaktype": "",
+      "informatieobjecttype": "",
+      "besluittype": "",
+      "max_vertrouwelijkheidaanduiding": ""
+    }
+  },
+  {
+    "model": "authorizations.autorisatie",
+    "pk": 4,
+    "fields": {
+      "applicatie": 5,
+      "component": "drc",
+      "scopes": "[\"documenten.lezen\", \"documenten.aanmaken\"]",
+      "zaaktype": "",
+      "informatieobjecttype": "http://open-zaak.local:8000/catalogi/api/v1/informatieobjecttypen/4a8c20e7-d561-41a8-b80f-0603acdb8281",
+      "besluittype": "",
+      "max_vertrouwelijkheidaanduiding": "beperkt_openbaar"
+    }
+  },
+  {
+    "model": "authorizations.autorisatie",
+    "pk": 6,
+    "fields": {
+      "applicatie": 7,
+      "component": "drc",
+      "scopes": "[\"documenten.lezen\"]",
+      "zaaktype": "",
+      "informatieobjecttype": "http://open-zaak.local:8000/catalogi/api/v1/informatieobjecttypen/4a8c20e7-d561-41a8-b80f-0603acdb8281",
+      "besluittype": "",
+      "max_vertrouwelijkheidaanduiding": "openbaar"
+    }
+  },
+  {
+    "model": "authorizations.autorisatie",
+    "pk": 7,
+    "fields": {
+      "applicatie": 8,
+      "component": "ztc",
+      "scopes": "[\"catalogi.lezen\"]",
+      "zaaktype": "",
+      "informatieobjecttype": "",
+      "besluittype": "",
+      "max_vertrouwelijkheidaanduiding": ""
+    }
+  },
+  { "model": "notifications.notificationsconfig", "pk": 1, "fields": { "api_root": "http://open-notificaties.local:8000/api/v1/" } },
+  {
+    "model": "notifications_api_common.notificationsconfig",
+    "pk": 1,
+    "fields": { "notifications_api_service": 2, "notification_delivery_max_retries": 5, "notification_delivery_retry_backoff": 3, "notification_delivery_retry_backoff_max": 48 }
+  },
+  {
+    "model": "notifications_api_common.notificationsconfig",
+    "pk": 2,
+    "fields": { "notifications_api_service": 1, "notification_delivery_max_retries": 5, "notification_delivery_retry_backoff": 3, "notification_delivery_retry_backoff_max": 48 }
+  },
+  {
+    "model": "zgw_consumers.service",
+    "pk": 1,
+    "fields": {
+      "label": "referentielijsten",
+      "oas": "https://referentielijsten-api.vng.cloud/api/v1/schema/openapi.yaml",
+      "oas_file": "",
+      "api_type": "orc",
+      "api_root": "https://referentielijsten-api.vng.cloud/api/v1/",
+      "client_id": "",
+      "secret": "",
+      "auth_type": "no_auth",
+      "header_key": "",
+      "header_value": "",
+      "nlx": "",
+      "user_id": "",
+      "user_representation": "",
+      "client_certificate": null,
+      "server_certificate": null
+    }
+  },
+  {
+    "model": "zgw_consumers.service",
+    "pk": 2,
+    "fields": {
+      "label": "notificaties",
+      "oas": "http://open-notificaties.local:8000/api/v1/schema/openapi.yaml",
+      "oas_file": "",
+      "api_type": "nrc",
+      "api_root": "http://open-notificaties.local:8000/api/v1/",
+      "client_id": "openzaak",
+      "secret": "openzaak",
+      "auth_type": "zgw",
+      "header_key": "",
+      "header_value": "",
+      "nlx": "",
+      "user_id": "openzaak",
+      "user_representation": "OpenZaak",
+      "client_certificate": null,
+      "server_certificate": null
+    }
+  },
+  {
+    "model": "zgw_consumers.service",
+    "pk": 3,
+    "fields": {
+      "label": "openzaak zaken",
+      "oas": "http://open-zaak.local:8000/api/v1/schema/openapi.yaml",
+      "oas_file": "",
+      "api_type": "zrc",
+      "api_root": "http://open-zaak.local:8000/zaken/api/v1/",
+      "client_id": "openzaak",
+      "secret": "openzaak",
+      "auth_type": "zgw",
+      "header_key": "",
+      "header_value": "",
+      "nlx": "",
+      "user_id": "openzaak",
+      "user_representation": "OpenZaak",
+      "client_certificate": null,
+      "server_certificate": null
+    }
+  },
+  {
+    "model": "zgw_consumers.service",
+    "pk": 4,
+    "fields": {
+      "label": "drc gemma",
+      "oas": "http://drc.local:8000/api/v1/schema/openapi.yaml",
+      "oas_file": "",
+      "api_type": "drc",
+      "api_root": "http://drc.local:8000/api/v1/",
+      "client_id": "openzaak",
+      "secret": "openzaak",
+      "auth_type": "zgw",
+      "header_key": "",
+      "header_value": "",
+      "nlx": "",
+      "user_id": "openzaak",
+      "user_representation": "OpenZaak",
+      "client_certificate": null,
+      "server_certificate": null
+    }
+  },
+  {
+    "model": "zgw_consumers.service",
+    "pk": 5,
+    "fields": {
+      "label": "drc alfresco",
+      "oas": "http://drc-docker-platform.local:8080/alfresco/service/drc/v1/schema/openapi.yaml",
+      "oas_file": "",
+      "api_type": "drc",
+      "api_root": "http://drc-docker-platform.local:8080/alfresco/service/drc/v1/",
+      "client_id": "drc_api_tests",
+      "secret": "secret",
+      "auth_type": "zgw",
+      "header_key": "",
+      "header_value": "",
+      "nlx": "",
+      "user_id": "openzaak",
+      "user_representation": "OpenZaak",
+      "client_certificate": null,
+      "server_certificate": null
+    }
+  },
+  {
+    "model": "zgw_consumers.service",
+    "pk": 6,
+    "fields": {
+      "label": "drc openzaak",
+      "oas": "http://open-zaak.local:8000/documenten/api/v1/schema/openapi.yaml",
+      "oas_file": "",
+      "api_type": "drc",
+      "api_root": "http://open-zaak.local:8000/documenten/api/v1/",
+      "client_id": "openzaak",
+      "secret": "openzaak",
+      "auth_type": "zgw",
+      "header_key": "",
+      "header_value": "",
+      "nlx": "",
+      "user_id": "openzaak",
+      "user_representation": "OpenZaak",
+      "client_certificate": null,
+      "server_certificate": null
+    }
+  },
+  {
+    "model": "zgw_consumers.service",
+    "pk": 7,
+    "fields": {
+      "label": "openzaak catalogi",
+      "oas": "http://open-zaak.local:8000/catalogi/api/v1/schema/openapi.yaml",
+      "oas_file": "",
+      "api_type": "ztc",
+      "api_root": "http://open-zaak.local:8000/catalogi/api/v1/",
+      "client_id": "openzaak",
+      "secret": "openzaak",
+      "auth_type": "zgw",
+      "header_key": "",
+      "header_value": "",
+      "nlx": "",
+      "user_id": "openzaak",
+      "user_representation": "OpenZaak",
+      "client_certificate": null,
+      "server_certificate": null
+    }
+  },
+  {
+    "model": "zgw_consumers.service",
+    "pk": 8,
+    "fields": {
+      "label": "openzaak besluiten",
+      "oas": "http://open-zaak.local:8000/besluiten/api/v1/schema/openapi.yaml",
+      "oas_file": "",
+      "api_type": "brc",
+      "api_root": "http://open-zaak.local:8000/besluiten/api/v1/",
+      "client_id": "openzaak",
+      "secret": "openzaak",
+      "auth_type": "zgw",
+      "header_key": "",
+      "header_value": "",
+      "nlx": "",
+      "user_id": "openzaak",
+      "user_representation": "OpenZaak",
+      "client_certificate": null,
+      "server_certificate": null
+    }
+  },
+  {
+    "model": "zgw_consumers.service",
+    "pk": 9,
+    "fields": {
+      "label": "openzaak autorisaties",
+      "oas": "http://open-zaak.local:8000/autorisaties/api/v1/schema/openapi.yaml",
+      "oas_file": "",
+      "api_type": "ac",
+      "api_root": "http://open-zaak.local:8000/autorisaties/api/v1/",
+      "client_id": "openzaak",
+      "secret": "openzaak",
+      "auth_type": "zgw",
+      "header_key": "",
+      "header_value": "",
+      "nlx": "",
+      "user_id": "openzaak",
+      "user_representation": "OpenZaak",
+      "client_certificate": null,
+      "server_certificate": null
+    }
+  },
+  {
+    "model": "mozilla_django_oidc_db.openidconnectconfig",
+    "pk": 1,
+    "fields": {
+      "enabled": false,
+      "oidc_rp_client_id": "",
+      "oidc_rp_client_secret": "",
+      "oidc_rp_sign_algo": "HS256",
+      "oidc_rp_scopes_list": "[\"openid\", \"email\", \"profile\"]",
+      "oidc_op_discovery_endpoint": "",
+      "oidc_op_jwks_endpoint": "",
+      "oidc_op_authorization_endpoint": "",
+      "oidc_op_token_endpoint": "",
+      "oidc_op_user_endpoint": "",
+      "oidc_rp_idp_sign_key": "",
+      "oidc_use_nonce": true,
+      "oidc_nonce_size": 32,
+      "oidc_state_size": 32,
+      "oidc_exempt_urls": "[]",
+      "username_claim": "sub",
+      "claim_mapping": { "email": "email", "last_name": "family_name", "first_name": "given_name" },
+      "groups_claim": "roles",
+      "sync_groups": true,
+      "sync_groups_glob_pattern": "*",
+      "make_users_staff": false,
+      "default_groups": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "fields": {
+      "password": "pbkdf2_sha256$260000$HH45WYtJ8SlX82rTpVQMpT$0YNb73XEAjUk7hz+PLkZ22NzL+7YUBSC8tw98iGsajs=",
+      "last_login": "2023-03-21T12:57:11.795Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@admin.org",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2019-12-21T14:04:19.572Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "catalogi.catalogus",
+    "pk": 1,
+    "fields": {
+      "_etag": "",
+      "_admin_name": "Test",
+      "uuid": "6d9de12a-d12d-40ba-8dbd-14a039bf5b68",
+      "domein": "TST",
+      "rsin": "123456782",
+      "contactpersoon_beheer_naam": "Test",
+      "contactpersoon_beheer_telefoonnummer": "",
+      "contactpersoon_beheer_emailadres": ""
+    }
+  },
+  {
+    "model": "catalogi.catalogus",
+    "pk": 2,
+    "fields": {
+      "_etag": "ee8234abad0323db5734665e845f58de",
+      "_admin_name": "",
+      "uuid": "d43c4c81-251c-46c7-beb4-e34752094fff",
+      "domein": "ULNJH",
+      "rsin": "000000000",
+      "contactpersoon_beheer_naam": "Test Persoon",
+      "contactpersoon_beheer_telefoonnummer": "",
+      "contactpersoon_beheer_emailadres": ""
+    }
+  },
+  {
+    "model": "catalogi.informatieobjecttype",
+    "pk": 1,
+    "fields": {
+      "_etag": "",
+      "datum_begin_geldigheid": "2021-01-12",
+      "datum_einde_geldigheid": null,
+      "concept": false,
+      "uuid": "4a8c20e7-d561-41a8-b80f-0603acdb8281",
+      "omschrijving": "Test informatieobjecttype",
+      "vertrouwelijkheidaanduiding": "confidentieel",
+      "catalogus": 1
+    }
+  },
+  { "model": "config.internalservice", "pk": 1, "fields": { "api_type": "ac", "enabled": true } },
+  { "model": "config.internalservice", "pk": 2, "fields": { "api_type": "zrc", "enabled": true } },
+  { "model": "config.internalservice", "pk": 3, "fields": { "api_type": "ztc", "enabled": true } },
+  { "model": "config.internalservice", "pk": 4, "fields": { "api_type": "drc", "enabled": true } },
+  { "model": "config.internalservice", "pk": 5, "fields": { "api_type": "brc", "enabled": true } },
+  {
+    "model": "selectielijst.referentielijstconfig",
+    "pk": 1,
+    "fields": { "api_root": "https://selectielijst.openzaak.nl/api/v1/", "allowed_years": "[\"2017\", \"2020\"]", "default_year": 2017 }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2023-03-21T12:57:22.843Z",
+      "user": ["admin"],
+      "content_type": ["notifications_api_common", "notificationsconfig"],
+      "object_id": "1",
+      "object_repr": "Notificaties-API-configuratie (http://open-notificaties.local:8000/api/v1/)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Notifications api service\"]}}]"
+    }
+  }
+]
