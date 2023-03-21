@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import io.restassured.response.Response;
@@ -35,7 +36,7 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response testCreate(JSONObject jsonObject) {
 		// @formatter:off
 		return given()
@@ -87,8 +88,6 @@ public class EIOService {
 				.response();
 		// @formatter:on
 	}
-	
-
 
 	public Response testCreate(String iot, String beschrijving, String inhoud, Date creatiedatum) {
 		// @formatter:off
@@ -142,7 +141,8 @@ public class EIOService {
 		// @formatter:on
 	}
 
-	public Response testCreate(String iot, String beschrijving, String inhoud, String vertrouwelijkheidaanduiding, String bronorganisatie) {
+	public Response testCreate(String iot, String beschrijving, String inhoud, String vertrouwelijkheidaanduiding,
+			String bronorganisatie) {
 		// @formatter:off
 		return given()
 				.spec(DRCRequestSpecification.getDefault())
@@ -155,7 +155,7 @@ public class EIOService {
 		// @formatter:on
 	}
 
-	public Response testCreate(String iot, Object inhoud) {
+	public Response testCreate(String iot, JSONArray inhoud) {
 		// @formatter:off
 		return given()
 				.spec(DRCRequestSpecification.getDefault())
@@ -349,7 +349,8 @@ public class EIOService {
 		// @formatter:on
 	}
 
-	public Response listEIO(RequestSpecification requestSpecification, String identificatie, String bronorganisatie, Integer page) {
+	public Response listEIO(RequestSpecification requestSpecification, String identificatie, String bronorganisatie,
+			Integer page) {
 		Map<String, String> params = new HashMap<String, String>();
 		if (identificatie != null) {
 			params.put("identificatie", identificatie);

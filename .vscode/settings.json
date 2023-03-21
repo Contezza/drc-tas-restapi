@@ -77,6 +77,8 @@
   },
   "java.compile.nullAnalysis.mode": "automatic",
   "cSpell.words": [
-    "bestandsomvang"
+    "bestandsomvang",
+    "contezza",
+    "informatieobjecttype"
   ]
 }

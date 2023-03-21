@@ -47,13 +47,14 @@ public class DRCDataProvider {
 		json.put("taal", "eng");
 		json.put("bestandsnaam", "dummy.txt");
 		json.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
+		json.put("bestandsomvang", "some file content".getBytes().length);
 		json.put("link", "http://een.link");
 		json.put("beschrijving", "test_beschrijving");
 		json.put("informatieobjecttype", iot);
 		json.put("vertrouwelijkheidaanduiding", "openbaar");
 		return json.toString();
 	}
-	
+
 	@DataProvider(name = "test_create")
 	public static String testCreateReqOnly(String iot) {
 		JSONObject json = new JSONObject();
@@ -63,12 +64,13 @@ public class DRCDataProvider {
 		json.put("auteur", "test_auteur");
 		json.put("taal", "eng");
 		json.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
+		json.put("bestandsomvang", "some file content".getBytes().length);
 		json.put("informatieobjecttype", iot);
 		return json.toString();
 	}
-	
+
 	@DataProvider(name = "test_create")
-	public static String testCreate(String iot, Date creatiedatum ) {
+	public static String testCreate(String iot, Date creatiedatum) {
 		JSONObject json = new JSONObject();
 		json.put("identificatie", UUID.randomUUID().toString());
 		json.put("bronorganisatie", "159351741");
@@ -79,6 +81,7 @@ public class DRCDataProvider {
 		json.put("taal", "eng");
 		json.put("bestandsnaam", "dummy.txt");
 		json.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
+		json.put("bestandsomvang", "some file content".getBytes().length);
 		json.put("link", "http://een.link");
 		json.put("beschrijving", "test_beschrijving");
 		json.put("informatieobjecttype", iot);
@@ -98,34 +101,37 @@ public class DRCDataProvider {
 		json.put("taal", "eng");
 		json.put("bestandsnaam", "dummy.txt");
 		json.put("inhoud", Base64.getEncoder().encodeToString(inhoud.getBytes()));
+		json.put("bestandsomvang", inhoud.getBytes().length);
 		json.put("link", "http://een.link");
 		json.put("beschrijving", beschrijving);
 		json.put("informatieobjecttype", iot);
 		json.put("vertrouwelijkheidaanduiding", "openbaar");
 		return json.toString();
 	}
-	
+
 	@DataProvider(name = "test_create")
 	public static String testCreate(String iot, String beschrijving, String inhoud, Date creatiedatum) {
 		JSONObject json = new JSONObject();
 		json.put("identificatie", UUID.randomUUID().toString());
 		json.put("bronorganisatie", "159351741");
-		json.put("creatiedatum",  StringDate.formatDate(creatiedatum));
+		json.put("creatiedatum", StringDate.formatDate(creatiedatum));
 		json.put("titel", "detailed summary");
 		json.put("auteur", "test_auteur");
 		json.put("formaat", "txt");
 		json.put("taal", "eng");
 		json.put("bestandsnaam", "dummy.txt");
 		json.put("inhoud", Base64.getEncoder().encodeToString(inhoud.getBytes()));
+		json.put("bestandsomvang", inhoud.getBytes().length);
 		json.put("link", "http://een.link");
 		json.put("beschrijving", beschrijving);
 		json.put("informatieobjecttype", iot);
 		json.put("vertrouwelijkheidaanduiding", "openbaar");
 		return json.toString();
 	}
-	
+
 	@DataProvider(name = "test_create")
-	public static String testCreate(String iot, String beschrijving, String inhoud, String vertrouwelijkheidaanduiding) {
+	public static String testCreate(String iot, String beschrijving, String inhoud,
+			String vertrouwelijkheidaanduiding) {
 		JSONObject json = new JSONObject();
 		json.put("identificatie", UUID.randomUUID().toString());
 		json.put("bronorganisatie", "159351741");
@@ -136,15 +142,17 @@ public class DRCDataProvider {
 		json.put("taal", "eng");
 		json.put("bestandsnaam", "dummy.txt");
 		json.put("inhoud", Base64.getEncoder().encodeToString(inhoud.getBytes()));
+		json.put("bestandsomvang", inhoud.getBytes().length);
 		json.put("link", "http://een.link");
 		json.put("beschrijving", beschrijving);
 		json.put("informatieobjecttype", iot);
 		json.put("vertrouwelijkheidaanduiding", vertrouwelijkheidaanduiding);
 		return json.toString();
 	}
-	
+
 	@DataProvider(name = "test_create")
-	public static String testCreate(String iot, String beschrijving, String inhoud, String vertrouwelijkheidaanduiding, String bronorganisatie) {
+	public static String testCreate(String iot, String beschrijving, String inhoud, String vertrouwelijkheidaanduiding,
+			String bronorganisatie) {
 		JSONObject json = new JSONObject();
 		json.put("identificatie", UUID.randomUUID().toString());
 		json.put("bronorganisatie", bronorganisatie);
@@ -155,6 +163,7 @@ public class DRCDataProvider {
 		json.put("taal", "eng");
 		json.put("bestandsnaam", "dummy.txt");
 		json.put("inhoud", Base64.getEncoder().encodeToString(inhoud.getBytes()));
+		json.put("bestandsomvang", inhoud.getBytes().length);
 		json.put("link", "http://een.link");
 		json.put("beschrijving", beschrijving);
 		json.put("informatieobjecttype", iot);
@@ -174,16 +183,16 @@ public class DRCDataProvider {
 		json.put("taal", "eng");
 		json.put("bestandsnaam", "dummy.txt");
 		json.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
+		json.put("bestandsomvang", "some file content".getBytes().length);
 		json.put("link", "http://een.link");
 		json.put("beschrijving", "test_beschrijving");
 		json.put("informatieobjecttype", iot);
 		json.put("vertrouwelijkheidaanduiding", "openbaar");
 		return json.toString();
 	}
-	
 
 	@DataProvider(name = "test_create")
-	public static String testCreate(String iot, Object inhoud) {
+	public static String testCreate(String iot, JSONArray inhoud) {
 		JSONObject json = new JSONObject();
 		json.put("identificatie", UUID.randomUUID().toString());
 		json.put("bronorganisatie", "159351741");
@@ -194,6 +203,7 @@ public class DRCDataProvider {
 		json.put("taal", "eng");
 		json.put("bestandsnaam", "dummy.txt");
 		json.put("inhoud", inhoud);
+		json.put("bestandsomvang", inhoud.toString().getBytes().length);
 		json.put("link", "http://een.link");
 		json.put("beschrijving", "test_beschrijving");
 		json.put("informatieobjecttype", iot);
@@ -213,6 +223,7 @@ public class DRCDataProvider {
 		json.put("taal", "eng");
 		json.put("bestandsnaam", "dummy.txt");
 		json.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
+		json.put("bestandsomvang", "some file content".getBytes().length);
 		json.put("informatieobjecttype", iot);
 		if (integriteit == null) {
 			json.put("integriteit", JSONObject.NULL);
@@ -229,7 +240,7 @@ public class DRCDataProvider {
 			sb.append(AB.charAt(rnd.nextInt(AB.length())));
 		return sb.toString();
 	}
-	
+
 	@DataProvider(name = "create_zaaktype")
 	public static String createZaakType(String catalogusUrl) {
 		JSONObject json = new JSONObject();
@@ -249,7 +260,8 @@ public class DRCDataProvider {
 		json.put("referentieproces", new JSONObject("{\"naam\":\"test_naam\", \"link\" : \"\"}"));
 		json.put("catalogus", catalogusUrl);
 		json.put("besluittypen", new JSONArray());
-		// json.put("selectielijstProcestype", "https://referentielijsten-api.vng.cloud/api/v1/procestypen/941de99f-b702-4b3e-9df4-db370f457bea");
+		// json.put("selectielijstProcestype",
+		// "https://referentielijsten-api.vng.cloud/api/v1/procestypen/941de99f-b702-4b3e-9df4-db370f457bea");
 		json.put("gerelateerdeZaaktypen", new JSONArray());
 		json.put("beginGeldigheid", StringDate.toDateString(2019, 1, 1));
 		json.put("versiedatum", StringDate.toDateString(2019, 1, 1));
@@ -288,27 +300,27 @@ public class DRCDataProvider {
 		json.put("omschrijving", "test_omschrijving");
 		return json.toString();
 	}
-	
+
 	@DataProvider(name = "update_partial_ac")
-	public static String updatePartialAC(JSONArray clientIds, JSONArray scopes, String iotUrl, String maxVertrouwelijkheid) {
-		
+	public static String updatePartialAC(JSONArray clientIds, JSONArray scopes, String iotUrl,
+			String maxVertrouwelijkheid) {
+
 		JSONObject comp = new JSONObject();
 		comp.put("component", "drc");
 		comp.put("scopes", scopes);
 		comp.put("informatieobjecttype", iotUrl);
 		comp.put("maxVertrouwelijkheidaanduiding", maxVertrouwelijkheid);
-		
-		
+
 		JSONArray arr = new JSONArray().put(comp);
-		
+
 		JSONObject json = new JSONObject();
 		json.put("clientIds", clientIds);
-		//json.put("label", "Test");
+		// json.put("label", "Test");
 		json.put("autorisaties", arr);
 		json.put("heeftAlleAutorisaties", false);
 		return json.toString();
 	}
-	
+
 	@DataProvider(name = "update_partial_ac")
 	public static String updatePartialAC(JSONArray clientIds, JSONArray autorisaties, Boolean heeftAlleAutorisaties) {
 		JSONObject json = new JSONObject();
@@ -326,7 +338,7 @@ public class DRCDataProvider {
 		json.put("omschrijvingVoorwaarden", "Test");
 		return json.toString();
 	}
-	
+
 	@DataProvider(name = "unlock")
 	public static String unlock(String lockId) {
 		JSONObject json = new JSONObject();

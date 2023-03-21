@@ -150,6 +150,7 @@ services:
       - ALLOWED_HOSTS=drc.local,drc.local:8000,localhost,localhost:8000
       - SENDFILE_BACKEND=sendfile.backends.simple
       - PYTHONUNBUFFERED=1
+      - DEBUG=True
     ports:
       - 8002:8000
     volumes:
