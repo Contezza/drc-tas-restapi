@@ -19,7 +19,7 @@ import nl.contezza.drc.utils.StringDate;
  * Some custom unit tests which are not mapped to any python scripts.
  */
 
-//@Log4j2
+// @Log4j2
 public class CustomVersionHistoryTest extends RestTest {
 
 	/**
@@ -36,7 +36,8 @@ public class CustomVersionHistoryTest extends RestTest {
 		json = new JsonPath(ztcService.createInformatieObjectType(catalogusUrl).asString());
 		informatieobjecttypeUrl = json.getString("url").replace(ZTC_BASE_URI, ZTC_DOCKER_URI);
 
-		Response res = ztcService.publishInformatieObjectType(informatieobjecttypeUrl.substring(informatieobjecttypeUrl.lastIndexOf('/') + 1).trim());
+		Response res = ztcService.publishInformatieObjectType(
+				informatieobjecttypeUrl.substring(informatieobjecttypeUrl.lastIndexOf('/') + 1).trim());
 		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 
@@ -45,7 +46,8 @@ public class CustomVersionHistoryTest extends RestTest {
 
 		EIOService eioService = new EIOService();
 		// Create EIO
-		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving0", "some content0", new Date()).asString());
+		JsonPath json = new JsonPath(eioService
+				.testCreate(informatieobjecttypeUrl, "beschrijving0", "some content0", new Date()).asString());
 		String eioUrl = json.getString("url");
 
 		// Update 1
@@ -78,7 +80,8 @@ public class CustomVersionHistoryTest extends RestTest {
 
 		EIOService eioService = new EIOService();
 		// Create EIO
-		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving0", "some content0", new Date()).asString()); // v1
+		JsonPath json = new JsonPath(eioService
+				.testCreate(informatieobjecttypeUrl, "beschrijving0", "some content0", new Date()).asString()); // v1
 		String eioUrl = json.getString("url");
 
 		createVersion(eioUrl, "beschrijving1", "some content1"); // v2
@@ -96,18 +99,19 @@ public class CustomVersionHistoryTest extends RestTest {
 		Assert.assertEquals(json.getString("beschrijving"), "beschrijving1");
 		Assert.assertEquals(json.getInt("versie"), 2);
 	}
-	
+
 	@Test(groups = "CustomVersionHistory")
 	public void test_update_bestandsnaam() {
 		EIOService eioService = new EIOService();
 
 		// Create EIO
-		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
+		JsonPath json = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
 		String eioUrl = json.getString("url");
 
 		// Lock EIO
 		String lock = new JsonPath(eioService.lock(eioUrl).asString()).getString("lock");
-		
+
 		// Validate original name
 		json = new JsonPath(eioService.getEIO(eioUrl, null, null).asString());
 		Assert.assertEquals(json.getString("bestandsnaam"), "dummy.txt");
@@ -146,6 +150,7 @@ public class CustomVersionHistoryTest extends RestTest {
 		JSONObject body = new JSONObject();
 		body.put("beschrijving", beschrijving);
 		body.put("inhoud", Base64.getEncoder().encodeToString(inhoud.getBytes()));
+		body.put("bestandsomvang", inhoud.getBytes().length);
 		body.put("lock", lock);
 
 		Response res = eioService.partialUpdate(eioUrl, body);
