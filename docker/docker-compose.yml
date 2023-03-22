@@ -36,7 +36,7 @@ services:
           - rabbitmq
 
   open-zaak.local:
-    image: docker.io/openzaak/open-zaak:1.8.2
+    image: docker.io/openzaak/open-zaak:1.7.4
     environment:
       - TZ=Europe/Amsterdam
       - DJANGO_SETTINGS_MODULE=openzaak.conf.docker
@@ -65,32 +65,32 @@ services:
         aliases:
           - open-zaak.local
 
-  open-zaak-celery:
-    image: docker.io/openzaak/open-zaak:1.8.2
-    environment:
-      - TZ=Europe/Amsterdam
-      - DJANGO_SETTINGS_MODULE=openzaak.conf.docker
-      - SECRET_KEY=somesecretkey
-      - DB_HOST=db
-      - DB_NAME=openzaak
-      - DB_USER=openzaak
-      - IS_HTTPS=no
-      - ALLOWED_HOSTS=open-zaak.local,open-zaak.local:8000,localhost,localhost:8000
-      - CACHE_DEFAULT=redis:6379/0
-      - CACHE_AXES=redis:6379/0
-      - CELERY_BROKER_URL=redis://redis:6379/1
-      - CELERY_RESULT_BACKEND=redis://redis:6379/1
-      - CELERY_LOGLEVEL=DEBUG
-      - CELERY_WORKER_CONCURRENCY=${CELERY_WORKER_CONCURRENCY:-4}
-      - SENDFILE_BACKEND=django_sendfile.backends.simple
-    command: /celery_worker.sh
-    depends_on:
-      - db
-      - redis
-    networks:
-      dev_network:
-        aliases:
-          - open-zaak-celery
+  # open-zaak-celery:
+  #   image: docker.io/openzaak/open-zaak:1.8.2
+  #   environment:
+  #     - TZ=Europe/Amsterdam
+  #     - DJANGO_SETTINGS_MODULE=openzaak.conf.docker
+  #     - SECRET_KEY=somesecretkey
+  #     - DB_HOST=db
+  #     - DB_NAME=openzaak
+  #     - DB_USER=openzaak
+  #     - IS_HTTPS=no
+  #     - ALLOWED_HOSTS=open-zaak.local,open-zaak.local:8000,localhost,localhost:8000
+  #     - CACHE_DEFAULT=redis:6379/0
+  #     - CACHE_AXES=redis:6379/0
+  #     - CELERY_BROKER_URL=redis://redis:6379/1
+  #     - CELERY_RESULT_BACKEND=redis://redis:6379/1
+  #     - CELERY_LOGLEVEL=DEBUG
+  #     - CELERY_WORKER_CONCURRENCY=${CELERY_WORKER_CONCURRENCY:-4}
+  #     - SENDFILE_BACKEND=django_sendfile.backends.simple
+  #   command: /celery_worker.sh
+  #   depends_on:
+  #     - db
+  #     - redis
+  #   networks:
+  #     dev_network:
+  #       aliases:
+  #         - open-zaak-celery
 
   open-notificaties-worker:
     image: openzaak/open-notificaties:1.4.3
