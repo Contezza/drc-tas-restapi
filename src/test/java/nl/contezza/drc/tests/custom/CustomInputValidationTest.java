@@ -1,5 +1,7 @@
 package nl.contezza.drc.tests.custom;
 
+import static io.restassured.RestAssured.given;
+
 import java.util.Base64;
 import java.util.Date;
 import java.util.UUID;
@@ -45,25 +47,23 @@ public class CustomInputValidationTest extends RestTest {
 		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 
-	// FIXME: patch not supported anymore
+	@Test(groups = "CustomInputValidation")
+	public void empty_body_patch() {
 
-	// @Test(groups = "CustomInputValidation")
-	// public void empty_body_patch() {
+		EIOService eioService = new EIOService();
+		// Create EIO
+		JsonPath json = new JsonPath(eioService
+				.testCreate(informatieobjecttypeUrl, "beschrijving0", "some content0", new Date()).asString());
+		String eioUrl = json.getString("url");
 
-	// EIOService eioService = new EIOService();
-	// // Create EIO
-	// JsonPath json = new JsonPath(eioService
-	// .testCreate(informatieobjecttypeUrl, "beschrijving0", "some content0", new
-	// Date()).asString());
-	// String eioUrl = json.getString("url");
+		String id = eioUrl.substring(eioUrl.lastIndexOf('/') + 1).trim();
+		Response res = given().spec(DRCRequestSpecification.getDefault()).when()
+				.patch("/enkelvoudiginformatieobjecten/" + id +
+						"/unlock")
+				.then().extract().response();
 
-	// String id = eioUrl.substring(eioUrl.lastIndexOf('/') + 1).trim();
-	// Response res = given().spec(DRCRequestSpecification.getDefault()).when()
-	// .patch("/enkelvoudiginformatieobjecten/" + id +
-	// "/unlock").then().extract().response();
-
-	// Assert.assertEquals(res.getStatusCode(), 405);
-	// }
+		Assert.assertEquals(res.getStatusCode(), 405);
+	}
 
 	@Test(groups = "CustomInputValidation")
 	public void create_eio_with_only_required_items() {
