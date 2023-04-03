@@ -434,4 +434,16 @@ public class EIOService {
 		// @formatter:on
 	}
 
+	public Response search(JSONArray uuids) {
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getDefault())
+				.body(DRCDataProvider.search(uuids))
+				.when()
+				.post("/enkelvoudiginformatieobjecten/_zoek")
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
 }

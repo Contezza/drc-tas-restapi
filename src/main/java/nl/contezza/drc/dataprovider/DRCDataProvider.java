@@ -345,4 +345,13 @@ public class DRCDataProvider {
 		json.put("lock", lockId);
 		return json.toString();
 	}
+
+	@DataProvider(name = "search")
+	public static String search(JSONArray uuids) {
+		JSONObject json = new JSONObject();
+		if (uuids != null) {
+			json.put("uuid_In", uuids);
+		}
+		return json.toString();
+	}
 }
