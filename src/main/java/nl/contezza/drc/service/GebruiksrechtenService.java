@@ -26,7 +26,7 @@ public class GebruiksrechtenService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response create(RequestSpecification req, String eioUrl) {
 		// @formatter:off
 		return given()
@@ -56,12 +56,39 @@ public class GebruiksrechtenService {
 				.response();
 		// @formatter:on
 	}
-	
+
 	public Response get(RequestSpecification req, String url) {
 		String id = url.substring(url.lastIndexOf('/') + 1).trim();
 		// @formatter:off
 		return given()
 				.spec(req)
+				.when()
+				.get("/gebruiksrechten/" + id)
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
+
+	public Response getHead(String url) {
+		String id = url.substring(url.lastIndexOf('/') + 1).trim();
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getDefault())
+				.when()
+				.head("/gebruiksrechten/" + id)
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
+
+	public Response getIfNonMatch(String url, String eTag) {
+		String id = url.substring(url.lastIndexOf('/') + 1).trim();
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getDefault())
+				.header("If-None-Match", eTag)
 				.when()
 				.get("/gebruiksrechten/" + id)
 				.then()
