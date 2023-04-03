@@ -324,6 +324,31 @@ public class EIOService {
 		// @formatter:on
 	}
 
+	public Response getHeadEIO(String url) {
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getDefault())
+				.when()
+				.head(url.split("/v1")[1])
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
+
+	public Response getEioIfNonMatch(String url, String eTag) {
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getDefault())
+				.header("If-None-Match", eTag)
+				.when()
+				.get(url.split("/v1")[1])
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
+
 	public Response listEIO(String identificatie, String bronorganisatie, Integer page) {
 		Map<String, String> params = new HashMap<String, String>();
 		if (identificatie != null) {

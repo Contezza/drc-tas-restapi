@@ -1,5 +1,7 @@
 package nl.contezza.drc.rest;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -79,13 +81,37 @@ public abstract class RestTest {
 		} while (rest > 9);
 		return rsin + rest;
 	}
-	
+
 	protected void wait(int mill) {
 		try {
 			Thread.sleep(mill);
 		} catch (InterruptedException e) {
 			log.error(e);
 		}
+	}
 
+	/**
+	 * Generate MD5 from provided string.
+	 * 
+	 * @param name String the string to be hashed
+	 * @return String hash
+	 */
+	public String md5FromString(String str) {
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			md.update(str.getBytes());
+			byte byteData[] = md.digest();
+			StringBuffer hexString = new StringBuffer();
+			for (int i = 0; i < byteData.length; i++) {
+				String hex = Integer.toHexString(0xff & byteData[i]);
+				if (hex.length() == 1) {
+					hexString.append('0');
+				}
+				hexString.append(hex);
+			}
+			return hexString.toString();
+		} catch (NoSuchAlgorithmException e) {
+			throw new RuntimeException("An error occurred", e);
+		}
 	}
 }
