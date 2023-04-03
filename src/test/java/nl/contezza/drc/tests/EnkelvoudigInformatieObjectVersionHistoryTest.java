@@ -152,10 +152,25 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 
-	// TODO: create test
+	/**
+	 * See {@link <a
+	 * href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.3.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L485">python
+	 * code</a>}.
+	 */
+
 	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
 	public void test_eio_delete_fails_on_locked() {
+		EIOService eioService = new EIOService();
+		JsonPath json = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
 
+		String eioUrl = json.getString("url");
+
+		eioService.lock(eioUrl);
+
+		Response res = eioService.delete(eioUrl);
+		Assert.assertEquals(res.getStatusCode(), 400);
 	}
 
 	/**
