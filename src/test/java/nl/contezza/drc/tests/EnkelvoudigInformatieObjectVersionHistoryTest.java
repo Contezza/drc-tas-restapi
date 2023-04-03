@@ -152,6 +152,12 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 
+	// TODO: create test
+	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
+	public void test_eio_delete_fails_on_locked() {
+
+	}
+
 	/**
 	 * See {@link <a href=
 	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L423">python
