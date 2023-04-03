@@ -2,6 +2,7 @@ package nl.contezza.drc.service;
 
 import static io.restassured.RestAssured.given;
 
+import java.io.InputStream;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -469,6 +470,18 @@ public class EIOService {
 				.then()
 				.extract()
 				.response();
+		// @formatter:on
+	}
+
+	public InputStream downloadEIO(String url, Integer version) {
+		// @formatter:off
+		return given().param("versie", version)
+				.spec(DRCRequestSpecification.getStream(null))
+				.when()
+				.get(url.split("/v1")[1] + "/download")
+				.then()
+				.extract()
+				.asInputStream();
 		// @formatter:on
 	}
 }
