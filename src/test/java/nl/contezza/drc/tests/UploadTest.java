@@ -1,9 +1,10 @@
 package nl.contezza.drc.tests;
 
+import java.util.Base64;
+
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -121,46 +122,127 @@ public class UploadTest extends RestTest {
 		Assert.assertEquals(res.body().path("invalidParams[0].code"), "file-size");
 	}
 
-	// TODO: create test
-	@Test(groups = "Upload")
+	/**
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.3.0/src/drc/tests/test_upload.py#L217">python
+	 * code</a>}.
+	 */
+	// @Test(groups = "Upload")
 	public void test_update_eio_metadata() {
+		EIOService eioService = new EIOService();
 
+		String eioUrl = new JsonPath(eioService.testCreate(informatieobjecttypeUrl).asString()).getString("url");
+		String lock = new JsonPath(eioService.lock(eioUrl).asString()).getString("lock");
+
+		JSONObject body = new JSONObject();
+		body.put("titel", "another summary");
+		body.put("lock", lock);
+
+		Response res = eioService.partialUpdate(eioUrl, body);
+		JsonPath json = new JsonPath(res.asString());
+
+		Assert.assertEquals(res.getStatusCode(), 200);
+		Assert.assertEquals(json.getString("titel"), "another summary");
+		Assert.assertEquals(json.getString("versie"), "2");
+		Assert.assertEquals(json.getList("bestandsdelen").size(), 0);
 	}
 
-	// TODO: create test
+	/**
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.3.0/src/drc/tests/test_upload.py#L258">python
+	 * code</a>}.
+	 */
 	// @Test(groups = "Upload")
 	public void test_update_eio_file() {
+		EIOService eioService = new EIOService();
 
+		String eioUrl = new JsonPath(eioService.testCreate(informatieobjecttypeUrl).asString()).getString("url");
+		String lock = new JsonPath(eioService.lock(eioUrl).asString()).getString("lock");
+
+		JSONObject body = new JSONObject();
+		body.put("inhoud", Base64.getEncoder().encodeToString("some other file content".getBytes()));
+		body.put("bestandsomvang", "some other file content".getBytes().length);
+		body.put("lock", lock);
+
+		Response res = eioService.partialUpdate(eioUrl, body);
+		JsonPath json = new JsonPath(res.asString());
+
+		String data = eioService.downloadAsString(json.getString("inhoud"));
+
+		Assert.assertEquals(res.getStatusCode(), 200);
+		Assert.assertEquals(data, "some other file content");
 	}
 
-	// TODO: create test
+	/**
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.3.0/src/drc/tests/test_upload.py#L304">python
+	 * code</a>}.
+	 */
 	// @Test(groups = "Upload")
 	public void test_update_eio_file_set_empty() {
+		EIOService eioService = new EIOService();
 
+		String eioUrl = new JsonPath(eioService.testCreate(informatieobjecttypeUrl).asString()).getString("url");
+		String lock = new JsonPath(eioService.lock(eioUrl).asString()).getString("lock");
+
+		JSONObject body = new JSONObject();
+		body.put("inhoud", JSONObject.NULL);
+		body.put("bestandsomvang", JSONObject.NULL);
+		body.put("lock", lock);
+
+		Response res = eioService.partialUpdate(eioUrl, body);
+		JsonPath json = new JsonPath(res.asString());
+
+		Assert.assertEquals(res.getStatusCode(), 200);
+		Assert.assertNull(json.getString("inhoud"));
+		Assert.assertNull(json.getString("bestandsomvang"));
+		Assert.assertEquals(json.getList("bestandsdelen").size(), 0);
 	}
 
-	// TODO: create test
+	/**
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.3.0/src/drc/tests/test_upload.py#L341">python
+	 * code</a>}.
+	 */
 	// @Test(groups = "Upload")
 	public void test_update_eio_only_size() {
+		EIOService eioService = new EIOService();
 
+		String eioUrl = new JsonPath(eioService.testCreate(informatieobjecttypeUrl).asString()).getString("url");
+		String lock = new JsonPath(eioService.lock(eioUrl).asString()).getString("lock");
+
+		JSONObject body = new JSONObject();
+		body.put("bestandsomvang", 20);
+		body.put("lock", lock);
+
+		Response res = eioService.partialUpdate(eioUrl, body);
+
+		Assert.assertEquals(res.getStatusCode(), 400);
+		Assert.assertEquals(res.body().path("invalidParams[0].name"), "nonFieldErrors");
+		Assert.assertEquals(res.body().path("invalidParams[0].code"), "file-size");
 	}
 
-	// TODO: create test
+	/**
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.3.0/src/drc/tests/test_upload.py#L371">python
+	 * code</a>}.
+	 */
 	// @Test(groups = "Upload")
 	public void test_update_eio_only_file_without_size() {
+		EIOService eioService = new EIOService();
 
-	}
+		String eioUrl = new JsonPath(eioService.testCreate(informatieobjecttypeUrl).asString()).getString("url");
+		String lock = new JsonPath(eioService.lock(eioUrl).asString()).getString("lock");
 
-	// TODO: create test
-	// @Test(groups = "Upload")
-	public void test_update_eio_put() {
+		JSONObject body = new JSONObject();
+		body.put("inhoud", Base64.getEncoder().encodeToString("some other file content".getBytes()));
+		body.put("lock", lock);
 
-	}
+		Response res = eioService.partialUpdate(eioUrl, body);
 
-	// TODO: create test
-	// @Test(groups = "Upload")
-	public void test_create_eio_full_process() {
-
+		Assert.assertEquals(res.getStatusCode(), 400);
+		Assert.assertEquals(res.body().path("invalidParams[0].name"), "nonFieldErrors");
+		Assert.assertEquals(res.body().path("invalidParams[0].code"), "file-size");
 	}
 
 	// TODO: create test
