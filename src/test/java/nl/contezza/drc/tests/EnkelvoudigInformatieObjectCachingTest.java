@@ -79,8 +79,12 @@ public class EnkelvoudigInformatieObjectCachingTest extends RestTest {
 		Response res = eioService.getEIO(eioUrl, null);
 		String eTag = "" + res.getHeader("ETag") + "";
 
-		// Not modified
+		// Not modified for get
 		res = eioService.getEioIfNonMatch(eioUrl, eTag);
+		Assert.assertEquals(res.getStatusCode(), 304);
+
+		// Not modified for head
+		res = eioService.getHeadEioIfNonMatch(eioUrl, eTag);
 		Assert.assertEquals(res.getStatusCode(), 304);
 	}
 
