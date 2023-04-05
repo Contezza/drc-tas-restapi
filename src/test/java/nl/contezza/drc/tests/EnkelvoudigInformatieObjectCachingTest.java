@@ -61,6 +61,7 @@ public class EnkelvoudigInformatieObjectCachingTest extends RestTest {
 
 		Response res = eioService.getHeadEIO(eioUrl);
 		Assert.assertNotNull(res.getHeader("ETag"));
+		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 
 	/**
