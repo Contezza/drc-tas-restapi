@@ -2,10 +2,9 @@ package nl.contezza.drc.tests;
 
 import org.testng.annotations.BeforeTest;
 
-import lombok.extern.log4j.Log4j2;
 import nl.contezza.drc.rest.RestTest;
 
-@Log4j2
+//@Log4j2
 public class VerzendingTest extends RestTest {
 
 	/**
