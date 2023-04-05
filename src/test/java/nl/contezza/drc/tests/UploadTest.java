@@ -1,7 +1,9 @@
 package nl.contezza.drc.tests;
 
+import java.io.File;
 import java.util.Base64;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -11,7 +13,10 @@ import io.restassured.response.Response;
 import lombok.extern.log4j.Log4j2;
 import nl.contezza.drc.dataprovider.DRCDataProvider;
 import nl.contezza.drc.rest.RestTest;
+import nl.contezza.drc.service.AuthService;
+import nl.contezza.drc.service.DRCRequestSpecification;
 import nl.contezza.drc.service.EIOService;
+import nl.contezza.drc.service.UploadService;
 import nl.contezza.drc.service.ZTCService;
 
 @Log4j2
@@ -245,22 +250,76 @@ public class UploadTest extends RestTest {
 		Assert.assertEquals(res.body().path("invalidParams[0].code"), "file-size");
 	}
 
-	// TODO: create test
+	/**
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.3.0/src/drc/tests/test_upload.py#L606">python
+	 * code</a>}.
+	 */
 	// @Test(groups = "Upload")
 	public void test_upload_part_wrong_size() {
+		UploadService uploadService = new UploadService();
+		EIOService eioService = new EIOService();
 
+		JSONObject jsonObject = new JSONObject(DRCDataProvider.testCreate(informatieobjecttypeUrl));
+		jsonObject.put("inhoud", JSONObject.NULL);
+		jsonObject.put("bestandsomvang", "some content for file".getBytes().length + 1);
+
+		Response res = eioService.testCreate(jsonObject);
+
+		String uploadUrl = res.body().path("bestandsdelen[0].url");
+		String lock = res.body().path("lock");
+
+		File file = uploadService.createTextFile("some content for file");
+		res = uploadService.uploadFile(uploadUrl, lock, file);
+
+		Assert.assertEquals(res.getStatusCode(), 400);
+		Assert.assertEquals(res.body().path("invalidParams[0].name"), "nonFieldErrors");
+		Assert.assertEquals(res.body().path("invalidParams[0].code"), "file-size");
 	}
 
-	// TODO: create test
-	// @Test(groups = "Upload")
-	public void test_upload_part_twice_correct() {
-
-	}
-
-	// TODO: create test
+	/**
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.3.0/src/drc/tests/test_upload.py#L672">python
+	 * code</a>}.
+	 */
 	// @Test(groups = "Upload")
 	public void test_unlock_without_uploading() {
+		AuthService authService = new AuthService();
 
+		JSONArray scopes = new JSONArray().put("documenten.lezen").put("documenten.aanmaken")
+				.put("documenten.bijwerken").put("documenten.lock");
+		String maxVertrouwelijkheid = "zeer_geheim";
+
+		JSONObject comp = new JSONObject();
+		comp.put("component", "drc");
+		comp.put("scopes", scopes);
+		comp.put("informatieobjecttype", informatieobjecttypeUrl);
+		comp.put("maxVertrouwelijkheidaanduiding", maxVertrouwelijkheid);
+
+		authService.updateReadOnlyClientScope(scopes, new JSONArray().put(comp), false);
+
+		wait(2000);
+
+		EIOService eioService = new EIOService();
+
+		JSONObject jsonObject = new JSONObject(DRCDataProvider.testCreate(informatieobjecttypeUrl));
+		jsonObject.put("inhoud", JSONObject.NULL);
+		jsonObject.put("bestandsomvang", "some content for file".getBytes().length);
+
+		Response res = eioService.testCreate(DRCRequestSpecification.getReadonly(), jsonObject);
+
+		String eioUrl = res.body().path("url");
+		String uploadUrl = res.body().path("bestandsdelen[0].url");
+		String lock = res.body().path("lock");
+
+		Assert.assertNotNull(uploadUrl);
+		Assert.assertNotNull(lock);
+
+		res = eioService.unlock(DRCRequestSpecification.getReadonly(), eioUrl, lock);
+
+		Assert.assertEquals(res.getStatusCode(), 400);
+		Assert.assertEquals(res.body().path("invalidParams[0].name"), "nonFieldErrors");
+		Assert.assertEquals(res.body().path("invalidParams[0].code"), "file-size");
 	}
 
 	// TODO: create test

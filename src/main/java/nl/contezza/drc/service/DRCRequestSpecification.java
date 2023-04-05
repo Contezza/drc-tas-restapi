@@ -22,10 +22,10 @@ public class DRCRequestSpecification {
 	public static final String BASE_PATH = PropertyLoader.getBasePath();
 	private static final String CLIENT_ID = PropertyLoader.getClientID();
 	private static final String SECRET = PropertyLoader.getSecret();
-	
+
 	public static final String CLIENT_ID_READONLY = PropertyLoader.getClientIDReadonly();
 	private static final String SECRET_READONLY = PropertyLoader.getSecretReadonly();
-	
+
 	public static final String CLIENT_ID_WRONG_SCOPE = PropertyLoader.getClientIDWrongScope();
 	private static final String SECRET_WRONG_SCOPE = PropertyLoader.getSecretWrongScope();
 
@@ -38,14 +38,15 @@ public class DRCRequestSpecification {
 	private static final String ZRC_BASE_PATH = PropertyLoader.getZRCBasePath();
 	private static final String ZRC_CLIENT_ID = PropertyLoader.getZRCClientID();
 	private static final String ZRC_SECRET = PropertyLoader.getZRCSecret();
-	
+
 	private static final String AC_BASE_URI = PropertyLoader.getACBaseURI();
 	private static final String AC_BASE_PATH = PropertyLoader.getACBasePath();
 	private static final String AC_CLIENT_ID = PropertyLoader.getACClientID();
 	private static final String AC_SECRET = PropertyLoader.getACSecret();
 
 	/**
-	 * Default request specification for interacting with documentregistratiecomponent.
+	 * Default request specification for interacting with
+	 * documentregistratiecomponent.
 	 * 
 	 * @return RequestSpecification specification
 	 */
@@ -68,7 +69,7 @@ public class DRCRequestSpecification {
 				.build();
 		// @formatter:on
 	}
-	
+
 	public static RequestSpecification getReadonly() {
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		// @formatter:off
@@ -88,7 +89,7 @@ public class DRCRequestSpecification {
 				.build();
 		// @formatter:on
 	}
-	
+
 	public static RequestSpecification getWrongScope() {
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		// @formatter:off
@@ -204,7 +205,7 @@ public class DRCRequestSpecification {
 				.build();
 		// @formatter:on
 	}
-	
+
 	public static RequestSpecification getAC() {
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		// @formatter:off
@@ -238,6 +239,7 @@ public class DRCRequestSpecification {
 		Calendar now = Calendar.getInstance();
 		now.add(Calendar.MINUTE, tokenExpiresInMinutes);
 		Date until = now.getTime();
-		return JWT.create().withIssuer(clientId).withClaim("client_id", clientId).withIssuedAt(new Date()).withExpiresAt(until).sign(algorithm);
+		return JWT.create().withIssuer(clientId).withClaim("client_id", clientId).withIssuedAt(new Date())
+				.withExpiresAt(until).sign(algorithm);
 	}
 }

@@ -51,6 +51,19 @@ public class EIOService {
 		// @formatter:on
 	}
 
+	public Response testCreate(RequestSpecification requestSpecification, JSONObject jsonObject) {
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getDefault())
+				.body(jsonObject.toString())
+				.when()
+				.post("/enkelvoudiginformatieobjecten")
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
+
 	public Response testCreate(RequestSpecification requestSpecification, String iot) {
 		// @formatter:off
 		return given()
