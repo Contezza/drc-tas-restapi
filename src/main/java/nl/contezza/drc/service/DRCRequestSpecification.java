@@ -62,7 +62,7 @@ public class DRCRequestSpecification {
 				.setBasePath(BASE_PATH)
 				.addHeader(
 			              "Authorization",
-			              "Bearer " + getToken(CLIENT_ID, SECRET, 10)
+			              "Bearer " + getToken(CLIENT_ID, SECRET, 60)
 			             )
 				.log(LogDetail.ALL)
 				.addFilter(new ResponseLoggingFilter())
@@ -102,7 +102,7 @@ public class DRCRequestSpecification {
 				.setBasePath(BASE_PATH)
 				.addHeader(
 			              "Authorization",
-			              "Bearer " + getToken(CLIENT_ID_WRONG_SCOPE, SECRET_WRONG_SCOPE, 10)
+			              "Bearer " + getToken(CLIENT_ID_WRONG_SCOPE, SECRET_WRONG_SCOPE, 60)
 			             )
 				.log(LogDetail.ALL)
 				.addFilter(new ResponseLoggingFilter())
@@ -128,7 +128,7 @@ public class DRCRequestSpecification {
 				.setBasePath(BASE_PATH)		
 				.addHeader(
 			              "Authorization",
-			              "Bearer " + getToken(CLIENT_ID, SECRET, 10)
+			              "Bearer " + getToken(CLIENT_ID, SECRET, 60)
 			             )
 				.log(LogDetail.ALL)
 				.addFilter(new ResponseLoggingFilter())
@@ -145,7 +145,7 @@ public class DRCRequestSpecification {
 				.setAccept(accept)
 				.addHeader(
 			              "Authorization",
-			              "Bearer " + getToken(CLIENT_ID, SECRET, 10)
+			              "Bearer " + getToken(CLIENT_ID, SECRET, 60)
 			             )
 				.log(LogDetail.ALL)
 				.addFilter(new ResponseLoggingFilter())
@@ -171,7 +171,7 @@ public class DRCRequestSpecification {
 				.setBasePath(ZTC_BASE_PATH)
 				.addHeader(
 			              "Authorization",
-			              "Bearer " + getToken(ZTC_CLIENT_ID, ZTC_SECRET, 10)
+			              "Bearer " + getToken(ZTC_CLIENT_ID, ZTC_SECRET, 60)
 			             )
 				.log(LogDetail.ALL)
 				.addFilter(new ResponseLoggingFilter())
@@ -196,7 +196,7 @@ public class DRCRequestSpecification {
 				.setBasePath(ZRC_BASE_PATH)
 				.addHeader(
 			              "Authorization",
-			              "Bearer " + getToken(ZRC_CLIENT_ID, ZRC_SECRET, 10)
+			              "Bearer " + getToken(ZRC_CLIENT_ID, ZRC_SECRET, 60)
 			             )
 				.addHeader("Accept-Crs", "EPSG:4326")
 				.addHeader("Content-Crs", "EPSG:4326")
@@ -218,7 +218,7 @@ public class DRCRequestSpecification {
 				.setBasePath(AC_BASE_PATH)
 				.addHeader(
 			              "Authorization",
-			              "Bearer " + getToken(AC_CLIENT_ID, AC_SECRET, 10)
+			              "Bearer " + getToken(AC_CLIENT_ID, AC_SECRET, 60)
 			             )
 				.log(LogDetail.ALL)
 				.addFilter(new ResponseLoggingFilter())
