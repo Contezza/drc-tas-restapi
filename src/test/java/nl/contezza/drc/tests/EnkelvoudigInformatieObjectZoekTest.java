@@ -50,6 +50,9 @@ public class EnkelvoudigInformatieObjectZoekTest extends RestTest {
 		String url3 = new JsonPath(eioService.testCreate(informatieobjecttypeUrl).asString()).getString("url");
 		// @formatter:on
 
+		// Wait for Solr to be indexed
+		wait(30000);
+
 		String uuid1 = url1.substring(url1.lastIndexOf('/') + 1).trim();
 		String uuid2 = url2.substring(url2.lastIndexOf('/') + 1).trim();
 		String uuid3 = url3.substring(url3.lastIndexOf('/') + 1).trim();
