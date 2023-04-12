@@ -1,5 +1,7 @@
 package nl.contezza.drc.tests.custom;
 
+import java.io.File;
+
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -10,6 +12,7 @@ import io.restassured.response.Response;
 import nl.contezza.drc.dataprovider.DRCDataProvider;
 import nl.contezza.drc.rest.RestTest;
 import nl.contezza.drc.service.EIOService;
+import nl.contezza.drc.service.UploadService;
 import nl.contezza.drc.service.ZTCService;
 
 public class CustomUploadTest extends RestTest {
@@ -52,5 +55,50 @@ public class CustomUploadTest extends RestTest {
         Assert.assertEquals(json.getBoolean("locked"), true);
         Assert.assertEquals(json.getInt("bestandsomvang"), "some content for file".getBytes().length);
         Assert.assertNull(res.getBody().path("inhoud"));
+    }
+
+    @Test(groups = "CustomUpload")
+    public void test_upload_flow_bestandsdelen() {
+        UploadService uploadService = new UploadService();
+        EIOService eioService = new EIOService();
+
+        // Create file with empty inhoud
+        JSONObject jsonObject = new JSONObject(DRCDataProvider.testCreate(informatieobjecttypeUrl));
+        jsonObject.put("inhoud", JSONObject.NULL);
+        jsonObject.put("bestandsomvang", "some content for file".getBytes().length);
+
+        Response res = eioService.testCreate(jsonObject);
+        String eioUrl = res.body().path("url");
+
+        String uploadUrl = res.body().path("bestandsdelen[0].url");
+        String lock = res.body().path("lock");
+
+        // Upload file part
+        File file = uploadService.createTextFile("some content for file");
+        res = uploadService.uploadFile(uploadUrl, lock, file);
+
+        Assert.assertEquals(res.getStatusCode(), 200);
+
+        // Validate if still is locked
+        res = eioService.getEIO(eioUrl, null);
+
+        JsonPath json = new JsonPath(res.asString());
+        Assert.assertEquals(res.getStatusCode(), 200);
+        Assert.assertEquals(json.getList("bestandsdelen").size(), 1);
+        Assert.assertEquals(json.getBoolean("locked"), true);
+
+        // Unlock
+        res = eioService.unlock(eioUrl, lock);
+
+        Assert.assertEquals(res.getStatusCode(), 204);
+
+        // Validate if all is normal
+        res = eioService.getEIO(eioUrl, null);
+
+        json = new JsonPath(res.asString());
+        Assert.assertEquals(res.getStatusCode(), 200);
+        Assert.assertNotNull(res.getBody().path("inhoud"));
+        Assert.assertEquals(json.getList("bestandsdelen").size(), 0);
+        Assert.assertEquals(json.getBoolean("locked"), false);
     }
 }
