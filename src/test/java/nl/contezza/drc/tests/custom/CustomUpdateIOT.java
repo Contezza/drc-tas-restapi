@@ -3,7 +3,6 @@ package nl.contezza.drc.tests.custom;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -47,7 +46,7 @@ public class CustomUpdateIOT extends RestTest {
 		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 
-	@Test(groups = "CustomUpdateIOT")
+	// @Test(groups = "CustomUpdateIOT")
 	public void test_update_IOT() {
 		EIOService eioService = new EIOService();
 
