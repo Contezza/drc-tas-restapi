@@ -2,10 +2,12 @@ package nl.contezza.drc.service;
 
 import static io.restassured.RestAssured.given;
 
+import java.io.InputStream;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import io.restassured.response.Response;
@@ -28,6 +30,32 @@ public class EIOService {
 		return given()
 				.spec(DRCRequestSpecification.getDefault())
 				.body(DRCDataProvider.testCreate(iot))
+				.when()
+				.post("/enkelvoudiginformatieobjecten")
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
+
+	public Response testCreate(JSONObject jsonObject) {
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getDefault())
+				.body(jsonObject.toString())
+				.when()
+				.post("/enkelvoudiginformatieobjecten")
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
+
+	public Response testCreate(RequestSpecification requestSpecification, JSONObject jsonObject) {
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getDefault())
+				.body(jsonObject.toString())
 				.when()
 				.post("/enkelvoudiginformatieobjecten")
 				.then()
@@ -127,7 +155,8 @@ public class EIOService {
 		// @formatter:on
 	}
 
-	public Response testCreate(String iot, String beschrijving, String inhoud, String vertrouwelijkheidaanduiding, String bronorganisatie) {
+	public Response testCreate(String iot, String beschrijving, String inhoud, String vertrouwelijkheidaanduiding,
+			String bronorganisatie) {
 		// @formatter:off
 		return given()
 				.spec(DRCRequestSpecification.getDefault())
@@ -140,7 +169,7 @@ public class EIOService {
 		// @formatter:on
 	}
 
-	public Response testCreate(String iot, Object inhoud) {
+	public Response testCreate(String iot, JSONArray inhoud) {
 		// @formatter:off
 		return given()
 				.spec(DRCRequestSpecification.getDefault())
@@ -161,7 +190,7 @@ public class EIOService {
 		return given()
 				.spec(DRCRequestSpecification.getDefault())
 				.when()
-				.post("/enkelvoudiginformatieobjecten/"+id + "/lock")
+				.post("/enkelvoudiginformatieobjecten/"+ id + "/lock")
 				.then()
 				.extract()
 				.response();
@@ -309,6 +338,44 @@ public class EIOService {
 		// @formatter:on
 	}
 
+	public Response getHeadEIO(String url) {
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getDefault())
+				.when()
+				.head(url.split("/v1")[1])
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
+
+	public Response getEioIfNonMatch(String url, String eTag) {
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getDefault())
+				.header("If-None-Match", eTag)
+				.when()
+				.get(url.split("/v1")[1])
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
+
+	public Response getHeadEioIfNonMatch(String url, String eTag) {
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getDefault())
+				.header("If-None-Match", eTag)
+				.when()
+				.head(url.split("/v1")[1])
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
+
 	public Response listEIO(String identificatie, String bronorganisatie, Integer page) {
 		Map<String, String> params = new HashMap<String, String>();
 		if (identificatie != null) {
@@ -334,7 +401,8 @@ public class EIOService {
 		// @formatter:on
 	}
 
-	public Response listEIO(RequestSpecification requestSpecification, String identificatie, String bronorganisatie, Integer page) {
+	public Response listEIO(RequestSpecification requestSpecification, String identificatie, String bronorganisatie,
+			Integer page) {
 		Map<String, String> params = new HashMap<String, String>();
 		if (identificatie != null) {
 			params.put("identificatie", identificatie);
@@ -418,4 +486,28 @@ public class EIOService {
 		// @formatter:on
 	}
 
+	public Response search(JSONArray uuids) {
+		// @formatter:off
+		return given()
+				.spec(DRCRequestSpecification.getDefault())
+				.body(DRCDataProvider.search(uuids))
+				.when()
+				.post("/enkelvoudiginformatieobjecten/_zoek")
+				.then()
+				.extract()
+				.response();
+		// @formatter:on
+	}
+
+	public InputStream downloadEIO(String url, Integer version) {
+		// @formatter:off
+		return given().param("versie", version)
+				.spec(DRCRequestSpecification.getStream(null))
+				.when()
+				.get(url.split("/v1")[1] + "/download")
+				.then()
+				.extract()
+				.asInputStream();
+		// @formatter:on
+	}
 }

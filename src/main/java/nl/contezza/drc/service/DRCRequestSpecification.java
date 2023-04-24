@@ -22,10 +22,10 @@ public class DRCRequestSpecification {
 	public static final String BASE_PATH = PropertyLoader.getBasePath();
 	private static final String CLIENT_ID = PropertyLoader.getClientID();
 	private static final String SECRET = PropertyLoader.getSecret();
-	
+
 	public static final String CLIENT_ID_READONLY = PropertyLoader.getClientIDReadonly();
 	private static final String SECRET_READONLY = PropertyLoader.getSecretReadonly();
-	
+
 	public static final String CLIENT_ID_WRONG_SCOPE = PropertyLoader.getClientIDWrongScope();
 	private static final String SECRET_WRONG_SCOPE = PropertyLoader.getSecretWrongScope();
 
@@ -38,14 +38,15 @@ public class DRCRequestSpecification {
 	private static final String ZRC_BASE_PATH = PropertyLoader.getZRCBasePath();
 	private static final String ZRC_CLIENT_ID = PropertyLoader.getZRCClientID();
 	private static final String ZRC_SECRET = PropertyLoader.getZRCSecret();
-	
+
 	private static final String AC_BASE_URI = PropertyLoader.getACBaseURI();
 	private static final String AC_BASE_PATH = PropertyLoader.getACBasePath();
 	private static final String AC_CLIENT_ID = PropertyLoader.getACClientID();
 	private static final String AC_SECRET = PropertyLoader.getACSecret();
 
 	/**
-	 * Default request specification for interacting with documentregistratiecomponent.
+	 * Default request specification for interacting with
+	 * documentregistratiecomponent.
 	 * 
 	 * @return RequestSpecification specification
 	 */
@@ -61,14 +62,14 @@ public class DRCRequestSpecification {
 				.setBasePath(BASE_PATH)
 				.addHeader(
 			              "Authorization",
-			              "Bearer " + getToken(CLIENT_ID, SECRET, 10)
+			              "Bearer " + getToken(CLIENT_ID, SECRET, 60)
 			             )
 				.log(LogDetail.ALL)
 				.addFilter(new ResponseLoggingFilter())
 				.build();
 		// @formatter:on
 	}
-	
+
 	public static RequestSpecification getReadonly() {
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		// @formatter:off
@@ -88,7 +89,7 @@ public class DRCRequestSpecification {
 				.build();
 		// @formatter:on
 	}
-	
+
 	public static RequestSpecification getWrongScope() {
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		// @formatter:off
@@ -101,7 +102,7 @@ public class DRCRequestSpecification {
 				.setBasePath(BASE_PATH)
 				.addHeader(
 			              "Authorization",
-			              "Bearer " + getToken(CLIENT_ID_WRONG_SCOPE, SECRET_WRONG_SCOPE, 10)
+			              "Bearer " + getToken(CLIENT_ID_WRONG_SCOPE, SECRET_WRONG_SCOPE, 60)
 			             )
 				.log(LogDetail.ALL)
 				.addFilter(new ResponseLoggingFilter())
@@ -127,7 +128,7 @@ public class DRCRequestSpecification {
 				.setBasePath(BASE_PATH)		
 				.addHeader(
 			              "Authorization",
-			              "Bearer " + getToken(CLIENT_ID, SECRET, 10)
+			              "Bearer " + getToken(CLIENT_ID, SECRET, 60)
 			             )
 				.log(LogDetail.ALL)
 				.addFilter(new ResponseLoggingFilter())
@@ -144,7 +145,7 @@ public class DRCRequestSpecification {
 				.setAccept(accept)
 				.addHeader(
 			              "Authorization",
-			              "Bearer " + getToken(CLIENT_ID, SECRET, 10)
+			              "Bearer " + getToken(CLIENT_ID, SECRET, 60)
 			             )
 				.log(LogDetail.ALL)
 				.addFilter(new ResponseLoggingFilter())
@@ -170,7 +171,7 @@ public class DRCRequestSpecification {
 				.setBasePath(ZTC_BASE_PATH)
 				.addHeader(
 			              "Authorization",
-			              "Bearer " + getToken(ZTC_CLIENT_ID, ZTC_SECRET, 10)
+			              "Bearer " + getToken(ZTC_CLIENT_ID, ZTC_SECRET, 60)
 			             )
 				.log(LogDetail.ALL)
 				.addFilter(new ResponseLoggingFilter())
@@ -195,7 +196,7 @@ public class DRCRequestSpecification {
 				.setBasePath(ZRC_BASE_PATH)
 				.addHeader(
 			              "Authorization",
-			              "Bearer " + getToken(ZRC_CLIENT_ID, ZRC_SECRET, 10)
+			              "Bearer " + getToken(ZRC_CLIENT_ID, ZRC_SECRET, 60)
 			             )
 				.addHeader("Accept-Crs", "EPSG:4326")
 				.addHeader("Content-Crs", "EPSG:4326")
@@ -204,7 +205,7 @@ public class DRCRequestSpecification {
 				.build();
 		// @formatter:on
 	}
-	
+
 	public static RequestSpecification getAC() {
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		// @formatter:off
@@ -217,7 +218,7 @@ public class DRCRequestSpecification {
 				.setBasePath(AC_BASE_PATH)
 				.addHeader(
 			              "Authorization",
-			              "Bearer " + getToken(AC_CLIENT_ID, AC_SECRET, 10)
+			              "Bearer " + getToken(AC_CLIENT_ID, AC_SECRET, 60)
 			             )
 				.log(LogDetail.ALL)
 				.addFilter(new ResponseLoggingFilter())
@@ -238,6 +239,7 @@ public class DRCRequestSpecification {
 		Calendar now = Calendar.getInstance();
 		now.add(Calendar.MINUTE, tokenExpiresInMinutes);
 		Date until = now.getTime();
-		return JWT.create().withIssuer(clientId).withClaim("client_id", clientId).withIssuedAt(new Date()).withExpiresAt(until).sign(algorithm);
+		return JWT.create().withIssuer(clientId).withClaim("client_id", clientId).withIssuedAt(new Date())
+				.withExpiresAt(until).sign(algorithm);
 	}
 }

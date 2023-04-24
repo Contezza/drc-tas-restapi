@@ -1,0 +1,13 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "_clean install",
+            "type": "shell",
+            "command": "mvn clean install -U",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        }
+    ]
+}

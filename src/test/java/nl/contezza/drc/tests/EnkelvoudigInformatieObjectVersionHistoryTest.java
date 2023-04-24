@@ -18,6 +18,8 @@ import nl.contezza.drc.utils.StringDate;
 //@Log4j2
 public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
+	private final String SAMPLE_CONTENT = "some file content";
+
 	/**
 	 * Create necessary dependencies.
 	 */
@@ -32,17 +34,21 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 		json = new JsonPath(ztcService.createInformatieObjectType(catalogusUrl).asString());
 		informatieobjecttypeUrl = json.getString("url").replace(ZTC_BASE_URI, ZTC_DOCKER_URI);
 
-		Response res = ztcService.publishInformatieObjectType(informatieobjecttypeUrl.substring(informatieobjecttypeUrl.lastIndexOf('/') + 1).trim());
+		Response res = ztcService.publishInformatieObjectType(
+				informatieobjecttypeUrl.substring(informatieobjecttypeUrl.lastIndexOf('/') + 1).trim());
 		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L336">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L336">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
 	public void test_eio_update() {
 		EIOService eioService = new EIOService();
-		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
+		JsonPath json = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
 
 		JSONObject createdEio = new JSONObject(json.prettify());
 		String eioUrl = json.getString("url");
@@ -52,7 +58,8 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		JSONObject body = new JSONObject();
 		body.put("beschrijving", "beschrijving2");
-		body.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
+		body.put("inhoud", Base64.getEncoder().encodeToString(SAMPLE_CONTENT.getBytes()));
+		body.put("bestandsomvang", SAMPLE_CONTENT.getBytes().length);
 		body.put("lock", json.getString("lock"));
 
 		JSONObject mergedJson = mergeJSONObjects(createdEio, body);
@@ -75,12 +82,15 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L380">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L380">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
 	public void test_eio_partial_update() {
 		EIOService eioService = new EIOService();
-		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
+		JsonPath json = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
 
 		String eioUrl = json.getString("url");
 
@@ -89,7 +99,8 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		JSONObject body = new JSONObject();
 		body.put("beschrijving", "beschrijving2");
-		body.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
+		body.put("inhoud", Base64.getEncoder().encodeToString(SAMPLE_CONTENT.getBytes()));
+		body.put("bestandsomvang", SAMPLE_CONTENT.getBytes().length);
 		body.put("lock", json.getString("lock"));
 
 		// Update EIO
@@ -98,6 +109,7 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		json = new JsonPath(res.body().asString());
 
+		Assert.assertEquals(eioUrl, json.getString("url"));
 		Assert.assertEquals(json.getString("beschrijving"), "beschrijving2");
 		Assert.assertEquals(json.getInt("versie"), 2);
 
@@ -108,12 +120,15 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L409">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L409">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
 	public void test_eio_delete() {
 		EIOService eioService = new EIOService();
-		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
+		JsonPath json = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
 
 		String eioUrl = json.getString("url");
 
@@ -122,31 +137,52 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		JSONObject body = new JSONObject();
 		body.put("beschrijving", "beschrijving2");
-		body.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
+		body.put("inhoud", Base64.getEncoder().encodeToString(SAMPLE_CONTENT.getBytes()));
+		body.put("bestandsomvang", SAMPLE_CONTENT.getBytes().length);
 		body.put("lock", json.getString("lock"));
 
 		eioService.partialUpdate(eioUrl, body);
 
-		// Delete EIO
+		// Cannot destroy locked objects
 		Response res = eioService.delete(eioUrl);
+		Assert.assertEquals(res.getStatusCode(), 400);
 
-		Assert.assertEquals(res.getStatusCode(), 204);
-
-		// Validate EIO not exists
+		// You can retrieve locked file
 		res = eioService.getEIO(eioUrl, 1);
-		Assert.assertEquals(res.getStatusCode(), 404);
-
-		json = new JsonPath(res.asString());
-		Assert.assertEquals(json.getString("code"), "not_found");
+		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L423">python code</a>}.
+	 * See {@link <a
+	 * href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.3.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L485">python
+	 * code</a>}.
+	 */
+
+	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
+	public void test_eio_delete_fails_on_locked() {
+		EIOService eioService = new EIOService();
+		JsonPath json = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
+
+		String eioUrl = json.getString("url");
+
+		eioService.lock(eioUrl);
+
+		Response res = eioService.delete(eioUrl);
+		Assert.assertEquals(res.getStatusCode(), 400);
+	}
+
+	/**
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L423">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
 	public void test_eio_detail_retrieves_latest_version() {
 		EIOService eioService = new EIOService();
-		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
+		JsonPath json = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
 
 		String eioUrl = json.getString("url");
 
@@ -154,7 +190,8 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		JSONObject body = new JSONObject();
 		body.put("beschrijving", "beschrijving2");
-		body.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
+		body.put("inhoud", Base64.getEncoder().encodeToString(SAMPLE_CONTENT.getBytes()));
+		body.put("bestandsomvang", SAMPLE_CONTENT.getBytes().length);
 		body.put("lock", json.getString("lock"));
 
 		Response res = eioService.partialUpdate(eioUrl, body);
@@ -167,12 +204,15 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L436">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L436">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
 	public void test_eio_list_shows_latest_versions() {
 		EIOService eioService = new EIOService();
-		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "object1", "some content").asString());
+		JsonPath json = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "object1", "some content").asString());
 
 		String eioUrl = json.getString("url");
 
@@ -180,7 +220,8 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		JSONObject body = new JSONObject();
 		body.put("beschrijving", "object1 versie2");
-		body.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
+		body.put("inhoud", Base64.getEncoder().encodeToString(SAMPLE_CONTENT.getBytes()));
+		body.put("bestandsomvang", SAMPLE_CONTENT.getBytes().length);
 		body.put("lock", json.getString("lock"));
 
 		Response res1 = eioService.partialUpdate(eioUrl, body);
@@ -194,7 +235,8 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		body = new JSONObject();
 		body.put("beschrijving", "object2 versie2");
-		body.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
+		body.put("inhoud", Base64.getEncoder().encodeToString(SAMPLE_CONTENT.getBytes()));
+		body.put("bestandsomvang", SAMPLE_CONTENT.getBytes().length);
 		body.put("lock", json.getString("lock"));
 
 		Response res2 = eioService.partialUpdate(eioUrl, body);
@@ -208,12 +250,15 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L462">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L462">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
 	public void test_eio_detail_filter_by_version() {
 		EIOService eioService = new EIOService();
-		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
+		JsonPath json = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
 
 		String eioUrl = json.getString("url");
 
@@ -221,7 +266,8 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		JSONObject body = new JSONObject();
 		body.put("beschrijving", "beschrijving2");
-		body.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
+		body.put("inhoud", Base64.getEncoder().encodeToString(SAMPLE_CONTENT.getBytes()));
+		body.put("bestandsomvang", SAMPLE_CONTENT.getBytes().length);
 		body.put("lock", json.getString("lock"));
 
 		eioService.partialUpdate(eioUrl, body);
@@ -235,12 +281,15 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L475">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L475">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
 	public void test_eio_detail_filter_by_wrong_version_gives_404() {
 		EIOService eioService = new EIOService();
-		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
+		JsonPath json = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
 
 		String eioUrl = json.getString("url");
 
@@ -248,7 +297,8 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		JSONObject body = new JSONObject();
 		body.put("beschrijving", "beschrijving2");
-		body.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
+		body.put("inhoud", Base64.getEncoder().encodeToString(SAMPLE_CONTENT.getBytes()));
+		body.put("bestandsomvang", SAMPLE_CONTENT.getBytes().length);
 		body.put("lock", json.getString("lock"));
 
 		eioService.partialUpdate(eioUrl, body);
@@ -263,7 +313,8 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 	public void test_eio_detail_filter_by_registratie_op() {
 
 		EIOService eioService = new EIOService();
-		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
+		JsonPath json = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "some content").asString());
 
 		wait(2000);
 
@@ -275,7 +326,8 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		JSONObject body = new JSONObject();
 		body.put("beschrijving", "beschrijving2");
-		body.put("inhoud", Base64.getEncoder().encodeToString("some file content".getBytes()));
+		body.put("inhoud", Base64.getEncoder().encodeToString(SAMPLE_CONTENT.getBytes()));
+		body.put("bestandsomvang", SAMPLE_CONTENT.getBytes().length);
 		body.put("lock", json.getString("lock"));
 
 		eioService.partialUpdate(eioUrl, body);
@@ -290,7 +342,9 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L505">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L505">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
 	public void test_eio_detail_filter_by_wrong_registratie_op_gives_404() {
@@ -305,12 +359,15 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L517">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L517">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
 	public void test_eio_download_content_filter_by_version() {
 		EIOService eioService = new EIOService();
-		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1").asString());
+		JsonPath json = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1").asString());
 
 		String eioUrl = json.getString("url");
 
@@ -319,6 +376,7 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 		JSONObject body = new JSONObject();
 		body.put("beschrijving", "beschrijving2");
 		body.put("inhoud", Base64.getEncoder().encodeToString("inhoud2".getBytes()));
+		body.put("bestandsomvang", "inhoud2".getBytes().length);
 		body.put("lock", json.getString("lock"));
 
 		eioService.partialUpdate(eioUrl, body);
@@ -330,12 +388,15 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L540">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L540">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
 	public void test_eio_download_content_filter_by_registratie() {
 		EIOService eioService = new EIOService();
-		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1").asString());
+		JsonPath json = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1").asString());
 
 		wait(2000);
 
@@ -348,6 +409,7 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 		JSONObject body = new JSONObject();
 		body.put("beschrijving", "beschrijving2");
 		body.put("inhoud", Base64.getEncoder().encodeToString("inhoud2".getBytes()));
+		body.put("bestandsomvang", "inhoud2".getBytes().length);
 		body.put("lock", json.getString("lock"));
 
 		wait(2000);
@@ -358,5 +420,29 @@ public class EnkelvoudigInformatieObjectVersionHistoryTest extends RestTest {
 
 		String data = eioService.downloadAsString(json.getString("inhoud"));
 		Assert.assertEquals(data, "inhoud1");
+	}
+
+	@Test(groups = "EnkelvoudigInformatieObjectVersionHistory")
+	public void test_eio_version_number_during_locked() {
+		EIOService eioService = new EIOService();
+
+		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl).asString());
+		Assert.assertEquals(json.getString("versie"), "1");
+
+		String eioUrl = json.getString("url");
+
+		// Version 2
+		json = new JsonPath(eioService.lock(eioUrl).asString());
+		eioService.unlock(eioUrl, json.getString("lock"));
+
+		// Only lock
+		eioService.lock(eioUrl);
+
+		Response res2 = eioService.getEIO(eioUrl, null, null);
+		Assert.assertEquals(res2.getStatusCode(), 200);
+
+		// When locked version is already increased
+		JsonPath json2 = new JsonPath(res2.asString());
+		Assert.assertEquals(json2.getString("versie"), "3");
 	}
 }
