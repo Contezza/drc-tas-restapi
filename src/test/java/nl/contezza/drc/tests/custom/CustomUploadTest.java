@@ -114,4 +114,23 @@ public class CustomUploadTest extends RestTest {
 
         Assert.assertEquals(res.getStatusCode(), 201);
     }
+
+    @Test(groups = "CustomUpload")
+    public void test_bestandsdelen_with_empty_inhoud_when_create() {
+
+        EIOService eioService = new EIOService();
+
+        JSONObject jsonObject = new JSONObject(DRCDataProvider.testCreate(informatieobjecttypeUrl));
+        jsonObject.put("inhoud", "");
+        jsonObject.put("bestandsomvang", "some content for file".getBytes().length);
+
+        Response res = eioService.testCreate(jsonObject);
+        JsonPath json = new JsonPath(res.asString());
+
+        Assert.assertEquals(res.getStatusCode(), 201);
+        Assert.assertEquals(json.getList("bestandsdelen").size(), 1);
+        Assert.assertEquals(json.getBoolean("locked"), true);
+        Assert.assertEquals(json.getInt("bestandsomvang"), "some content for file".getBytes().length);
+        Assert.assertNull(res.getBody().path("inhoud"));
+    }
 }
