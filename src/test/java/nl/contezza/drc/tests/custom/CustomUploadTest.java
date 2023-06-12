@@ -14,6 +14,7 @@ import nl.contezza.drc.rest.RestTest;
 import nl.contezza.drc.service.EIOService;
 import nl.contezza.drc.service.UploadService;
 import nl.contezza.drc.service.ZTCService;
+import nl.contezza.drc.utils.StringDate;
 
 public class CustomUploadTest extends RestTest {
 
@@ -123,6 +124,29 @@ public class CustomUploadTest extends RestTest {
         JSONObject jsonObject = new JSONObject(DRCDataProvider.testCreate(informatieobjecttypeUrl));
         jsonObject.put("inhoud", "");
         jsonObject.put("bestandsomvang", "some content for file".getBytes().length);
+
+        Response res = eioService.testCreate(jsonObject);
+        JsonPath json = new JsonPath(res.asString());
+
+        Assert.assertEquals(res.getStatusCode(), 201);
+        Assert.assertEquals(json.getList("bestandsdelen").size(), 1);
+        Assert.assertEquals(json.getBoolean("locked"), true);
+        Assert.assertEquals(json.getInt("bestandsomvang"), "some content for file".getBytes().length);
+        Assert.assertNull(res.getBody().path("inhoud"));
+    }
+
+    @Test(groups = "CustomUpload")
+    public void test_bestandsdelen_with_minimal_data() {
+        EIOService eioService = new EIOService();
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("bronorganisatie", "159351741");
+        jsonObject.put("creatiedatum", StringDate.toDateString(2023, 6, 9));
+        jsonObject.put("titel", "Testdocument");
+        jsonObject.put("auteur", "Testauteur");
+        jsonObject.put("taal", "eng");
+        jsonObject.put("bestandsomvang", "some content for file".getBytes().length);
+        jsonObject.put("informatieobjecttype", informatieobjecttypeUrl);
 
         Response res = eioService.testCreate(jsonObject);
         JsonPath json = new JsonPath(res.asString());
