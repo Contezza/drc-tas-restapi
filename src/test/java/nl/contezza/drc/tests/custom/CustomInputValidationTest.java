@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import nl.contezza.drc.dataprovider.DRCDataProvider;
 import nl.contezza.drc.rest.RestTest;
 import nl.contezza.drc.service.AuthService;
 import nl.contezza.drc.service.DRCRequestSpecification;
@@ -109,5 +110,26 @@ public class CustomInputValidationTest extends RestTest {
 		Response res = eioService.testCreate(json);
 
 		Assert.assertEquals(res.getStatusCode(), 201);
+	}
+
+	@Test(groups = "CustomInputValidation")
+	public void create_with_path_in_title() {
+		EIOService eioService = new EIOService();
+
+		JSONObject jsonObject = new JSONObject(DRCDataProvider.testCreate(informatieobjecttypeUrl));
+
+		String foo = "foo" + randomString(10);
+
+		jsonObject.put("identificatie", foo);
+		jsonObject.put("titel",
+				"L:\\Tekeningen W\\Projecten\\Pro\\Data\\2013\\13113 Renovatie sporthal te Utrecht\\Revisie\\PS-00 PS01 (2) (1)");
+
+		Response res = eioService.testCreate(jsonObject);
+		Assert.assertEquals(res.getStatusCode(), 201);
+
+		res = eioService.listEIO(foo, null, null);
+		Assert.assertEquals(res.getStatusCode(), 200);
+		Assert.assertEquals((int) res.body().path("results.size()"), 1);
+		Assert.assertEquals((String) res.body().path("results[0].identificatie"), foo);
 	}
 }
