@@ -132,4 +132,43 @@ public class CustomInputValidationTest extends RestTest {
 		Assert.assertEquals((int) res.body().path("results.size()"), 1);
 		Assert.assertEquals((String) res.body().path("results[0].identificatie"), foo);
 	}
+
+	@Test(groups = "CustomInputValidation")
+	public void validate_count_with_102_eios() {
+		EIOService eioService = new EIOService();
+
+		JSONObject jsonObject = new JSONObject(DRCDataProvider.testCreate(informatieobjecttypeUrl));
+
+		String foo = "search" + randomString(10);
+		jsonObject.put("identificatie", foo);
+
+		int createdItems = 102;
+		int i = 0;
+		Response res = null;
+		while (i < createdItems) {
+			res = eioService.testCreate(jsonObject);
+			Assert.assertEquals(res.getStatusCode(), 201);
+			i++;
+		}
+
+		wait(20000);
+
+		// first page
+		res = eioService.listEIO(foo, null, null);
+		Assert.assertEquals(res.getStatusCode(), 200);
+		Assert.assertEquals((int) res.body().path("results.size()"), 100);
+
+		JsonPath json = new JsonPath(res.asString());
+		Assert.assertEquals(json.getInt("count"), createdItems);
+		Assert.assertNotNull(json.get("next"));
+
+		// second page
+		res = eioService.listEIO(foo, null, 2);
+		Assert.assertEquals(res.getStatusCode(), 200);
+		Assert.assertEquals((int) res.body().path("results.size()"), 2);
+
+		json = new JsonPath(res.asString());
+		Assert.assertEquals(json.getInt("count"), createdItems);
+		Assert.assertNull(json.get("next"));
+	}
 }
