@@ -111,6 +111,8 @@ public class OioReadTest extends RestTest {
 
 		Assert.assertEquals((int) res.body().path("results.size()"), 3);
 
+		wait(2000);
+
 		res = oioService.listOIO(DRCRequestSpecification.getReadonly(), zaakUrl, null);
 
 		Assert.assertEquals((int) res.body().path("results.size()"), 1);
