@@ -57,7 +57,9 @@ public class OioReadTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_auth.py#L212">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_auth.py#L212">python
+	 * code</a>}.
 	 */
 	@Test(groups = "OioRead")
 	public void test_list_oio_limited_to_authorized_zaken() {
@@ -71,9 +73,12 @@ public class OioReadTest extends RestTest {
 
 		EIOService eioService = new EIOService();
 
-		JsonPath json1 = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1", "openbaar").asString());
-		JsonPath json2 = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving2", "inhoud2", "vertrouwelijk").asString());
-		JsonPath json3 = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving3", "inhoud3", "zeer_geheim").asString());
+		JsonPath json1 = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1", "openbaar").asString());
+		JsonPath json2 = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving2", "inhoud2", "vertrouwelijk").asString());
+		JsonPath json3 = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving3", "inhoud3", "zeer_geheim").asString());
 
 		log.debug(zaakTestObject.getString("identificatie"));
 
@@ -94,7 +99,9 @@ public class OioReadTest extends RestTest {
 		res = authService.list(DRCRequestSpecification.CLIENT_ID_READONLY, null);
 
 		String acUrl = res.body().path("results[0].url");
-		Response resAuth = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen"),
+		Response resAuth = authService.updatePartial(acUrl,
+				new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY),
+				new JSONArray().put("documenten.lezen"),
 				informatieobjecttypeUrl, "openbaar");
 
 		Assert.assertEquals(resAuth.getStatusCode(), 200);
@@ -110,13 +117,16 @@ public class OioReadTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_auth.py#L242">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_auth.py#L242">python
+	 * code</a>}.
 	 */
 	@Test(groups = "OioRead")
 	public void test_detail_oio_limited_to_authorized_zaken() {
 
 		ZRCService zrcService = new ZRCService();
-		JsonPath zaakTestObject = new JsonPath(zrcService.createZaak(zaakTypeTestObject.getString("url").replace(ZTC_BASE_URI, ZTC_DOCKER_URI)).asString());
+		JsonPath zaakTestObject = new JsonPath(zrcService
+				.createZaak(zaakTypeTestObject.getString("url").replace(ZTC_BASE_URI, ZTC_DOCKER_URI)).asString());
 
 		String zaakUrl = zaakTestObject.getString("url").replace(ZRC_BASE_URI, ZRC_DOCKER_URI);
 
@@ -128,9 +138,12 @@ public class OioReadTest extends RestTest {
 		EIOService eioService = new EIOService();
 		OIOService oioService = new OIOService();
 
-		JsonPath json1 = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1", "openbaar").asString());
-		JsonPath json2 = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving2", "inhoud2", "vertrouwelijk").asString());
-		JsonPath json3 = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving3", "inhoud3", "zeer_geheim").asString());
+		JsonPath json1 = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1", "openbaar").asString());
+		JsonPath json2 = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving2", "inhoud2", "vertrouwelijk").asString());
+		JsonPath json3 = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving3", "inhoud3", "zeer_geheim").asString());
 
 		// EIO 1
 		String eioUrl1 = json1.getString("url").replace(DRC_BASE_URI, DRC_DOCKER_URI);
@@ -174,7 +187,8 @@ public class OioReadTest extends RestTest {
 		Response resAuth = authService.list(DRCRequestSpecification.CLIENT_ID_READONLY, null);
 
 		String acUrl = resAuth.body().path("results[0].url");
-		resAuth = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen"),
+		resAuth = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY),
+				new JSONArray().put("documenten.lezen"),
 				informatieobjecttypeUrl, "confidentieel");
 
 		Assert.assertEquals(resAuth.getStatusCode(), 200);
