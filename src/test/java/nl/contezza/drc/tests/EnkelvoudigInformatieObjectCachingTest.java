@@ -119,8 +119,8 @@ public class EnkelvoudigInformatieObjectCachingTest extends RestTest {
 
 		updateEIO(eioUrl, "aangepast");
 
-		res = eioService.getEioIfNonMatch(eioUrl, eTag);
-		Assert.assertEquals(res.getStatusCode(), 200);
+		Response res1 = eioService.getEioIfNonMatch(eioUrl, eTag);
+		Assert.assertEquals(res1.getStatusCode(), 200);
 	}
 
 	/**

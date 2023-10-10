@@ -127,6 +127,8 @@ public class CustomInputValidationTest extends RestTest {
 		Response res = eioService.testCreate(jsonObject);
 		Assert.assertEquals(res.getStatusCode(), 201);
 
+		wait(20000);
+
 		res = eioService.listEIO(foo, null, null);
 		Assert.assertEquals(res.getStatusCode(), 200);
 		Assert.assertEquals((int) res.body().path("results.size()"), 1);
@@ -151,7 +153,7 @@ public class CustomInputValidationTest extends RestTest {
 			i++;
 		}
 
-		wait(20000);
+		wait(30000);
 
 		// first page
 		res = eioService.listEIO(foo, null, null);
@@ -190,7 +192,7 @@ public class CustomInputValidationTest extends RestTest {
 			i++;
 		}
 
-		wait(20000);
+		wait(30000);
 
 		// first page
 		res = eioService.listEIO(foo, null, null);

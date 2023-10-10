@@ -26,12 +26,15 @@ public class EnkelvoudigInformatieObjectPaginationTest extends RestTest {
 		json = new JsonPath(ztcService.createInformatieObjectType(catalogusUrl).asString());
 		informatieobjecttypeUrl = json.getString("url").replace(ZTC_BASE_URI, ZTC_DOCKER_URI);
 
-		Response res = ztcService.publishInformatieObjectType(informatieobjecttypeUrl.substring(informatieobjecttypeUrl.lastIndexOf('/') + 1).trim());
+		Response res = ztcService.publishInformatieObjectType(
+				informatieobjecttypeUrl.substring(informatieobjecttypeUrl.lastIndexOf('/') + 1).trim());
 		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L617">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L617">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObjectPagination")
 	public void test_pagination_default() {
@@ -41,6 +44,8 @@ public class EnkelvoudigInformatieObjectPaginationTest extends RestTest {
 
 		eioService.testCreate(informatieobjecttypeUrl, "beschrijving", "inhoud", "openbaar", rsin);
 		eioService.testCreate(informatieobjecttypeUrl, "beschrijving", "inhoud", "openbaar", rsin);
+
+		wait(30000);
 
 		Response res = eioService.listEIO(null, rsin, null);
 
@@ -52,7 +57,9 @@ public class EnkelvoudigInformatieObjectPaginationTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L632">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L632">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObjectPagination")
 	public void test_pagination_page_param() {
@@ -63,6 +70,8 @@ public class EnkelvoudigInformatieObjectPaginationTest extends RestTest {
 
 		eioService.testCreate(informatieobjecttypeUrl, "beschrijving", "inhoud", "openbaar", rsin);
 		eioService.testCreate(informatieobjecttypeUrl, "beschrijving", "inhoud", "openbaar", rsin);
+
+		wait(30000);
 
 		Response res = eioService.listEIO(null, rsin, 1);
 

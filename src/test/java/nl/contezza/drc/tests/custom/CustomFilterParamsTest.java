@@ -18,7 +18,7 @@ import nl.contezza.drc.service.ZTCService;
  * Some custom unit tests which are not mapped to any python scripts.
  */
 
-//@Log4j2
+// @Log4j2
 public class CustomFilterParamsTest extends RestTest {
 
 	private String informatieobjecttypeUrl2 = null;
@@ -41,10 +41,12 @@ public class CustomFilterParamsTest extends RestTest {
 		json = new JsonPath(ztcService.createInformatieObjectType(catalogusUrl).asString());
 		informatieobjecttypeUrl2 = json.getString("url").replace(ZTC_BASE_URI, ZTC_DOCKER_URI);
 
-		Response res = ztcService.publishInformatieObjectType(informatieobjecttypeUrl.substring(informatieobjecttypeUrl.lastIndexOf('/') + 1).trim());
+		Response res = ztcService.publishInformatieObjectType(
+				informatieobjecttypeUrl.substring(informatieobjecttypeUrl.lastIndexOf('/') + 1).trim());
 		Assert.assertEquals(res.getStatusCode(), 200);
 
-		res = ztcService.publishInformatieObjectType(informatieobjecttypeUrl2.substring(informatieobjecttypeUrl2.lastIndexOf('/') + 1).trim());
+		res = ztcService.publishInformatieObjectType(
+				informatieobjecttypeUrl2.substring(informatieobjecttypeUrl2.lastIndexOf('/') + 1).trim());
 		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 
@@ -53,7 +55,8 @@ public class CustomFilterParamsTest extends RestTest {
 
 		AuthService authService = new AuthService();
 
-		JSONArray scopes = new JSONArray().put("documenten.lezen").put("documenten.aanmaken").put("documenten.bijwerken").put("documenten.lock");
+		JSONArray scopes = new JSONArray().put("documenten.lezen").put("documenten.aanmaken")
+				.put("documenten.bijwerken").put("documenten.lock");
 		String maxVertrouwelijkheid = "zeer_geheim";
 
 		JSONObject comp = new JSONObject();
@@ -84,13 +87,15 @@ public class CustomFilterParamsTest extends RestTest {
 		eioService.testCreate(informatieobjecttypeUrl2, foo);
 		eioService.testCreate(informatieobjecttypeUrl, bar);
 
+		wait(30000);
+
 		// Including filter
 		Response res = eioService.listEIO(DRCRequestSpecification.getReadonly(), foo, bronorganisatie, null);
 
 		Assert.assertEquals(res.getStatusCode(), 200);
 		Assert.assertEquals((int) res.body().path("results.size()"), 2);
 		Assert.assertEquals((String) res.body().path("results[0].identificatie"), foo);
-		
+
 		// Without any filter
 		res = eioService.listEIO(DRCRequestSpecification.getReadonly(), null, null, null);
 

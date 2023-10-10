@@ -30,17 +30,20 @@ public class InformatieObjectReadCorrectScopeTest extends RestTest {
 		json = new JsonPath(ztcService.createInformatieObjectType(catalogusUrl).asString());
 		informatieobjecttypeUrl = json.getString("url").replace(ZTC_BASE_URI, ZTC_DOCKER_URI);
 
-		Response res = ztcService.publishInformatieObjectType(informatieobjecttypeUrl.substring(informatieobjecttypeUrl.lastIndexOf('/') + 1).trim());
+		Response res = ztcService.publishInformatieObjectType(
+				informatieobjecttypeUrl.substring(informatieobjecttypeUrl.lastIndexOf('/') + 1).trim());
 		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_auth.py#L49">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_auth.py#L49">python
+	 * code</a>}.
 	 */
 	@Test(groups = "InformatieObjectReadCorrectScope")
 	public void test_io_list() {
 		EIOService eioService = new EIOService();
-		
+
 		eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1", "openbaar");
 		eioService.testCreate(informatieobjecttypeUrl, "beschrijving2", "inhoud2", "zeer_geheim");
 		eioService.testCreate("https://informatieobjecttype.nl/not_ok", "beschrijving3", "inhoud3", "openbaar");
@@ -50,12 +53,15 @@ public class InformatieObjectReadCorrectScopeTest extends RestTest {
 		Response res = authService.list(DRCRequestSpecification.CLIENT_ID_READONLY, null);
 
 		String acUrl = res.body().path("results[0].url");
-		res = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen"), informatieobjecttypeUrl,
+		res = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY),
+				new JSONArray().put("documenten.lezen"), informatieobjecttypeUrl,
 				"openbaar");
 
 		wait(2000);
-		
+
 		Assert.assertEquals(res.getStatusCode(), 200);
+
+		wait(20000);
 
 		res = eioService.listEIO(DRCRequestSpecification.getReadonly(), null, null, null);
 
@@ -68,15 +74,19 @@ public class InformatieObjectReadCorrectScopeTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_auth.py#L87">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_auth.py#L87">python
+	 * code</a>}.
 	 */
 	@Test(groups = "InformatieObjectReadCorrectScope")
 	public void test_io_retrieve() {
 
 		EIOService eioService = new EIOService();
 
-		JsonPath json1 = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1", "openbaar").asString());
-		JsonPath json2 = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving2", "inhoud2", "zeer_geheim").asString());
+		JsonPath json1 = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1", "openbaar").asString());
+		JsonPath json2 = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving2", "inhoud2", "zeer_geheim").asString());
 
 		AuthService authService = new AuthService();
 		Response res = authService.list(DRCRequestSpecification.CLIENT_ID_READONLY, null);
@@ -90,13 +100,15 @@ public class InformatieObjectReadCorrectScopeTest extends RestTest {
 		json = new JsonPath(ztcService.createInformatieObjectType(catalogusUrl).asString());
 
 		informatieobjecttypeUrl = json.getString("url").replace(ZTC_BASE_URI, ZTC_DOCKER_URI);
-		ztcService.publishInformatieObjectType(informatieobjecttypeUrl.substring(informatieobjecttypeUrl.lastIndexOf('/') + 1).trim());
+		ztcService.publishInformatieObjectType(
+				informatieobjecttypeUrl.substring(informatieobjecttypeUrl.lastIndexOf('/') + 1).trim());
 
-		res = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY), new JSONArray().put("documenten.lezen"), informatieobjecttypeUrl,
+		res = authService.updatePartial(acUrl, new JSONArray().put(DRCRequestSpecification.CLIENT_ID_READONLY),
+				new JSONArray().put("documenten.lezen"), informatieobjecttypeUrl,
 				"openbaar");
 
 		wait(2000);
-		
+
 		res = eioService.getEIO(DRCRequestSpecification.getReadonly(), json1.getString("url"), null);
 
 		Assert.assertEquals(res.getStatusCode(), 403);
@@ -107,7 +119,9 @@ public class InformatieObjectReadCorrectScopeTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_auth.py#L109">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/1.0.0/src/drc/api/tests/test_auth.py#L109">python
+	 * code</a>}.
 	 */
 	@Test(groups = "InformatieObjectReadCorrectScope")
 	public void test_read_superuser() {
@@ -120,6 +134,8 @@ public class InformatieObjectReadCorrectScopeTest extends RestTest {
 		eioService.testCreate(informatieobjecttypeUrl, "beschrijving2", "inhoud2", "zeer_geheim", rsin);
 		eioService.testCreate(informatieobjecttypeUrl, "beschrijving3", "inhoud3", "openbaar", rsin);
 		eioService.testCreate(informatieobjecttypeUrl, "beschrijving4", "inhoud4", "zeer_geheim", rsin);
+
+		wait(30000);
 
 		Response res = eioService.listEIO(null, rsin, null);
 

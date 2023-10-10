@@ -61,7 +61,9 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L44">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L44">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObject")
 	public void test_create() {
@@ -80,12 +82,14 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 		Assert.assertEquals(json.getString("formaat"), "txt");
 		Assert.assertEquals(json.getString("taal"), "eng");
 		Assert.assertEquals(json.getInt("versie"), 1);
-		Assert.assertEquals(DateUtils.round(StringDate.getDateTime(json.get("begin_registratie")), Calendar.SECOND), DateUtils.round(new Date(), Calendar.SECOND));
+		Assert.assertEquals(DateUtils.round(StringDate.getDateTime(json.get("begin_registratie")), Calendar.SECOND),
+				DateUtils.round(new Date(), Calendar.SECOND));
 		Assert.assertEquals(json.getString("bestandsnaam"), "dummy.txt");
 		Assert.assertEquals(eioService.downloadAsString(json.getString("inhoud")), "some file content");
 		Assert.assertEquals(json.getString("link"), "http://een.link");
 		Assert.assertEquals(json.getString("beschrijving"), "test_beschrijving");
-		Assert.assertEquals(json.getString("informatieobjecttype").replace(ZTC_BASE_URI, ZTC_DOCKER_URI), informatieobjecttypeUrl);
+		Assert.assertEquals(json.getString("informatieobjecttype").replace(ZTC_BASE_URI, ZTC_DOCKER_URI),
+				informatieobjecttypeUrl);
 		Assert.assertEquals(json.getString("vertrouwelijkheidaanduiding"), "openbaar");
 		Assert.assertEquals(json.getInt("bestandsomvang"), 17);
 		Assert.assertEquals(json.getString("integriteit.algoritme"), "");
@@ -103,7 +107,9 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L123">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L123">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObject")
 	public void test_read() {
@@ -134,8 +140,10 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 		Assert.assertEquals(json.getString("verzenddatum"), eioTestObject.getString("verzenddatum"));
 		Assert.assertEquals(json.getString("ondertekening.soort"), eioTestObject.getString("ondertekening.soort"));
 		Assert.assertEquals(json.getString("ondertekening.datum"), eioTestObject.getString("ondertekening.datum"));
-		Assert.assertEquals(json.getString("indicatieGebruiksrecht"), eioTestObject.getString("indicatieGebruiksrecht"));
-		Assert.assertEquals(json.getString("vertrouwelijkheidaanduiding"), eioTestObject.getString("vertrouwelijkheidaanduiding"));
+		Assert.assertEquals(json.getString("indicatieGebruiksrecht"),
+				eioTestObject.getString("indicatieGebruiksrecht"));
+		Assert.assertEquals(json.getString("vertrouwelijkheidaanduiding"),
+				eioTestObject.getString("vertrouwelijkheidaanduiding"));
 		Assert.assertEquals(json.getString("integriteit.algoritme"), eioTestObject.getString("integriteit.algoritme"));
 		Assert.assertEquals(json.getString("integriteit.waarde"), eioTestObject.getString("integriteit.waarde"));
 		Assert.assertEquals(json.getString("integriteit.datum"), eioTestObject.getString("integriteit.datum"));
@@ -144,26 +152,32 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L177">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L177">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObject")
 	public void test_eio_download_with_accept_application_octet_stream_header() {
 		EIOService eioService = new EIOService();
 
-		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1").asString());
+		JsonPath json = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1").asString());
 		Response res = eioService.download(json.getString("inhoud"), "application/octet-stream");
 
 		Assert.assertEquals(res.getStatusCode(), 200);
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/stable/1.0.x/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L189">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/stable/1.0.x/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L189">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObject")
 	public void test_download_non_existing_eio() {
 		EIOService eioService = new EIOService();
 
-		JsonPath json = new JsonPath(eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1").asString());
+		JsonPath json = new JsonPath(
+				eioService.testCreate(informatieobjecttypeUrl, "beschrijving1", "inhoud1").asString());
 
 		// Delete eio
 		Response res = eioService.delete(json.getString("url"));
@@ -174,7 +188,9 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L204">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L204">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObject")
 	public void test_bestandsomvang() {
@@ -190,7 +206,9 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L227">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L227">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObject")
 	public void test_integrity_empty() {
@@ -208,7 +226,9 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L258">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L258">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObject")
 	public void test_integrity_provided() {
@@ -231,7 +251,9 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L295">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L295">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObject")
 	public void test_filter_by_identification() {
@@ -243,6 +265,8 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 		eioService.testCreate(informatieobjecttypeUrl, foo);
 		eioService.testCreate(informatieobjecttypeUrl, bar);
 
+		wait(20000);
+
 		Response res = eioService.listEIO(foo, null, null);
 
 		Assert.assertEquals(res.getStatusCode(), 200);
@@ -251,7 +275,9 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L307">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L307">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObject")
 	public void test_destroy_no_relations_allowed() {
@@ -264,7 +290,9 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/stable/1.0.x/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L318">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/stable/1.0.x/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L318">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObject")
 	public void test_destroy_with_relations_not_allowed() {
@@ -288,7 +316,9 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L332">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/28c082e806843def864f6be1184fbae295a1c7f2/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L332">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObject")
 	public void test_validate_unknown_query_params() {
@@ -303,7 +333,9 @@ public class EnkelvoudigInformatieObjectTest extends RestTest {
 	}
 
 	/**
-	 * See {@link <a href="https://github.com/VNG-Realisatie/documenten-api/blob/stable/1.0.x/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L346">python code</a>}.
+	 * See {@link <a href=
+	 * "https://github.com/VNG-Realisatie/documenten-api/blob/stable/1.0.x/src/drc/api/tests/test_enkelvoudiginformatieobject.py#L346">python
+	 * code</a>}.
 	 */
 	@Test(groups = "EnkelvoudigInformatieObject")
 	public void test_invalid_inhoud() {
