@@ -171,4 +171,37 @@ public class CustomInputValidationTest extends RestTest {
 		Assert.assertEquals(json.getInt("count"), createdItems);
 		Assert.assertNull(json.get("next"));
 	}
+
+	@Test(groups = "CustomInputValidation")
+	public void wrong_page_number() {
+		EIOService eioService = new EIOService();
+
+		JSONObject jsonObject = new JSONObject(DRCDataProvider.testCreate(informatieobjecttypeUrl));
+
+		String foo = "doc" + randomString(10);
+		jsonObject.put("identificatie", foo);
+
+		int createdItems = 3;
+		int i = 0;
+		Response res = null;
+		while (i < createdItems) {
+			res = eioService.testCreate(jsonObject);
+			Assert.assertEquals(res.getStatusCode(), 201);
+			i++;
+		}
+
+		wait(20000);
+
+		// first page
+		res = eioService.listEIO(foo, null, null);
+		Assert.assertEquals(res.getStatusCode(), 200);
+		Assert.assertEquals((int) res.body().path("results.size()"), createdItems);
+
+		// wrong page
+		res = eioService.listEIO(foo, null, 2);
+		JsonPath json = new JsonPath(res.asString());
+
+		Assert.assertEquals(res.getStatusCode(), 404);
+		Assert.assertEquals(json.getString("code"), "not_found");
+	}
 }
