@@ -157,4 +157,85 @@ public class CustomUploadTest extends RestTest {
         Assert.assertEquals(json.getInt("bestandsomvang"), "some content for file".getBytes().length);
         Assert.assertNull(res.getBody().path("inhoud"));
     }
+
+    @Test(groups = "CustomUpload")
+    public void test_bestandsdelen_with_lock() {
+
+        EIOService eioService = new EIOService();
+
+        JSONObject jsonObject = new JSONObject(DRCDataProvider.testCreate(informatieobjecttypeUrl));
+        jsonObject.put("inhoud", "");
+        jsonObject.put("bestandsomvang", "some content for file".getBytes().length);
+
+        Response res = eioService.testCreate(jsonObject);
+        JsonPath json = new JsonPath(res.asString());
+
+        Assert.assertEquals(res.getStatusCode(), 201);
+        Assert.assertEquals(json.getList("bestandsdelen").size(), 1);
+        Assert.assertEquals(json.getBoolean("locked"), true);
+        Assert.assertEquals(json.getInt("bestandsomvang"), "some content for file".getBytes().length);
+        Assert.assertNull(res.getBody().path("inhoud"));
+        Assert.assertNotNull(json.getString("bestandsdelen[0].lock"));
+    }
+
+    @Test(groups = "CustomUpload")
+    public void test_bestandsdelen_lock_with_unlock() {
+
+        EIOService eioService = new EIOService();
+
+        JSONObject jsonObject = new JSONObject(DRCDataProvider.testCreate(informatieobjecttypeUrl));
+        jsonObject.put("inhoud", "");
+        jsonObject.put("bestandsomvang", "some content for file".getBytes().length);
+
+        Response res = eioService.testCreate(jsonObject);
+        String eioUrl = res.body().path("url");
+
+        String lock = res.body().path("lock");
+        res = eioService.unlock(eioUrl, lock);
+
+        Assert.assertEquals(res.getStatusCode(), 204);
+
+        res = eioService.getEIO(eioUrl, null);
+
+        JsonPath json = new JsonPath(res.asString());
+        Assert.assertNotNull(json.getString("bestandsdelen[0].lock"));
+    }
+
+    @Test(groups = "CustomUpload")
+    public void test_bestandsdelen_lock_with_upload_and_unlock() {
+        UploadService uploadService = new UploadService();
+        EIOService eioService = new EIOService();
+
+        JSONObject jsonObject = new JSONObject(DRCDataProvider.testCreate(informatieobjecttypeUrl));
+        jsonObject.put("inhoud", "");
+        jsonObject.put("bestandsomvang", "some content for file".getBytes().length);
+
+        Response res = eioService.testCreate(jsonObject);
+        String eioUrl = res.body().path("url");
+
+        res = eioService.getEIO(eioUrl, null);
+        JsonPath json = new JsonPath(res.asString());
+        Assert.assertNotNull(json.getString("bestandsdelen[0].lock"));
+
+        String uploadUrl = res.body().path("bestandsdelen[0].url");
+        String lock = res.body().path("bestandsdelen[0].lock");
+
+        File file = uploadService.createTextFile("some content for file");
+        res = uploadService.uploadFile(uploadUrl, lock, file);
+
+        Assert.assertEquals(res.getStatusCode(), 200);
+
+        res = eioService.getEIO(eioUrl, null);
+        json = new JsonPath(res.asString());
+
+        Assert.assertEquals(json.getList("bestandsdelen").size(), 1);
+        Assert.assertEquals(json.getBoolean("bestandsdelen[0].voltooid"), true);
+
+        res = eioService.unlock(eioUrl, lock);
+        Assert.assertEquals(res.getStatusCode(), 204);
+
+        res = eioService.getEIO(eioUrl, null);
+        json = new JsonPath(res.asString());
+        Assert.assertEquals(json.getList("bestandsdelen").size(), 0);
+    }
 }

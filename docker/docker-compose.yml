@@ -138,7 +138,7 @@ services:
           - open-notificaties.local
 
   drc.local:
-    image: ghcr.io/vng-realisatie/documenten-api:1.4.1
+    image: ghcr.io/vng-realisatie/documenten-api:1.4.3
     environment:
       - TZ=Europe/Amsterdam
       - DJANGO_SETTINGS_MODULE=drc.conf.docker
