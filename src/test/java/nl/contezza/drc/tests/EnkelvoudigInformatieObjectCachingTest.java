@@ -109,7 +109,7 @@ public class EnkelvoudigInformatieObjectCachingTest extends RestTest {
 	 */
 	@Test(groups = "EnkelvoudigInformatieObjectCaching")
 	public void test_invalidate_etag_after_change() {
-
+		wait(5000);
 		EIOService eioService = new EIOService();
 		String eioUrl = new JsonPath(eioService.testCreate(informatieobjecttypeUrl).asString()).getString("url");
 
